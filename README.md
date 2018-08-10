@@ -221,10 +221,10 @@ npm run serve:prod
 ```
 
 ---
-
+<!-- 
 ## Versioning
 
-I use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/shivmsupply/Biz-Internal-Pheonix.git/tags).
+I use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/shivmsupply/Biz-Internal-Pheonix.git/tags). -->
 
 ---
 
