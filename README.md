@@ -1,3 +1,4 @@
+
 ![react-redux-starter](https://user-images.githubusercontent.com/33935506/36640376-e23a592e-1a25-11e8-9567-ec4622684159.png)
 
 # React Starter
@@ -247,3 +248,4 @@ I use [SemVer](http://semver.org/) for versioning. For the versions available, s
 [react-bitcoin-monitor]: https://github.com/drminnaar/react-bitcoin-monitor
 [react-weather-standard]: https://github.com/drminnaar/react-weather-standard
 [react-redux-quotlify]: https://github.com/drminnaar/react-redux-quotlify
+
