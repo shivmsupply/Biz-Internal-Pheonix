@@ -230,7 +230,7 @@ I use [SemVer](http://semver.org/) for versioning. For the versions available, s
 
 ## Authors
 
-* **Shiv Kumar** - *Initial work* - [shivmsupply](https://github.com/shivmsupply/)
+* **Msupply UI Team** - *Initial work* - [shivmsupply](https://github.com/shivmsupply/)
 
 [Redux-Promise-Middleware]: https://github.com/pburtchaell/redux-promise-middleware
 [Redux-Thunk]: https://github.com/gaearon/redux-thunk
