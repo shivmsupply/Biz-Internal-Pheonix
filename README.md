@@ -24,7 +24,7 @@ The template also allows one to include specific plugins as part of build. [Plea
 
 ---
 
-## Showcase
+<!-- ## Showcase -->
 
 <!-- ### Desktop
 
@@ -52,7 +52,7 @@ The template also allows one to include specific plugins as part of build. [Plea
 * [Surge] - Static web publishing for Front-End Developers
 
 --- -->
-
+<!-- 
 ## Related Projects
 
 * [react-starter]
@@ -99,7 +99,7 @@ The template also allows one to include specific plugins as part of build. [Plea
 
   A quote browser and manager that allows one to search famous quotes and save them to a data store.
 
----
+--- -->
 
 ## Getting Started
 
