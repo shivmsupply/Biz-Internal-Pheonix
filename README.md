@@ -1,6 +1,6 @@
-
+<!-- 
 ![react-redux-starter](https://user-images.githubusercontent.com/33935506/36640376-e23a592e-1a25-11e8-9567-ec4622684159.png)
-
+ -->
 # React Starter
 
 A basic template that consists of the essential elements that are required to start building a Single Page Application using React, React Router, Redux, Bootstrap 4, Sass, and Webpack.
@@ -26,7 +26,7 @@ The template also allows one to include specific plugins as part of build. [Plea
 
 ## Showcase
 
-### Desktop
+<!-- ### Desktop
 
 ![desktop](https://user-images.githubusercontent.com/33935506/36639642-ce08ea3a-1a19-11e8-8f97-0bcb29276aaf.gif)
 
@@ -51,7 +51,7 @@ The template also allows one to include specific plugins as part of build. [Plea
 * [Bootstrap 4](https://getbootstrap.com/) - Bootstrap is an open source toolkit for developing with HTML, CSS, and JS
 * [Surge] - Static web publishing for Front-End Developers
 
----
+--- -->
 
 ## Related Projects
 
@@ -126,19 +126,19 @@ Follow the following steps to get development environment running.
 * Clone _'react-redux-starter'_ repository from GitHub
 
   ```bash
-  git clone https://github.com/drminnaar/react-redux-starter.git
+  git clone https://github.com/shivmsupply/Biz-Internal-Pheonix.git
   ```
 
    _OR USING SSH_
 
   ```bash
-  git clone git@github.com:drminnaar/react-redux-starter.git
+  git clone git@github.com/shivmsupply/Biz-Internal-Pheonix.git
   ```
 
 * Install node modules
 
    ```bash
-   cd react-redux-starter
+   cd Biz-Internal-Pheonix
    npm install
    ```
 
@@ -230,7 +230,7 @@ I use [SemVer](http://semver.org/) for versioning. For the versions available, s
 
 ## Authors
 
-* **Douglas Minnaar** - *Initial work* - [drminnaar](https://github.com/drminnaar)
+* **Shiv Kumar** - *Initial work* - [shivmsupply](https://github.com/shivmsupply/)
 
 [Redux-Promise-Middleware]: https://github.com/pburtchaell/redux-promise-middleware
 [Redux-Thunk]: https://github.com/gaearon/redux-thunk
