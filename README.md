@@ -1,6 +1,3 @@
-<!-- 
-![react-redux-starter](https://user-images.githubusercontent.com/33935506/36640376-e23a592e-1a25-11e8-9567-ec4622684159.png)
- -->
 # Biz Internal Pheonix
 
 A basic template that consists of the essential elements that are required to start building a Single Page Application using React, React Router, Redux, Bootstrap 4, Sass, and Webpack.
@@ -22,84 +19,7 @@ Additionaly, the template provides a development and production webpack configur
 
 The template also allows one to include specific plugins as part of build. [Please see here for more detail](#build-application-with-bundleanalayzer-plugin-included)
 
----
 
-<!-- ## Showcase -->
-
-<!-- ### Desktop
-
-![desktop](https://user-images.githubusercontent.com/33935506/36639642-ce08ea3a-1a19-11e8-8f97-0bcb29276aaf.gif)
-
-### Mobile
-
-![mobile](https://user-images.githubusercontent.com/33935506/36639643-ce440ad4-1a19-11e8-9728-3a4b5f1bd800.gif)
-
----
-
-## Developed With
-
-* [Visual Studio Code](https://code.visualstudio.com/) - A source code editor developed by Microsoft for Windows, Linux and macOS. It includes support for debugging, embedded Git control, syntax highlighting, intelligent code completion, snippets, and code refactoring
-* [Node.js](https://nodejs.org/en/) - Javascript runtime
-* [React](https://reactjs.org/) - A javascript library for building user interfaces
-* [React Router] - Declarative routing for React
-* [Redux] - Redux is a predictable state container for JavaScript apps.
-* [Redux-Promise-Middleware] - Redux middleware for promises, async functions and conditional optimistic updates
-* [Redux-Thunk] - Thunk middleware for Redux
-* [Babel](https://babeljs.io/) - A transpiler for javascript
-* [Webpack](https://webpack.js.org/) - A module bundler
-* [SCSS](http://sass-lang.com/) - A css metalanguage
-* [Bootstrap 4](https://getbootstrap.com/) - Bootstrap is an open source toolkit for developing with HTML, CSS, and JS
-* [Surge] - Static web publishing for Front-End Developers
-
---- -->
-<!-- 
-## Related Projects
-
-* [react-starter]
-
-  A basic template that consists of the essential elements that are required to start building a React application
-  
-* [react-clicker]
-
-  A basic React app that allows one to increase, decrease, or reset a counter
-
-* [react-clock-basic]
-
-  A basic clock that displays the current date and time
-
-* [react-timer-basic]
-
-  A basic timer that will start a countdown based on an input of time in seconds
-
-* [react-timer-advanced]
-
-   A basic countdown timer that offers an advanced UI experience
-
-* [react-masterminds]
-
-  A basic game of guessing a number with varying degrees of difficulty
-
-* [react-movie-cards]
-
-  A basic application that displays a list of movies as a list of cards
-
-* [react-calculator-standard]
-
-  A calculator that provides the essential arithmetic operations, an expression builder, and a complete history of all expressions
-
-* [react-bitcoin-monitor]
-
-  An app that monitors changes in the Bitcoin Price Index (BPI)
-
-* [react-weather-standard]
-
-  A weather application that displays the current weather, daily forecasts, and hourly forecasts based on your current geolocation
-
-* [react-redux-quotlify]
-
-  A quote browser and manager that allows one to search famous quotes and save them to a data store.
-
---- -->
 
 ## Getting Started
 
@@ -220,13 +140,7 @@ This command will build application using production settings and start the appl
 npm run serve:prod
 ```
 
----
-<!-- 
-## Versioning
 
-I use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/shivmsupply/Biz-Internal-Pheonix.git/tags). -->
-
----
 
 ## Authors
 
