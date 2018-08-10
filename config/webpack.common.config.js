@@ -4,24 +4,18 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const commonPaths = require('./common-paths');
 
+
 const config = {
     entry: './src/index.js',
+   
     output: {
         filename: 'bundle.js',
-        path: commonPaths.outputPath
+        path: commonPaths.outputPath,
+        publicPath: '/'
     },
     module: {
         rules: [
-            {
-                enforce: 'pre',
-                test: /\.js$/,
-                loader: 'eslint-loader',
-                options: {
-                    failOnWarning: true,
-                    failOnerror: true
-                },
-                exclude: /node_modules/
-            },
+         
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
@@ -51,6 +45,7 @@ const config = {
     },
     plugins: [
         new webpack.ProgressPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
         new ExtractTextWebpackPlugin('styles.css'),
         new webpack.optimize.CommonsChunkPlugin({
             filename: 'common.js',

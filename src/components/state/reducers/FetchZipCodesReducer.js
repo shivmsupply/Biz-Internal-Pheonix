@@ -1,12 +1,7 @@
-import {
-    FETCH_ZIPCODES_PENDING,
-    FETCH_ZIPCODES_FULFILLED,
-    FETCH_ZIPCODES_REJECTED
-} from '../actions/ZipCodeActions';
+import * as types from '../../constants/index'
 
 
 // INITIALIZE STATE
-
 const initialState = {
     zipCodes: [],
     fetching: false,
@@ -16,10 +11,9 @@ const initialState = {
 
 
 // REDUCER
-
 export const FetchZipCodesReducer = (state = initialState, action) => {
     switch(action.type) {
-        case FETCH_ZIPCODES_PENDING:
+        case types.FETCH_ZIPCODES_PENDING:
             return {
                 ...state,
                 zipCodes: [],
@@ -27,7 +21,7 @@ export const FetchZipCodesReducer = (state = initialState, action) => {
                 fetched: false,
                 failed: false
             };
-        case FETCH_ZIPCODES_FULFILLED:
+        case types.FETCH_ZIPCODES_FULFILLED:
             return {
                 ...state,
                 zipCodes: action.payload,
@@ -35,7 +29,7 @@ export const FetchZipCodesReducer = (state = initialState, action) => {
                 fetched: true,
                 failed: false
             };
-        case FETCH_ZIPCODES_REJECTED:
+        case types.FETCH_ZIPCODES_REJECTED:
             return {
                 ...state,
                 zipCodes: [],

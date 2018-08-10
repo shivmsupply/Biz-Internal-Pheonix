@@ -1,28 +1,28 @@
 // IMPORT PACKAGE REFERENCES
 
 import React, { Fragment } from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 // IMPORT PROJECT REFERENCES
 
 import { Header } from '../Header/Header';
-import { HomePage } from '../pages/HomePage';
-import { AboutPage } from '../pages/AboutPage';
-import { ZipCodesPage } from '../pages/ZipCodesPage';
+import  HomePage  from '../containers/HomePage';
+import { AboutPage } from '../containers/AboutPage';
+import { ZipCodesPage } from '../containers/ZipCodesPage';
 
 
 // COMPONENT
 
 export const AppRouter = () => (
-    <BrowserRouter>
-        <Fragment>
-            <Header />            
+    <Router>
+        <Fragment> 
             <Switch>
-                <Route path='/' component={HomePage} exact={true} />
-                <Route path='/zipcodes' component={ZipCodesPage} />
-                <Route path='/about' component={AboutPage} />
-                <Redirect to="/" />
-            </Switch>
+           
+                <Route exact  path='/' component={HomePage} />
+                <Route exact strict path='/zipcodes' component={ZipCodesPage} />
+                <Route exact strict path='/about' component={AboutPage} />
+                
+           </Switch>
         </Fragment>
-    </BrowserRouter>
+    </Router>
 );

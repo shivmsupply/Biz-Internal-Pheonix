@@ -5,9 +5,11 @@ const config = {
     devServer: {
         contentBase: commonPaths.outputPath,
         compress: true,
+        hot: true,
+        port: 9000,
         historyApiFallback: true,
-        hot: false,
-        port: 9000
+        publicPath: '/',
+        inline: true,
     }
 };
 
