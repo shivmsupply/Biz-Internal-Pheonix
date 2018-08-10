@@ -1,7 +1,7 @@
 <!-- 
 ![react-redux-starter](https://user-images.githubusercontent.com/33935506/36640376-e23a592e-1a25-11e8-9567-ec4622684159.png)
  -->
-# React Starter
+# Biz Internal Pheonix
 
 A basic template that consists of the essential elements that are required to start building a Single Page Application using React, React Router, Redux, Bootstrap 4, Sass, and Webpack.
 
@@ -123,7 +123,7 @@ Type the following commands in the terminal to verify your node and npm versions
 
 Follow the following steps to get development environment running.
 
-* Clone _'react-redux-starter'_ repository from GitHub
+* Clone _'Biz-Internal-Pheonix'_ repository from GitHub
 
   ```bash
   git clone https://github.com/shivmsupply/Biz-Internal-Pheonix.git
@@ -224,7 +224,7 @@ npm run serve:prod
 
 ## Versioning
 
-I use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/drminnaar/react-redux-starter/tags).
+I use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/shivmsupply/Biz-Internal-Pheonix.git/tags).
 
 ---
 
