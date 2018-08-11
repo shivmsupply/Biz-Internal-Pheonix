@@ -15,7 +15,6 @@ const config = {
     },
     module: {
         rules: [
-         
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
@@ -52,7 +51,7 @@ const config = {
             minChunks: 3,
             name: 'common'
         }),
-        new CleanWebPackPlugin(['public'], { root: commonPaths.root }),
+        new CleanWebPackPlugin(['public'], { root: commonPaths.root}),
         new HtmlWebPackPlugin({
             template: commonPaths.template,
             favicon: commonPaths.favicon,

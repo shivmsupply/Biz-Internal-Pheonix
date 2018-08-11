@@ -3,7 +3,7 @@ import React from 'react';
 
 // IMPORT PROJECT REFERENCES
 
-import { ZipCodeBrowser } from '../ZipCodeBrowser/ZipCodeBrowser';
+import { ZipCodeBrowser } from '../components/ZipCodeBrowser/ZipCodeBrowser';
 
 
 // COMPONENT

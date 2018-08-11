@@ -1,4 +1,4 @@
-import * as types from '../../constants/index'
+import * as types from '../constants/index'
 
 
 // INITIALIZE STATE

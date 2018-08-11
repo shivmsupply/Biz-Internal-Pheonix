@@ -1,5 +1,5 @@
-import { fetchZipCodes } from '../../../services/ZipCodeService';
-import * as types from '../../constants/index'
+import { fetchZipCodes } from '../utils/ZipCodeService';
+import * as types from '../constants/index'
 // ACTION GENERATORS
 
 const fetchZipCodesAction = () => ({

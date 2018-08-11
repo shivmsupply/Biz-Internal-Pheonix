@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 
 
 // IMPORT REDUCERS
-import { FetchZipCodesReducer } from '../reducers/FetchZipCodesReducer';
+import { FetchZipCodesReducer } from './FetchZipCodesReducer';
 
 
 // EXPORT APP REDUCER
