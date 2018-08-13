@@ -1,82 +1,87 @@
-import React, { Component } from "react";
+import React, { Component,Fragment } from "react";
 import { connect } from "react-redux";
 import validate from "../utils/validation";
 import { authLogin } from "../actions/LoginActions.js" 
 
 import DefaultInput from '../common/FormControls/DefaultInput'
 import ButtonSubmit from '../common/FormControls/ButtonSubmit'
+import SelectBox from '../common/FormControls/SelectBox'
 
 class LoginPage extends Component {
   state = {
   
-    controls: {
-      email: {
-        value: "",
-        valid: 0,
-        validationRules: {
-          isEmail: true
-        },
-        touched: 0
+  controls: {
+    email: {
+      value: "",
+      valid: 0,
+      validationRules: {
+        isEmail: true
       },
-      password: {
-        value: "",
-        valid: 0,
-        validationRules: {
-          minLength: 6
-        },
-        touched: 0
+      touched: 0
+    },
+    password: {
+      value: "",
+      valid: 0,
+      validationRules: {
+        minLength: 6
       },
-      confirmPassword: {
-        value: "",
-        valid: 0,
-        validationRules: {
-          equalTo: "password"
-        },
-        touched: 0
-      }
+      touched: 0
+    },
+    confirmPassword: {
+      value: "",
+      valid: 0,
+      validationRules: {
+        equalTo: "password"
+      },
+      touched: 0
+    },
+    country: {
+      value: "",
+      valid: 0,
+      validationRules: {
+        notEmpty: true
+      },
+      touched: 0
     }
-  };
+  }
+};
 
-  constructor(props) {
-    super(props);
-   
+constructor(props) {
+  super(props);
+ 
+}
+
+loginHandler = () => {
+  const authData = {
+    email: this.state.controls.email.value,
+    password: this.state.controls.password.value
+  };
+  console.log("authData ========>", authData)
+  this.props.onLogin(authData);
+  startMainTabs();
+};
+
+updateInputState = (key, event) => {
+  let connectedValue = {};
+  let value = event.target.value
+  
+  //For Password Equal to validation
+  if (this.state.controls[key].validationRules.equalTo) {
+    const equalControl = this.state.controls[key].validationRules.equalTo;
+    const equalValue = this.state.controls[equalControl].value;
+    connectedValue = {
+      ...connectedValue,
+      equalTo: equalValue
+    };
   }
 
-
-
- 
-
-  loginHandler = () => {
-    const authData = {
-      email: this.state.controls.email.value,
-      password: this.state.controls.password.value
+  //If control is input password
+  if (key === "password") {
+    connectedValue = {
+      ...connectedValue,
+      equalTo: value
     };
-    console.log("authData ========>", authData)
-    this.props.onLogin(authData);
-    startMainTabs();
-  };
-
-  updateInputState = (key, event) => {
-    let connectedValue = {};
-    let value = event.target.value
-    
-    //For Password Equal to validation
-    if (this.state.controls[key].validationRules.equalTo) {
-      const equalControl = this.state.controls[key].validationRules.equalTo;
-      const equalValue = this.state.controls[equalControl].value;
-      connectedValue = {
-        ...connectedValue,
-        equalTo: equalValue
-      };
-    }
-
-    //If control is input password
-    if (key === "password") {
-      connectedValue = {
-        ...connectedValue,
-        equalTo: value
-      };
-    }
+  }
 
     //Setting Control State of inpul fields
     this.setState(prevState => {
@@ -112,7 +117,13 @@ class LoginPage extends Component {
   render() {
     let headingText = null;
     let confirmPasswordControl = null;
-    
+    let countryOptions = (
+      <Fragment>
+        <option value="">Select Country</option>
+        <option value="India">India</option>
+        <option value="Bengladesh">Bengladesh</option>
+      </Fragment>
+    );
       headingText = (
         <div>
           <h2>Please Log In</h2>
@@ -133,6 +144,17 @@ class LoginPage extends Component {
             touched={this.state.controls.confirmPassword.touched}
             
           />
+
+          <SelectBox 
+            className="inputControl"
+            style={styles.input}
+            options={countryOptions} 
+            valid={this.state.controls.country.valid}
+            touched={this.state.controls.country.touched}
+            onChange={event => this.updateInputState("country", event)}
+          />
+
+
         </div>
       );
   
