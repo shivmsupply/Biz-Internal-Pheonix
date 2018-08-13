@@ -1,4 +1,4 @@
-import { fetchZipCodes } from '../utils/ZipCodeService';
+import { fetchZipCodes } from '../utils/api/ZipCodeService';
 import * as types from '../constants/index'
 // ACTION GENERATORS
 
@@ -7,6 +7,6 @@ const fetchZipCodesAction = () => ({
     payload: fetchZipCodes()
 });
 
-
 // EXPORT ACTIONS
-export { fetchZipCodesAction as fetchZipCodes };
+
+export { fetchZipCodesAction as fetchZipCodes};
