@@ -11,7 +11,7 @@ import { AppRouter } from './routers/AppRouter';
 
 // COMPONENT
 export const App = () => (
-    <Provider store={createAppStore()}>
+    <Provider store = {createAppStore()}>
         <div className="container">
             <AppRouter />
         </div>
