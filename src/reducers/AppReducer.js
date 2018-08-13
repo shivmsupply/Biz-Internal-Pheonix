@@ -4,10 +4,11 @@ import { combineReducers } from 'redux';
 
 // IMPORT REDUCERS
 import { FetchZipCodesReducer } from './FetchZipCodesReducer';
-
+import { LoginReducer } from './LoginReducer';
 
 // EXPORT APP REDUCER
 export const AppReducer = combineReducers({
-    zipCodes: FetchZipCodesReducer
+    zipCodes: FetchZipCodesReducer,
+    LoginReducer: LoginReducer
 });
 

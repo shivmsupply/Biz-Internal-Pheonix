@@ -8,7 +8,7 @@ import { Header } from '../components/Header/Header';
 import  HomePage  from '../containers/HomePage';
 import { AboutPage } from '../containers/AboutPage';
 import { ZipCodesPage } from '../containers/ZipCodesPage';
-
+import LoginPage  from '../containers/LoginPage';
 
 // COMPONENT
 
@@ -17,9 +17,10 @@ export const AppRouter = () => (
         <Fragment> 
             <Switch>
            
-                <Route exact  path='/' component={HomePage} />
-                <Route exact strict path='/zipcodes' component={ZipCodesPage} />
-                <Route exact strict path='/about' component={AboutPage} />
+                <Route exact strict path='/' component={HomePage} />
+                <Route  path='/zipcodes' component={ZipCodesPage} />
+                <Route  path='/about' component={AboutPage} />
+                <Route  path='/login' component={LoginPage} />
                 <Route component={HomePage} />
            </Switch>
         </Fragment>

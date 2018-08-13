@@ -8,7 +8,7 @@ import React from 'react';
 const AboutPage = () => (
     <main className="p-3 animated fadeIn">
     
-        <h3>About Templatessssssssssssssssssssssssssssssssss</h3>
+        <h3>About Templatsdfdsf</h3>
     </main>
 );
 
