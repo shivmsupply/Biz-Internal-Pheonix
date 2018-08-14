@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
 
 // IMPORT REDUCERS
-import { AppReducer } from '../reducers/AppReducer';
+import AppReducer from '../reducers/AppReducer';
 
 const composeEnhancers = composeWithDevTools({
   // options like actionSanitizer, stateSanitizer

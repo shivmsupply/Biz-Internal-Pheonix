@@ -1,0 +1,50 @@
+.header{
+    display:flex;
+    align-items: center;
+    position: relative;
+    list-style: none;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+   
+     justify-content: space-between;
+}
+.header li{
+    /*font-family: sans-serif;*/
+    font-size: 18px;    
+    flex: 3;
+    padding:10px 30px;
+}
+.header a{
+    color: #444;
+}
+.header a:hover{
+    border-bottom: 2px solid #F6BF5E !important;
+    text-decoration: none;
+    
+}
+.bizLogo{
+    height: 45px;
+}
+
+.header button{
+    outline: none;
+    background:#fff;
+    color: #444;
+    width: 150px;
+    padding:8px;
+    border-radius:15px;
+    border: 2px solid  #F6BF5E;
+}
+.pr2pay{
+    color: #F6BF5E;
+}
+.text2{
+    color: #414958;
+}
+.mar0{
+    margin:0px;
+}
+.pr2paytextCenter{
+    text-align: center;
+}

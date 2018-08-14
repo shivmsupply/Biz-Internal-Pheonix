@@ -1,10 +1,10 @@
-
-import * as types from '../constants/index'
-
+import * as types from '../constants/'
 
 // INITIALIZE STATE
 const initialState = {
     loginInfo: {},
+    pwdChangeDetail:{},
+    qr:"",
     fetching: false,
     fetched: false,
     failed: false
@@ -12,8 +12,29 @@ const initialState = {
 
 
 // REDUCER
-export const LoginReducer = (state = initialState, action) => {
+const LoginReducer = (state = initialState, action) => {
     switch(action.type) {
+        case types.CREATE_NEW_PASS:
+            return {
+                ...state,
+                pwdChangeDetail:action.dataChange,
+                qr:''
+            }
+        break
+        case types.LOGIN_SUCCESS:
+            return {
+                ...state,
+                loginInfo: action.loginData
+            }
+        break
+        case types.LOGIN_DATA_RESET:
+            return {
+                ...state,
+                pwdChangeDetail:{},
+                qr:"",
+                loginInfo: {}
+            }
+        break
         case types.TRY_LOGIN_PENDING:
             return {
                 ...state,
@@ -22,6 +43,7 @@ export const LoginReducer = (state = initialState, action) => {
                 fetched: false,
                 failed: false
             };
+        break
         case types.TRY_LOGIN_FULFILLED:
             return {
                 ...state,
@@ -30,6 +52,7 @@ export const LoginReducer = (state = initialState, action) => {
                 fetched: true,
                 failed: false
             };
+        break
         case types.TRY_LOGIN_REJECTED:
             return {
                 ...state,
@@ -41,4 +64,6 @@ export const LoginReducer = (state = initialState, action) => {
         default:
             return state;
     }
-};
+}
+
+export default LoginReducer

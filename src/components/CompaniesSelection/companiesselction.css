@@ -1,0 +1,21 @@
+.copmselection{
+    width: 90%;
+    margin: 10px 0 0 22px;
+}
+.font{
+    font-size:14px;
+}
+.proceed{
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px;
+    padding: 6px;
+    border: 2px solid #F6BF5E;
+    background: #fff;
+    width: 140px;
+    margin: 18px;
+   
+}
+.errorMsg{
+   color: red;
+}

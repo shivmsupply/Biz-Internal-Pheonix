@@ -9,11 +9,11 @@ class HomePage  extends Component{
 	}
 	render(){
 		return(
-			<main>
-		        <div className="jumbotron jumbotron-fluid text-dark bg-light animated fadeIn">
-		          Home
-		        </div>
-		    </main>
+		<main>
+			<div className="jumbotron jumbotron-fluid text-dark bg-light animated fadeIn">
+				Home		       
+			</div>
+		</main>
 		);
 	}
 }

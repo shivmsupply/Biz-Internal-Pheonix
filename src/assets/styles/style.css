@@ -1,20 +1,20 @@
-/*.fadeIn{
-	color: red !important;
-}*/
-.inputControl{
-  width: 100%;
-  border-width: 1;
-  border-color: #eee;
-  padding: 5px;
-  margin: 8px;
-  display: inline-block;
 
- }
+*{
+    margin: 0;
+    padding: 0;
+}
 
- input, select, button{
- 	outline: none;
- }
+body{
+    width: 100%;
+}
 
 
+
+/**** Create New Password ****/
+input, select, button{
+	outline: none;
+}
+
+@import './components/index.css';
 
 

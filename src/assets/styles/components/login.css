@@ -1,0 +1,354 @@
+.mainLogo img{
+    margin: 5px 10px;
+    float: left;
+
+}
+.msNavbar{
+    display: inline-block;
+}
+
+
+.msHeaderWrap{
+    display: inline-block;
+    width: 100%;
+    border-bottom: 1px solid grey;
+}
+
+header{
+    display: block;
+}
+
+.scanImg{
+    width: 200px;
+    margin: auto;
+}
+.msNavList{
+    list-style-type: none;
+    margin: 0;
+    width: 100%;
+    display: block; 
+    height: 60px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+
+
+.msNavList li {
+    float: left;
+}
+
+.msNavList li a {
+    display: block;
+    color: #000;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.msNavList li a:hover {
+    background-color: grey;
+}
+
+.msForm{
+    padding: 15px 40px;
+    display: block;
+    margin-top: 10px;
+}
+/********************** Grid View **************/
+.msRow{
+    clear: both;
+}
+
+.msRow:after, .msRow:before {
+    clear: both;
+}
+
+.msCol6{
+    display: inline-block;
+    width: 50%;
+    position: relative;
+}
+.msCol4{
+    display: inline-block;
+    width: 33%;
+    position: relative;
+}
+
+.msCol12{
+    width: 100%;
+}
+    
+.popupHeader {
+    width: 500px;
+    height: auto !important;
+}
+
+.popupHeader .modalbody{
+    z-index: 999;
+}
+
+
+.msFormGr{
+    margin: 15px 0px;
+    position: relative;
+    display: block;
+  
+}
+/****************Login Page ********************/
+
+.captionLogin{
+    margin: 20px 0px;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.msFormGroup{
+    margin: 25px 0px;
+    display: block;
+}
+
+/*************Content wrapper ***************/
+.contentWrapper{
+    width: 410px;
+    display: grid;
+    margin: 17px auto;
+    height: 80vh;
+}
+
+.labelControl{
+    text-align:center;
+}
+
+.inputControl, .labelControl{
+    outline: none;
+    width: 350px;
+    display: inline-block;
+    box-sizing: border-box; 
+    padding: 7px 15px;
+}
+
+.msCol50{
+    display: inline-block;
+    box-sizing: border-box; 
+    width: 50%;
+}
+
+
+.msLoginBlock {
+    border-radius: 5px;
+    text-align: center;
+    width: 480px;
+    padding: 30px 50px;
+    margin: auto;
+    box-shadow: 0px 0px 2px 2px #e2e2e2;
+}
+
+.msBtn {
+    margin: 0px 5px;
+    outline:none;
+    padding: 5px 25px;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: none;
+    border: 1px solid orange;
+    padding: 7px 28px;
+}
+
+.msBtn:hover{
+ background: orange;
+}
+
+ .msbtnGroup{
+    margin-top: 30px
+ }
+
+.companyName{
+    margin: 20px 0 0 20px;
+}
+.mar-top-10{
+    margin-top:10px ;
+}
+.mar-top-2{
+    margin-top:2px !important;
+}
+.login-btn{
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px;
+    padding: 6px;
+    border: 2px solid #F6BF5E;
+    background: #fff;
+    width: 140px;
+    
+}
+.pRight{
+    float: right;
+    margin-right: 10px;
+}
+.error{
+    color: red;
+}
+
+.loginICont{
+    display: grid;
+}
+
+.loginICont{
+    display: grid;
+    height: calc(100vh - 120px);
+}
+
+
+/********************* Detail PO Enquiry ********************/
+.absIconText{
+    position: absolute;
+    z-index: 999;
+    top: 8px;
+    height: 16px;
+    right: 6px;
+    cursor: pointer;
+}
+
+.upperContainer{
+    z-index: 10000000
+}
+
+.msForm input{
+    width: 100% !important;
+    padding: 8px !important; 
+}
+
+.msForm .msCol6{
+    padding: 0px 5px 0px 0px;
+}
+ 
+
+.searchSupp{
+  border: none !important;
+    border-bottom: 1px solid grey !important;
+    /* margin: 15px auto; */
+    display: inline-block;
+    outline: none;
+    padding: 7px;
+    width: 100%;
+}
+
+.locationSupp{
+    display: inline-block;
+    width: 95%;
+    cursor: pointer;
+}
+
+.radioGroup{
+    margin: 20px auto;
+}
+
+.popupSupplierChange{
+    padding: 10px;
+    width: 600px;
+}
+
+.msFormSupplierChange{
+    padding: 5px 10px;
+    display: block;
+}
+
+.msFormSupplierChange select{
+    padding: 7px 30px 7px 0px !important;
+    -webkit-padding-end: 39px !important;
+    -webkit-padding-start: 10px !important;
+}
+.msFormSupplierChange button, .msForm button{
+    padding: 7px 20px;
+    outline: none;
+}
+
+.radioBlock{
+    border: 1px solid #eeeeef;;
+    background: #eee;
+    display: block;
+    padding: 20px;
+    margin: 10px auto;
+    width: 100%;
+}  
+
+.mrt20{
+    margin: 15px 0px;
+}
+
+.marginDiff{
+    margin: 5px;
+}
+.tableSupply {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.tableSupply tbody{
+  display:block;
+  width: 100%;
+  overflow: auto;
+  height: 150px;
+}
+
+
+
+.tableSupply tr{
+     display: block;
+}
+
+.tableSupply thead tr{
+  display:block;
+}
+
+
+.tableSupply thead th{
+   background: #eeeeef;
+   font-size: 13px;
+   height: 40px;
+   font-weight: bold;
+   border-right: 1px solid rgba(0,0,0,0.04);
+   padding: 7px 10px !important;
+   position: relative;
+   color: #545454;;
+}
+.tableSupply th, .tableSupply td {
+  padding: 5px;
+  text-align: left;
+  
+  overflow: hidden;
+}
+input[type="date"]{
+    height: 30px;
+    padding: 3px 8px !important;    
+}
+
+input[type="date"]:before {
+    content: attr(placeholder) !important;
+    color: #aaa;
+    margin-right: 0.5em;
+}
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
+    content: "" 
+}
+
+
+.msForm input{
+
+    color: #3b3b3b;
+}
+
+.msFormGrm{
+    margin:  10px 0px;
+}
+
+.msFormGrm h3{
+    color: #606060;
+    font-weight: 600;
+    text-align: left;
+}

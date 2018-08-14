@@ -20,28 +20,32 @@ const config = {
                 loader: 'babel-loader',
                 exclude: /node_modules/
             },
-            {
-                test: /\.s?css$/,
-                use: ExtractTextWebpackPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        {
-                            loader: 'css-loader'
-                        },
-                        {
-                            loader: 'sass-loader'
-                        }
-                    ]
-                })                
-                //exclude: /node_modules/
-            },
-            {
+                {
+                    test: /\.s?css$/,
+                    use: ExtractTextWebpackPlugin.extract({
+                        fallback: 'style-loader',
+                        use: [
+                            {
+                                loader: 'css-loader'
+                            },
+                            {
+                                loader: 'sass-loader'
+                            }
+                        ]
+                    })                
+                    //exclude: /node_modules/
+                },
+                
+                
+           {
                 test: /\.svg|.png|.jpg$/,
                 loader: 'url-loader',
                 exclude: /node_modules/
             }
         ]
+        
     },
+    
     plugins: [
         new webpack.ProgressPlugin(),
         new webpack.HotModuleReplacementPlugin(),

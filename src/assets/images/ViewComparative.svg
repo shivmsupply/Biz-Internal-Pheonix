@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.078 55.023">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f6bf5e;
+      }
+    </style>
+  </defs>
+  <path id="View_COmparative" data-name="View COmparative" class="cls-1" d="M66.182,947.512v-13.36h9.137v9.457L86.885,931l-11.567-12.61v9.457H66.182V899.438h34.857V912.8H91.9v-9.458l-11.567,12.61L91.9,928.562V919.1h9.137v28.409Zm-7.22-8.105V892.488h33.7v4.592H63.82v42.327Z" transform="translate(-58.961 -892.488)"/>
+</svg>
