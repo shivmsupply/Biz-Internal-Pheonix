@@ -1,6 +1,8 @@
 /*.fadeIn{
 	color: red !important;
 }*/
+
+
 .inputControl{
   width: 100%;
   border-width: 1;
@@ -10,3 +12,7 @@
   display: inline-block;
 
  }
+ @import './components/header.css';
+ /**** Create New Password ****/
+
+ 

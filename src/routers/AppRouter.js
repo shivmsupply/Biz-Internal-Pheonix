@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 
 // IMPORT PROJECT REFERENCES
 
-import { Header } from '../components/Header/Header';
+import  Header  from '../components/Header/Header';
+import  Footer  from '../components/Footer/Footer.js';
 import  HomePage  from '../containers/HomePage';
 import { AboutPage } from '../containers/AboutPage';
 import { ZipCodesPage } from '../containers/ZipCodesPage';
@@ -15,6 +16,9 @@ import LoginPage  from '../containers/LoginPage';
 export const AppRouter = () => (
     <Router>
         <Fragment> 
+        
+        <Header />
+
             <Switch>
            
                 <Route exact strict path='/' component={HomePage} />
@@ -23,6 +27,7 @@ export const AppRouter = () => (
                 <Route  path='/login' component={LoginPage} />
                 <Route component={HomePage} />
            </Switch>
+           <Footer />
         </Fragment>
     </Router>
 );

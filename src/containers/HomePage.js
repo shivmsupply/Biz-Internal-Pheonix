@@ -11,8 +11,8 @@ class HomePage  extends Component{
 		return(
 			<main>
 		        <div className="jumbotron jumbotron-fluid text-dark bg-light animated fadeIn">
-		          Home
-		        </div>
+		          Home		       
+			 </div>
 		    </main>
 		);
 	}
