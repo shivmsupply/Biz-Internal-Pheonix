@@ -5,12 +5,13 @@ const  invalid = {
   borderColor: "red"
 }
 
-const defaultInput = props => (
-  <input
+const SelectBox = props => (
+  <select
     {...props}
     style={!props.valid && props.touched ? invalid : null}
-  />
+  >
+  	{props.options}
+  </select>
 )
 
-export default defaultInput;
- 
+export default SelectBox;

@@ -16,3 +16,8 @@
  /**** Create New Password ****/
 
  
+
+
+ input, select, button{
+ 	outline: none;
+ }
