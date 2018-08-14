@@ -146,20 +146,4 @@ npm run serve:prod
 
 * **Msupply UI Team** - *Initial work* - [shivmsupply](https://github.com/shivmsupply/)
 
-[Redux-Promise-Middleware]: https://github.com/pburtchaell/redux-promise-middleware
-[Redux-Thunk]: https://github.com/gaearon/redux-thunk
-[React Router]: https://reacttraining.com/react-router/
-[Redux]: https://redux.js.org/
-[Surge]: https://surge.sh/
-[react-starter]: https://github.com/drminnaar/react-starter
-[react-clicker]: https://github.com/drminnaar/react-clicker
-[react-clock-basic]: https://github.com/drminnaar/react-clock-basic
-[react-timer-basic]: https://github.com/drminnaar/react-timer-basic
-[react-timer-advanced]: https://github.com/drminnaar/react-timer-advanced
-[react-masterminds]: https://github.com/drminnaar/react-masterminds
-[react-movie-cards]: https://github.com/drminnaar/react-movie-cards
-[react-calculator-standard]: https://github.com/drminnaar/react-calculator-standard
-[react-bitcoin-monitor]: https://github.com/drminnaar/react-bitcoin-monitor
-[react-weather-standard]: https://github.com/drminnaar/react-weather-standard
-[react-redux-quotlify]: https://github.com/drminnaar/react-redux-quotlify
 
