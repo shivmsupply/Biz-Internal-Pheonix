@@ -11,6 +11,8 @@ import CreateNewPassword from '../containers/CreateNewPassword'
 import LoginPage  from '../containers/LoginPage';
 import EnterOtp from "../containers/EnterOtp"
 import ScanQr from "../containers/ScanQr"
+import ViewEnquiry from "../containers/ViewEnquiry";
+import EnquiryDetails from "../containers/EnquiryDetails";
 // COMPONENT
 
 export const AppRouter = () => (
@@ -23,6 +25,8 @@ export const AppRouter = () => (
                     <Route path='/login' component={LoginPage} />
                     <Route path='/logins' component={LoginPage2} />
                     <Route path="/scanQr" component={ScanQr}/> 
+                    <Route path="/view-enquiries/:enterpriseId?/:companyId?" component={ViewEnquiry}/> 
+                    <Route path="/detail-enquiries/:enterpriseId/:companyId/:projectId/:enquiryId" component={EnquiryDetails} />
                     <Route path="/createNewPassword" component={CreateNewPassword}/>
                     <Route component={HomePage} />
                </Switch>
