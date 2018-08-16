@@ -1,0 +1,22 @@
+.listTable tbody tr td{
+    white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .tab-style{
+        padding: 10px;
+        border:1px solid #ccc;
+        border-top-left-radius: 8px;
+        margin-left: 3px;
+        cursor: pointer;
+        
+        border-top-right-radius: 8px;
+        display: inline-block;
+        
+    }
+    .listTable{
+        margin-top:10px;
+    }
+    .textRight{
+        text-align: right;
+    }

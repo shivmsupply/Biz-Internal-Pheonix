@@ -1,0 +1,120 @@
+/* .container 
+{
+    width:100%;
+}
+
+.progressBar
+{
+    counter-reset: step;
+}
+.progressBar li{
+    list-style-type:none;
+    float:left;
+    width:33.33%;
+    position: relative;
+    text-align:center;
+}
+.progressBar li:before{
+    content:counter(step);
+    counter-increment:step;
+    width:30px;
+    height:30px;
+    line-height:50px;
+    border:1px solid #b5b5b5;
+    display: block;
+    text-align:center;
+    margin:0 auto 10px auto;
+    border-radius:50%;
+    background-color:white;
+
+}
+.progressBar li:after{
+    content:'';
+    position: absolute;
+    width:100%;
+    height:1px;
+    background-color: #ddd;
+    top:15px;
+    left:-50%;
+    z-index: -1;
+
+}
+.progressBar li:first-child:after
+{
+    content: none;
+}
+.progressBar li.active{
+    color:green;
+}
+.progressBar li.active:before{
+    border-color:green; 
+}
+.progressBar li.active + li:after 
+{
+    background-color: green;
+} */
+
+.progessbar{
+    display: flex;
+    align-items: center;
+}
+.alignCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.circle{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border:1px solid #989898;
+    align-items: center;
+}
+.line{
+    width:70px;
+    margin: 0;
+}
+.oval{   
+    color: #fff;
+    /*font-size: 12px;*/
+    width: 180px;
+    height: 36px;
+    border-radius: 28px;
+    background-color: #41c641;
+    border: solid 2px #41c641;
+}
+.oval1
+{
+    border: 1px solid #989898;
+    /*font-size: 12px;*/
+    width:180px;
+    height:36px;
+    background-color: transparent;
+    border-radius: 28px;
+    
+}
+
+safddsgdsgdssgddg
+
+.line{
+    width:70px;
+    margin: 0;
+ }
+ .oval{   
+    color: #fff;
+    /*font-size: 12px;*/
+    width: 150px;
+    height: 36px;
+    border-radius: 28px;
+    background-color: #41c641;
+    border: solid 2px #41c641;
+ }
+ .oval1
+ {
+    border: 1px solid #989898;
+    /*font-size: 12px;*/
+    width:150px;
+    height:36px;
+    background-color: transparent;
+    border-radius: 28px;
+ }

@@ -7,10 +7,14 @@ import Header  from '../components/Header/Header';
 import Footer  from '../components/Footer/Footer.js';
 import HomePage  from '../containers/HomePage';
 import LoginPage2  from '../containers/LoginPage2';
-import CreateNewPassword from '../containers/CreateNewPassword'
+import CreateNewPassword from '../containers/CreateNewPassword';
 import LoginPage  from '../containers/LoginPage';
-import EnterOtp from "../containers/EnterOtp"
-import ScanQr from "../containers/ScanQr"
+import EnterOtp from "../containers/EnterOtp";
+import ScanQr from "../containers/ScanQr";
+import ViewPO from "../containers/ViewPo";
+import PODetail from "../containers/PODetail";
+
+
 // COMPONENT
 
 export const AppRouter = () => (
@@ -24,6 +28,10 @@ export const AppRouter = () => (
                     <Route path='/logins' component={LoginPage2} />
                     <Route path="/scanQr" component={ScanQr}/> 
                     <Route path="/createNewPassword" component={CreateNewPassword}/>
+                    
+                    <Route path = '/list-po/:enterpriseID?/:companyId?' component={ViewPO} />
+                    
+                    <Route path = '/view-po/:enterpriseID?/:companyId?/:projectId/:poId/:amendmentNumber' component={PODetail} />
                     <Route component={HomePage} />
                </Switch>
            <Footer />
