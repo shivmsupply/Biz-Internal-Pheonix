@@ -6,7 +6,7 @@ import $http from '../utils/Http';
 import ENV_VARIABLE from '../utils/Environment';
 import { Text } from '../common/FormElements/FormElements';
 import CompaniesSelection from '../components/CompaniesSelection/CompaniesSelection';
-import {resetFirstLogin} from '../actions/LoginActions'
+import {resetFirstLogin, storeSession, storeEnterpriseAndCompany} from '../actions/LoginActions'
 
 const errorMsg = {
     color:'red'
@@ -45,14 +45,14 @@ class EnterOtp extends Component{
       debugger;
     if(e !== undefined)e.preventDefault();
     let jsonBody;
-    let passInfo = this.props.loginReducer.loginInfo.message.firstLogin;
+    let passInfo = this.props.LoginReducer.loginInfo.message.firstLogin;
     let endPoint;
-    console.log("login detail", this.props.loginReducer)
+    console.log("login detail", this.props.LoginReducer)
     if(passInfo){
 
         jsonBody ={
-            newPassword: this.props.loginReducer.pwdChangeDetail.newPassword,
-            oldPassword: this.props.loginReducer.pwdChangeDetail.oldPassword,
+            newPassword: this.props.LoginReducer.pwdChangeDetail.newPassword,
+            oldPassword: this.props.LoginReducer.pwdChangeDetail.oldPassword,
             otp:this.state.otp
 
         }
@@ -95,9 +95,7 @@ class EnterOtp extends Component{
           if(res.http_code == 403){
             this.setState({otpWrong:true})
           }
-          
-          
-   });
+    });
   }
 
   EnterPrise;
@@ -121,15 +119,13 @@ class EnterOtp extends Component{
 
    
     render(){
-
+        console.log("WHAT WE GET IN OTP ==========>", this.props.LoginReducer)
         return(
-            <div className="loginICont">
-              {this.state.selectEnterprise?<CompaniesSelection allEnterprise={this.EnterPrise} storeEnterprise={this.storeEnterprise}/>:null} 
-              <div className="mar-top-20 msLoginBlock">
-	              <div className="captionLogin">Enter OTP</div>
-	              
-	                <form onSubmit={this.handleSubmit} noValidate>
-		            
+        <div className="loginICont">
+            {this.state.selectEnterprise?<CompaniesSelection allEnterprise={this.EnterPrise} storeEnterprise={this.storeEnterprise}/>:null} 
+            <div className="mar-top-20 msLoginBlock">
+                <div className="captionLogin">Enter OTP</div>
+                    <form onSubmit={this.handleSubmit} noValidate>
                         <div className="msFormGroup">
                             <Text 
                                 labelWidth="0" 
@@ -155,10 +151,9 @@ class EnterOtp extends Component{
 }
 const mapStateToProps = (state) =>{
     return{
-        loginReducer:state.loginReducer
+        LoginReducer:state.LoginReducer
     }
 }
-
 
 const mapDispatchToProps = (dispatch) =>{
     return{
@@ -166,10 +161,10 @@ const mapDispatchToProps = (dispatch) =>{
             dispatch(resetFirstLogin())
         },
         storeSession:(flag,response)=>{
-            dispatch(commonActions.storeSession(flag, response))
+            dispatch(storeSession(flag, response))
         },
         storeEnterpriseAndCompany:(_eL,_cL,_sE,_sC)=>{
-            dispatch(commonActions.storeEnterpriseAndCompany(_eL,_cL,_sE,_sC))
+            dispatch(storeEnterpriseAndCompany(_eL,_cL,_sE,_sC))
         }
     }
 }

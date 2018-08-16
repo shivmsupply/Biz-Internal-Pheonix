@@ -28,7 +28,7 @@ class CompaniesSelection extends Component {
   }
   getAllCompany=(_eId)=>{
     $http.getWithUrl(ENV_VARIABLE.HOST_NAME+'census/phoenix/enterprise/'+_eId+'/company',(res)=>{
-      console.log(res.message);
+      console.log("Message here ===========>",res.message);
       let _t=this.state
       debugger
       this.allComapnyList=res.message;

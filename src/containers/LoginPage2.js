@@ -107,7 +107,7 @@ class Login extends Component{
 
                     if(this.state.userResponse.message){
                         this.props.loginInfo(this.state.userResponse)
-                        this.props.history.push('/createNewPassword')
+                        this.props.history.push('/CreateNewPassword')
                      }
                 }
                 else{
