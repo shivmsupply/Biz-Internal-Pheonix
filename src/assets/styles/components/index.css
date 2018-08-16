@@ -4,7 +4,13 @@
 @import './modal.css';
 @import './formElements.css';
 @import './main.css';
+
 @import './viewPO.css';
 @import './filterData.css';
 @import './table-list.css';
 @import './ProgressBar.css';
+
+@import './enquiries.css';
+@import "./viewComparatives.css";
+@import './viewEnquiry.css';
+
