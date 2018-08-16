@@ -29,6 +29,7 @@ class EnterOtp extends Component{
         this.handleChange=this.handleChange.bind(this);
         this.getInterprise=this.getInterprise.bind(this);
         this.storeEnterprise=this.storeEnterprise.bind(this);
+        console.log('works!!!!!!!!!!!!');
 
   }
 
