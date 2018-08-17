@@ -1,15 +1,10 @@
 import React from "react";
-// import DatePicker from "a-react-datepicker";
-import ReactDOM from 'react-dom';
 import { connect } from "react-redux";
-// import * as commonActions from "../../actions/commonActions";
 import ListData from "./ListData";
-import $http from "../utils/Http";
-import { Link } from "react-router-dom";
-import {Button, Text, Dropdown, Radio} from "../common/FormElements/FormElements";
 import ENV_VARIABLE from "../utils/Environment";
 import { withRouter } from "react-router-dom";
 import '../assets/styles/style.css'
+
 class ViewPOs extends React.Component {	
     constructor(props){
         super(props);
@@ -86,12 +81,11 @@ class ViewPOs extends React.Component {
 		return(
 		
 			<div>
-			{
-			(this.props.userSelectedCompany.companyId!= ''||this.props.match.params.companyId == 'ero') && this.props.sessionInfo!=undefined?
-		<ListData breadCrumbs= {this.state.breadCrumbs} userSelectedCompany = {this.props.userSelectedCompany} sessionInfo = {this.props.sessionInfo}
-		responseName = "pos" tabs={this.state.tabs}  tableDataType = "Orders" tableKeys = {this.state.tableKeys} serviceName = {this.serviceName} 
-		filterService = {this.filterServiceName}/>
-          :null}  
+				{(this.props.userSelectedCompany.companyId!= ''||this.props.match.params.companyId == 'ero') && this.props.sessionInfo!=undefined?
+				<ListData breadCrumbs= {this.state.breadCrumbs} userSelectedCompany = {this.props.userSelectedCompany} sessionInfo = {this.props.sessionInfo}
+				responseName = "pos" tabs={this.state.tabs}  tableDataType = "Orders" tableKeys = {this.state.tableKeys} serviceName = {this.serviceName} 
+				filterService = {this.filterServiceName}/>
+				:null}  
 		  </div>
 		   
         )

@@ -1,22 +1,14 @@
 import React,{Component} from 'react';
-import ReactDom from 'react-dom';
-import {Link} from 'react-router-dom';
 const queryString = require('query-string');
-// import DatePicker from "a-react-datepicker";
 import $http from '../utils/Http';
-import {withRouter} from 'react-router-dom';
+import '../assets/styles/style.css';
 import ENV_VARIABLE from "../utils/Environment";
 import { Text,Button, Dropdown } from '../common/FormElements/FormElements';
-// import style from "../viewComparatives.css";
 import * as CommonApi from '../common/CommonApi/commonApi';
-// import * as commonActions from "../../actions/commonActions";
 import Loading from '../common/Loading/Loading';
 
 import { connect } from 'react-redux';
 
-import { debug } from 'util';
-
-import { saveAs } from '../utils/FileSaver';
 class ListEnquiry extends Component {
 
     constructor(props){

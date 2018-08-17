@@ -1,4 +1,5 @@
 import React,{ Component } from 'react';
+import '../assets/styles/style.css';
 import { connect } from 'react-redux'
 import {withRouter} from 'react-router-dom';
 

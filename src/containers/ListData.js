@@ -1,19 +1,18 @@
 import React from "react";
 
-import ReactDOM from 'react-dom';
 const queryString = require('query-string');
 import FilterData from './FilterData';
 import $http from "../utils/Http";
 import TableList from "./TableList"
 
-import { Link } from "react-router-dom";
-import ENVIROMENT_VAR from '../utils/Environment';
 // import style from "../../styles/main.css"
 import {Button, Text, Dropdown, Radio} from "../common/FormElements/FormElements";
 import Loading from '../common/Loading/Loading';
 
 import ENV_VARIABLE from "../utils/Environment";
 import { withRouter } from "react-router-dom";
+import '../assets/styles/style.css';
+
   const  serialize = function(obj) {
   var str = [];
   for (var p in obj)

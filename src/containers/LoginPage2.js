@@ -8,6 +8,7 @@ import { Button,Text } from '../common/FormElements/FormElements';
 import Modal from '../common/Modal/Modal';
 import { loginInfo } from '../actions/LoginActions'
 import '../assets/styles/style.css';
+
 function newState(){
 	this.data = {
       userName:'',

@@ -2,7 +2,7 @@
 import React from 'react';
 
 // IMPORT PROJECT REFERENCES
-
+import '../assets/styles/style.css'
 import { ZipCodeBrowser } from '../components/ZipCodeBrowser/ZipCodeBrowser';
 
 

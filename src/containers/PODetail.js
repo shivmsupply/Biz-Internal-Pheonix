@@ -1,8 +1,5 @@
 import React,{Component} from 'react';
-import ReactDom from 'react-dom';
-// import styles from './viewPO.css';
-// import './viewPO.css';
-// import DatePicker from "a-react-datepicker";
+
 import $http from "../utils/Http";
 import { connect } from "react-redux";
 import {Saved, SentToSupplier,ReadyToShip, PartialShipped, Shipped, PartialDelivered, Delivered} from '../containers/ProgressBar';
@@ -10,11 +7,10 @@ import { Dropdown } from '../common/FormElements/FormElements';
 import { withRouter } from "react-router-dom";
 import * as CommonApi  from '../common/CommonApi/commonApi';
 import '../assets/styles/PoDetail.css';
-// import loginStyle from '../LoginInternal/login.css'
+
 import {Button, Text,  Radio} from "../common/FormElements/FormElements";
 import ENV_VARIABLE from "../utils/Environment";
 import Modal from '../common/Modal/Modal';
-// import * as commonActions from "../actions/commonActions";
 
 
 

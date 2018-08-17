@@ -1,23 +1,17 @@
-// IMPORT PACKAGE REFERENCES
+import React from 'react'
 
-import React, {Component} from 'react';
+class HomePage extends React.Component{
+    constructor(props){
+        super(props)
+    }
+    render(){
+        return(
+            <div>
+                Home
+            </div>
+        )
+    }
 
-import '../assets/styles/style.css';
-
-// COMPONENT
-class HomePage  extends Component{
-	constructor(props){
-        super(props);
-	}
-	render(){
-		return(
-		<main>
-			<div className="jumbotron jumbotron-fluid text-dark bg-light animated fadeIn">
-				Home	 
-			</div>
-		</main>
-		);
-	}
 }
 
-export default HomePage;
+export default HomePage

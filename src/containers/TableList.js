@@ -1,14 +1,6 @@
 import React from "react";
-
-import ReactDOM from 'react-dom';
+import '../assets/styles/style.css';
 import * as CommonApi  from '../common/CommonApi/commonApi';
-
-import $http from "../utils/Http";
-// import style from "../../styles/table-list.css"
-import { Link } from "react-router-dom";
-import {Button, Text, Dropdown, Radio} from "../common/FormElements/FormElements";
-import ENV_VARIABLE from "../utils/Environment";
-import { withRouter } from "react-router-dom";
 
 export default class TableList extends React.Component {
     constructor(props){

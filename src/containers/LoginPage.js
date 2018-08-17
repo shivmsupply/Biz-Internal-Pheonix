@@ -7,6 +7,7 @@ import DefaultInput from '../common/FormControls/DefaultInput'
 import ButtonSubmit from '../common/FormControls/ButtonSubmit'
 import SelectBox from '../common/FormControls/SelectBox'
 import '../assets/styles/style.css';
+
 class LoginPage extends Component {
   state = {
   

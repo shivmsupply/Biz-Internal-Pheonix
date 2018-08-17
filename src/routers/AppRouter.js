@@ -13,8 +13,6 @@ import LoginPage  from '../containers/LoginPage';
 import ViewPO from "../containers/ViewPo";
 import PODetail from "../containers/PODetail";
 
-
-
 import EnterOtp from "../containers/EnterOtp"
 import ScanQr from "../containers/ScanQr"
 import ViewEnquiry from "../containers/ViewEnquiry";
