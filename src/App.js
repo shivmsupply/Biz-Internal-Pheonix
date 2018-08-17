@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { createAppStore } from './stores/AppStore';
 
 // IMPORT Routers
-import { AppRouter } from './routers/AppRouter';
+import  AppRouter  from './routers/AppRouter';
 
 
 // COMPONENT
