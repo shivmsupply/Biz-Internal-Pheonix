@@ -1,0 +1,267 @@
+.tableHeight {
+    height: 340px;
+    overflow-y: scroll;
+}
+.filterWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap;
+    margin: 50px 0;
+}
+.typeFilter {
+    width:160px;
+    display: inline-block;
+}
+.searchFiled {
+    padding: 20px;
+}
+.searchFiled input{
+    padding: 10px 20px;
+    border: 1px solid #eee;
+}
+table tbody td {
+    /*font-size: 12px;*/
+    text-align: center;
+    padding: 8px 10px;
+    border: 1px solid rgba(0,0,0,.04);
+    color:#21252d;
+}
+.wid40{
+    width:40%;
+    margin:0 auto;
+}
+table tbody th{
+    position: fixed;
+}
+.inputTextWrapper input{
+    padding: 10px;
+}
+.inputTextWrapper label {
+    font-size: 14px;
+    padding-right: 10px;
+    color: #9a9a9a;
+}
+.filterWrapper .dropdownWrapper{
+    margin: 10px 5px;
+}
+.profileImg {
+    height: 100px;
+    width:100px;
+    background: #fff;
+    border-radius: 50%;
+    border:1px solid #ccc;
+}
+.flex{
+    display: flex;
+    align-items: center;
+    margin: 15px 0px;
+}
+.flexOne li{
+    flex: 1;
+}
+.flex li{
+    margin: 10px;
+}
+.flex label{
+    color:#7e8aa0;
+    font-weight: normal;
+    font-stretch: normal;
+}
+.span {
+    color: #363c48;
+}
+.btn_with_yellow_border {
+    color: #363c48;
+    border: 2px solid #f6bf5e;
+    background: #fff;
+    border-radius: 4px;
+    padding: 10px 20px;
+}
+table thead{
+    color:#7e8aa0;
+}
+.card {
+    width: 210px;
+    height: 200px;
+    background: #ffffff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.16);
+    border-radius: 5px;
+    margin-right: 58px;
+    padding:10px;
+}
+.card-header-left{
+    width:50%;
+    float:left;
+    color:#7e8aa0;
+}
+.mar-top-30{
+    margin-top:30px;
+}
+.card-details{
+    text-align:left;
+}
+.main-div {
+    padding: 0px 20px;   
+    color: #363c48;    
+	max-height: 600px;
+    overflow-y: auto;
+	border:1px solid #b5b5b5;
+	margin:10px;
+    min-height: 700px;
+}
+.totalData {
+    text-align: left;
+}
+.itemDescription {
+   text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.headWidth {
+    width:6%;
+}
+.delivery {
+    float:left;
+    margin-right: 5px;
+}
+.rotated {
+    transform: rotate(180deg);
+    float:left;
+}
+.statusColor {
+    color: #41c641;
+    font-weight: bold;
+    vertical-align: top;
+    margin-left: 15px;
+}
+.LightColor {
+    color:#7e8aa0;
+    margin-top: 20px;
+}
+.flexWrap{
+    flex-wrap: wrap;
+}
+.width20{
+    width: 20%;
+    
+}
+.trBg{
+    background: #f1f1f1;
+}
+.bgTr{
+    background: #f1f1f1;
+    height: 80px;
+}
+td.textL{
+    text-align: left;
+}
+.plCharges td{
+    border:0;
+}
+.plCharges td:first-child{
+    text-align: left;
+}
+.plCharges td:last-child{
+    text-align: right;
+}
+.pad0{
+    padding: 0;
+}
+.width80{
+    width: 80%;
+}
+.decimal li{
+    list-style-type: decimal;
+}
+.flexOne{
+    align-items: baseline;
+}
+.width30{
+    width: 30%;
+}
+td.valign{    
+    vertical-align: top;
+}
+.cursorP{
+    cursor: pointer;
+}
+.PopUp
+{
+    padding: 10px 8px;
+    margin: 5px 0;
+    border: 1px solid #dcdbdb;
+    /*font-size: 12px;*/
+    color: #444;
+    outline: none;
+    background-color: #fff;
+    border-radius: 0px;
+    display: block;
+}
+.firstSubmit
+{
+    padding: 5px;
+    margin-top: 10px;
+    width: 115px;
+    background: #fff;
+    outline: none;
+    border: 2px solid #ffd83d;
+    border-radius: 5px;
+}
+.popupHeader
+{
+    color: #444;
+    padding-bottom: 10px;
+    font-weight: 500;
+    font-size: 17px;
+    margin: 0px;
+    border-bottom: 2px solid #efefef;
+    text-align: center;
+    margin-bottom: 17px;
+}
+.width50{
+    width: 50%;
+    float: left;
+}
+.flexWrap{
+    flex-wrap: wrap;
+    padding: 5px;
+}
+.width100,.width50{
+    float: left;
+}
+.width100{
+    width: 100%;
+}
+.width30{
+    width: 40%;
+}
+.customFields li{
+    margin: 1% 0 0;
+}
+.customFields label{
+    width: 35%;
+    float: left;
+    text-align: right;
+    margin-right: 2%;
+}
+.popHeader
+{
+    padding: 30px;
+    font-size: 14px;
+}
+.popReason{
+    margin: auto;
+    width: 95%;
+}
+.justifyContent
+{    
+    justify-content: space-between;
+}
+button{
+    cursor: pointer;
+}
+.marginTop10{  
+    text-align: left;
+    margin: 20px 15px;
+}

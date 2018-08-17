@@ -29,6 +29,7 @@ class EnterOtp extends Component{
         this.handleChange=this.handleChange.bind(this);
         this.getInterprise=this.getInterprise.bind(this);
         this.storeEnterprise=this.storeEnterprise.bind(this);
+        console.log('works!!!!!!!!!!!!');
 
   }
 
@@ -113,7 +114,7 @@ class EnterOtp extends Component{
 //    const { dispatch } = this.props;
 //    dispatch(commonActions.storeEnterpriseAndCompany(_eL,_cL,_sE,_sC));    
    this.setState({selectEnterprise:false});
-   this.props.history.push('/view-enquiries/'+_sE+'/'+_sC);
+   this.props.history.push('/list-po/'+_sE+'/'+_sC);
    debugger
   }
 

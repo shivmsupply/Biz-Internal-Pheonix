@@ -1,5 +1,5 @@
-import  $http from '../utils/Http';
-import ENV_VARIABLE from '../utils/Environment';
+import  $http from '../../utils/Http';
+import ENV_VARIABLE from '../../utils/Environment';
 
 export function getSession (){
 	return new Promise(function(resolve, reject) {
