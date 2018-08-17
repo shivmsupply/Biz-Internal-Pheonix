@@ -1,0 +1,320 @@
+.mainScreen img{
+	cursor: pointer;
+}
+.mainScreen{
+	padding: 20px;   
+    color: #363c48;    
+	max-height: 790px;
+    overflow-y: auto;
+	border:1px solid #b5b5b5;
+	margin:10px;	
+    min-height: 700px;
+}
+.inputSearch{
+	border: 0;
+}
+.pullSearch{
+	border-bottom: 2px solid #dedede;
+	float: right;
+    width: 25%;
+	margin: 20px 0;
+	position: relative;
+}
+.pullSearch input{
+	width: 90%;
+	height: 26px;
+}
+.pullSearch img{
+    height: 25px;
+	vertical-align: middle;   
+	 height: 25px;
+    vertical-align: middle;
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+.flex{
+	display: flex;
+}
+.flexAend{
+	align-items: flex-end;
+}
+.flexEnd{	
+    justify-content: flex-end;
+}
+.flexSbtw{
+	justify-content: space-between;
+}
+.flex li{
+	flex:1;
+    padding: 10px;	
+    color: #7e8aa0;
+}
+.applyFilter{
+	width: 100%;
+	float: left;
+	background: #f7f7f7;
+	border: 1px solid #b5b5b5;
+	margin-bottom: 50px;
+}
+.flex li select,.flex li input{
+	width: 100%;
+	padding: 8px 10px;
+	border: 1px solid #b5b5b5;
+}
+.tableLayout thead th{	
+	  background-color: #f7f7f7;
+	  font-weight: bold;
+}
+.tableLayout thead th,.tableLayout td{	
+	color: #7e8aa0;
+	border: solid 1px #b5b5b5;
+	height: 33px;
+}
+.ellipses{
+	overflow: hidden;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.textRight{
+	text-align: right;
+}
+.textLeft{
+	text-align: left;
+}
+.applyBtn,.resetBtn{
+	border: 1px solid #ebebeb;
+	border-radius: 10px;
+}
+.applyBtn{
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.resetBtn{
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+.block{
+	margin-top: 20px;
+	background: #f7f7f7;
+	font-size: 14px;
+    align-items: center;
+}
+.button{
+	cursor: pointer;
+	min-width: 70px;
+	background: #fff;
+	padding: 8px 10px;
+	outline: none;
+}
+.bottomBtn{	
+	border: 1px solid #f6bf5e;
+}
+/*Tentative css*/
+.tableLayout{
+	margin-top: 20px;
+}
+.width100,.width30,.width70,.width50,li input.page,.width40,.width60{
+	float: left;
+}
+.width100{
+	width: 100%;
+}
+.width70{
+	width: 70%;
+}
+.width50{
+	width: 50%;
+}
+.width30{
+	width: 30%;
+}
+.width40{
+	width: 40%;
+}
+.width60{
+	width: 60%;
+}
+li input.page{
+	width: 10%;
+	text-align:center;
+}
+.horScroll{overflow-x: auto;
+    display: -webkit-box;
+    overflow-y: hidden;
+    /*font-size: 12px;*/
+    /* height: 464px; */
+	border-left: 1px solid #ccc;    
+}
+.horScroll2{
+	/* display: flex; */
+	overflow-y: hidden;
+	/*font-size: 12px;*/
+	/* height: 464px; */
+	position: relative;    
+	border: 1px solid #b5b5b5;
+	border-left: 0;   
+	min-width: 500px;
+}
+.compTable table th{
+	background-color: #f7f7f7;
+}
+.compTable table th, .compTable table td{	
+	border: solid 1px #b5b5b5;    height: 30px;
+}
+.supplierHeader {
+    padding: 5px;
+    border: 1px solid #b5b5b5;
+    background: #e9edee;
+    text-align: center;
+    height: 30px;
+    font-weight: bold;
+}
+.payWidth{
+	float:left; display:flex;
+	/* width: 250px; */
+}
+.quoteHeader {
+    border-left: 1px solid #b5b5b5;
+    padding: 5px;
+    border-right: 1px solid #b5b5b5;
+    height: 28px;
+}
+.plCharges{
+	border: 1px solid #b5b5b5;
+ }
+.plCharges li{
+	padding: 7px 10px;
+}
+ .viewComptable {
+    border-collapse: collapse;
+    /*font-size: 12px;*/
+    border: 1px solid #b5b5b5;
+    table-layout: fixed;
+    margin: 0;
+}
+.bgWhite{
+    background: #fff;
+    padding: 5px;
+    border: 1px solid #b5b5b5;
+}
+.pullR,.floatR{	
+    float: right;
+}
+.pullL{
+    float: left;
+}
+.plCharges .pullR{
+    /*font-size: 12px;*/
+    color: #7e8aa0;
+    font-weight: normal;
+}
+.flex li button.active{
+		border-color: #f6bf5e;
+}
+.listTabs{
+    display: flex;
+}
+.listTabs li {
+    border: 1px solid #ededed;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 7px 7px 0px 0px;
+}
+.listTabs li.active{
+    background-color: #ffeccb;
+    border: solid 1px #f6bf5e;
+}
+.pageLeft,
+.pageRight{
+	color: #f6bf5e;
+    font-size: 32px;
+    margin: 0 7px;
+}
+.upArrow{
+    vertical-align: middle;
+    width: 25px;
+    margin-right: 6px;
+}
+.grayShade{
+	background: #f7f7f7;
+}
+.normalBtn{
+	border-radius: 10px;
+	color:#363c48;
+  	border: solid 2px #f6bf5e;
+	/*font-size: 12px;*/
+	margin-top: 20px;
+}
+.extratopspace{
+	height: 30px;
+    margin-top: 30px;
+}
+.extrabottomspace {
+    border-left: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.upperBtn{
+	border: solid 1px #f6bf5e;
+	padding: 3px;
+}
+.selectLineItem{
+    height:40px;margin-top:0%;padding-left:8px; border-top:none;
+}
+.labelSelectLineItem{
+    height:20px;margin-top:0%;padding-left:8px;
+}
+.itemsperPage
+{
+	width: 175px;
+    float: right;
+    display: flex;
+    align-items: center;
+}
+.alignCenter{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.alignCenter span{
+	cursor: pointer;
+}
+.posRelative{
+	position: relative;
+}
+.selectSupplierDropdown{
+    position:relative; 
+    outline:0px;
+    pointer-events: none;
+    width: 95%;
+    background-position: right 7px bottom 14px;
+    background-image: url('../../../assets/images/dropdown_icon.png');
+    background-repeat: no-repeat;
+    background-size: 20px 10px;
+}
+.selectSupplierBlock{
+    width: 100%;
+    max-height: 200px;
+    border: 1px solid #b5b5b5;
+    position: absolute;
+    background: #fff;
+    overflow-y: auto;
+    margin-top: 0px;
+    z-index: 100000;
+    overflow-x: hidden;
+}
+.checkboxName{
+    display: flex;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+.selectSupplierBlock input[type="checkbox"]{
+	width: 20px;
+}
+.negoForm label,.negoForm textarea,.negoForm input{ 
+	width: 90%;
+	margin: 0 auto;
+}
+.textCenter{
+	text-align: center;
+}
