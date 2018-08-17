@@ -1,14 +1,16 @@
+
 @import './header.css';
 @import './footer.css';
 @import './login.css';
 @import './modal.css';
 @import './formElements.css';
-@import './main.css';
+@import './main.css'; 
 
-/* @import './enquiries.css';
+@import './enquiries.css';
 @import "./viewComparatives.css";
-@import './viewEnquiry.css'; */
-@import './viewPO.css';
+@import './viewEnquiry.css';
+
 @import './filterData.css';
 @import './table-list.css';
-@import './ProgressBar.css';
+@import './ProgressBar.css'; 
+@import './viewPO.css';

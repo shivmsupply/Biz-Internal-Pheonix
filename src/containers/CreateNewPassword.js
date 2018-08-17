@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import { connect } from 'react-redux'
 import {withRouter} from 'react-router-dom';
+import '../assets/styles/style.css';
 
 import { Button,Text } from '../common/FormElements/FormElements';
 import {changePass} from '../actions/LoginActions'

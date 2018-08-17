@@ -4,6 +4,7 @@ import {Button, Text, Dropdown, Radio} from "../common/FormElements/FormElements
 import {withRouter} from 'react-router-dom';
 const queryString = require('query-string');
 import $http from "../utils/Http";
+import '../assets/styles/style.css';
 
  class FilterData extends Component{
     constructor(props){

@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import ENV_VARIABLE from "../utils/Environment";
 import * as CommonApi from '../common/CommonApi/commonApi';
 import { connect } from 'react-redux';
+import '../assets/styles/style.css';
 // import DatePicker from "a-react-datepicker";
 import * as commonActions from "../actions/LoginActions";
 // import Loading from '../common/Loading/Loading';

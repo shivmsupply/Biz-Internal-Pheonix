@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+.poDetails-page{
+    font-family: Lato;
+    background: #fff;
+}
+
+span, td, div, li, a{
+    font-size: 13px;
+}
+
 .tableHeight {
     height: 340px;
     overflow-y: scroll;
@@ -26,6 +37,7 @@ table tbody td {
     padding: 8px 10px;
     border: 1px solid rgba(0,0,0,.04);
     color:#21252d;
+    
 }
 .wid40{
     width:40%;
@@ -81,6 +93,7 @@ table tbody th{
 table thead{
     color:#7e8aa0;
 }
+
 .card {
     width: 210px;
     height: 200px;
@@ -109,6 +122,7 @@ table thead{
 	border:1px solid #b5b5b5;
 	margin:10px;
     min-height: 700px;
+    background: #fff;
 }
 .totalData {
     text-align: left;
@@ -264,4 +278,8 @@ button{
 .marginTop10{  
     text-align: left;
     margin: 20px 15px;
+}
+
+.poDetails-page ul{
+    list-style-type: none !important;
 }
