@@ -1,9 +1,11 @@
-@import './components/header.css';
-@import './components/footer.css';
-@import './components/login.css';
+/* @import './components/header.css';
+@import './components/footer.css';*/
+@import './components/login.css'; 
 @import './components/modal.css';
 @import './components/formElements.css';
 @import './components/table-list.css';   
 @import './components/main.css';   
 @import './components/viewPO.css';
 @import './components/ProgressBar.css';
+
+

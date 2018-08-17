@@ -1,7 +1,9 @@
 // IMPORT PACKAGE REFERENCES
 
 import React, {Component} from 'react';
+
 import '../assets/styles/style.css';
+
 // COMPONENT
 class HomePage  extends Component{
 	constructor(props){
@@ -11,7 +13,7 @@ class HomePage  extends Component{
 		return(
 		<main>
 			<div className="jumbotron jumbotron-fluid text-dark bg-light animated fadeIn">
-				Home		       
+				Home	 
 			</div>
 		</main>
 		);
