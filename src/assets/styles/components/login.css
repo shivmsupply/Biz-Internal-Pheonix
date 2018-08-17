@@ -192,13 +192,12 @@ header{
     color: red;
 }
 
-.loginICont{
-    display: grid;
-}
+
 
 .loginICont{
     display: grid;
     height: calc(100vh - 120px);
+    background: #fff;
 }
 
 
@@ -352,3 +351,4 @@ input[type="date"]:valid:before {
     font-weight: 600;
     text-align: left;
 }
+
