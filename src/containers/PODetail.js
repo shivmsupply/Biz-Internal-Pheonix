@@ -9,6 +9,7 @@ import {Saved, SentToSupplier,ReadyToShip, PartialShipped, Shipped, PartialDeliv
 import { Dropdown } from '../common/FormElements/FormElements';
 import { withRouter } from "react-router-dom";
 import * as CommonApi  from '../common/CommonApi/commonApi';
+import '../assets/styles/PoDetail.css';
 // import loginStyle from '../LoginInternal/login.css'
 import {Button, Text,  Radio} from "../common/FormElements/FormElements";
 import ENV_VARIABLE from "../utils/Environment";
@@ -864,7 +865,7 @@ class PODetail extends Component{
         
         return(
     
-        <div>
+        <div className="poDetails-page">
  
         {this.state.poDetails !='' && this.state.companyDetails !='' && this.state.poDetails.customFields!=undefined?
         <div>
@@ -921,7 +922,13 @@ class PODetail extends Component{
             </ul>
             {this.state.poDetails.amendmentNumber >0 ||this.state.poDetails.isLatestVersion == false  ?
         <ul> <li className="width100" style = {{fontSize:"20px", textAlign:"center"}}>{this.state.poDetails.amendmentNumber >0 ? 
-        <img style={{transform: "rotate(180deg)"}} onClick={this.gotoPreviousVersion}src={ENV_VARIABLE.IMAGE_URL+'arrow-right.png'} alt="increment"/>: null}
+        <img 
+            style={{transform: "rotate(180deg)"}} 
+            onClick={this.gotoPreviousVersion}
+            src={ENV_VARIABLE.IMAGE_URL+'arrow-right.png'} 
+            alt="increment"
+                
+            />: null}
             <span style={{padding:"10px"}}>Version {this.state.poDetails.amendmentNumber}</span>{this.state.poDetails.isLatestVersion == false ?
             <img onClick={this.gotoNextVersion}src={ENV_VARIABLE.IMAGE_URL+'arrow-right.png'} alt="increment"/>:null }</li></ul>:null}
         

@@ -7,6 +7,7 @@ import ENV_VARIABLE from '../utils/Environment';
 import { Text } from '../common/FormElements/FormElements';
 import CompaniesSelection from '../components/CompaniesSelection/CompaniesSelection';
 import {resetFirstLogin, storeSession, storeEnterpriseAndCompany} from '../actions/LoginActions'
+import '../assets/styles/style.css';
 
 const errorMsg = {
     color:'red'

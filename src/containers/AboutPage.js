@@ -1,7 +1,7 @@
 // IMPORT PACKAGE REFERENCES
 
 import React from 'react';
-
+import '../assets/styles/style.css';
 
 // COMPONENT
 

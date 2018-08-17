@@ -1,6 +1,9 @@
 // IMPORT PACKAGE REFERENCES
 
 import React, {Component} from 'react';
+
+import '../assets/styles/style.css';
+
 // COMPONENT
 class HomePage  extends Component{
 	constructor(props){
