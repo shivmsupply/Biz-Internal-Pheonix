@@ -1,7 +1,6 @@
 // IMPORT PACKAGE REFERENCES
 
 import React, {Component} from 'react';
-import DatePicker from 'a-react-datepicker';
 // COMPONENT
 class HomePage  extends Component{
 	constructor(props){
@@ -11,7 +10,7 @@ class HomePage  extends Component{
 		return(
 		<main>
 			<div className="jumbotron jumbotron-fluid text-dark bg-light animated fadeIn">
-				Home		<DatePicker/>       
+				Home	 
 			</div>
 		</main>
 		);
