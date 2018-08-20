@@ -13,8 +13,8 @@ class LeftNavigation extends Component {
             imgPath :[
                 {
                     key:1,
-                    imgRight:Env.IMAGE_URL+'dropdown_icon_right.png',
-                    imgLeft:Env.IMAGE_URL+'dropdown_icon_left.png'
+                    imgRight:require('../../assets/images/dropdown_icon_right.png'),
+                    imgLeft:require('../../assets/images/dropdown_icon_left.png')
                 }
             ]    
         }        
@@ -36,16 +36,16 @@ class LeftNavigation extends Component {
            tabs = <ul className="font-16 Nav-ul">    
             {this.props.getAccessControl&&this.props.getAccessControl['user-create']===true?<li key={1} className="leftPanelLi" title={this.state.dockIn ? "My Actions": ""}>                
                  <a onClick={()=>this.click("my-actions")}>
-                    <img src={Env.IMAGE_URL+'Dashboard.svg'} width="24px" height="24px"/>{!this.state.dockIn?<span>Registration</span> :null}</a>
+                    <img src={require('../../assets/images/Dashboard.svg')} width="24px" height="24px"/>{!this.state.dockIn?<span>Registration</span> :null}</a>
              </li>:null}                
          
              <li key={2} className="leftPanelLi" title={this.state.dockIn ? "View Enquiries": ""}>                
                  <a onClick={()=>this.click("view-enquiries")}>
-                    <img src={Env.IMAGE_URL+'ViewEnquiry.svg'} width="24px" height="24px"/>{!this.state.dockIn?<span>View Enquiries</span> :null}</a>
+                    <img src={require('../../assets/images/ViewEnquiry.svg')} width="24px" height="24px"/>{!this.state.dockIn?<span>View Enquiries</span> :null}</a>
              </li>
             <li key={3} className="leftPanelLi" title={this.state.dockIn ? "View Pos": ""}>                
                 <a onClick={()=>this.click("list-po")}>
-                <img src={Env.IMAGE_URL+'PurchaseOrder.svg'} width="24px" height="24px"/>{!this.state.dockIn?<span>View Pos</span> :null}</a>
+                <img src={require('../../assets/images/PurchaseOrder.svg')} width="24px" height="24px"/>{!this.state.dockIn?<span>View Pos</span> :null}</a>
              </li>
 
          </ul>      
@@ -61,7 +61,7 @@ class LeftNavigation extends Component {
                 <div className="profile-section flex">
                   
                    <div className="imgCircle">
-                     <img src={Env.IMAGE_URL+'No_Image_02.png'}/>
+                     <img src={require('../../assets/images/No_Image_02.png')}/>
                     </div>                  
                     
                     </div>

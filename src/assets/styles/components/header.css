@@ -19,7 +19,6 @@
     color: #444;
 }
 .header a:hover{
-    border-bottom: 2px solid #F6BF5E !important;
     text-decoration: none;
     
 }
@@ -48,6 +47,7 @@
 .pr2paytextCenter{
     text-align: center;
 }
+
 
 
 .filterMenu{
@@ -81,4 +81,93 @@
     text-indent: 1px;
     text-overflow: '';
     cursor: pointer;
+}
+.dropdown-content {
+    text-align: left;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    margin-top: 1px;
+    min-width: 242px;
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+    z-index: 1;
+}
+.dropbtn {
+    outline: none;
+    background-color: #F1F1F1;
+    color: #444;
+    padding: 7px;
+    font-size: 16px;
+    border: none;
+    min-width: 200px;
+    text-align: left;
+}
+
+.userIcondiv{
+    display: flex;
+    align-items: center;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 240px;
+}
+
+.dropdown-content {
+    text-align: left;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    margin-top: 1px;
+    min-width: 242px;
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color:#444;
+    padding: 10px 12px;
+    text-decoration: none;
+    display: block;
+}
+.bizLogo{
+    width: 170px;
+    margin-left: 20px;
+}
+.dropdown-content ul li{
+    list-style: none;
+}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #F1F1F1;}
+.userIcondiv{
+    display: flex;
+    align-items: center;
+}
+.arrow{
+    height: 14px;
+}
+.userlogo{
+    height: 45px;
+    width: 45px;
+    background: #fff;
+    text-align: center;
+    border-radius: 50px;
+}
+.mar-left-8{
+    margin-left:8px;
+}
+.borderS{
+    border-top: 2px solid #b5b5b5;
+}
+
+.profileImg {
+    height: 100%;
+    width:100%;
+    background: #fff;
+    border-radius: 50%;
+    border:1px solid #ccc;
+
 }

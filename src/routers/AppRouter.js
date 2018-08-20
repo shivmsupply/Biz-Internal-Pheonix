@@ -72,15 +72,18 @@ import EnquiryDetails from "../containers/EnquiryDetails";
         return (
         <Router>
         <Fragment> 
-            <Header />
-           <FilterList />
+
+            
             {this.props.isLogin?<LeftPanel /> :null}
+
                 <div className="mainContent">
+                <Header />
+           <FilterList />
                     <Switch>
-                        <Route exact strict path='/' component={HomePage} />
+                        {/* <Route exact strict path='/' component={HomePage} /> */}
                         <Route path='/enterOtp' component={EnterOtp}/>
                         <Route path='/login' component={LoginPage} />
-                        <Route path='/logins' component={LoginPage2} />
+                        <Route exact path='/' component={LoginPage2} />
                         <Route path="/scanQr" component={ScanQr}/> 
                         <Route path="/view-enquiries/:enterpriseId?/:companyId?" component={ViewEnquiry}/> 
                         <Route path="/detail-enquiries/:enterpriseId/:companyId/:projectId/:enquiryId" component={EnquiryDetails} />
@@ -101,7 +104,7 @@ import EnquiryDetails from "../containers/EnquiryDetails";
     }
 
     const mapStateToProps = state => {
-	debugger
+	
         return {
             isLogin:state.storeSession.isLogin,
             loginDetail:state.storeSession.loginDetail,

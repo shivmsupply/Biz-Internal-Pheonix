@@ -24,7 +24,7 @@ class FilterList extends Component{
                             name="enterprice_name"
                             
                             value=""
-                            options={[{label:'check',value:'check'}, {label:'check',value:'check'}]}
+                            options={[{label:'check',value:'check'}]}
                         />
                     </div>
 

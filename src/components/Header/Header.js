@@ -95,11 +95,78 @@ class Header extends Component{
                     <h2 className="pr2pay mar0">PR<span className='text2 mar0'>2</span>PAY Phoenix</h2>
                     <p className="text2 mar0">Internal Panel</p>
                     </li>
-                   <li>&nbsp; </li>
+                   <li >
+                   {/* <div style={{width:'60%',background:'#f3f3f3',textAlign:'right',float:'right'}} >gggg</div> */}
+                  {this.props.isLogin&&this.props.loginDetail != ''? <div className="dropdown" style={{float:'right'}}>
+             <div className="dropbtn" >
+              
+              
+              <p className="userIcondiv">
+                <div className="userlogo">
+                  <img
+                    className="profileImg"
+                    src={require('../../assets/images/No_Image_01.png')}
+                    alt=""
+                  /> 
+                  </div>
+                  <span className="mar-left-8"> Hi FIRST LAST 
+                   </span> 
+                   <img className="arrow mar-left-8"
+                    src={require('../../assets/images/dropdown_icon.png')}
+                    alt=""
+                  />
+              </p>
+              
+              
+              
+            </div>    
+
+
+               
+                
+                 <div className="dropdown-content">
+            <ul>
+              <li><a onClick={() => this.userProfileNavigation("my-actions")}>
+                My Account
+              </a></li>
+              <li><a onClick={() => this.userProfileNavigation("company-detail")}>
+                Company
+              </a></li>
+              <li><a onClick={this.logOut}>Logout</a></li>
+              </ul>
+              {/* <ul>
+              <li><a onClick={() => this.userProfileNavigation("my-actions")}>
+                My Account
+              </a></li>
+              <li> <a onClick={() => this.userProfileNavigation("company-detail")}>
+                Company
+              </a></li>
+              <li> <a onClick={() => this.userProfileNavigation("project-details")}>
+                Projects
+              </a> </li>
+              <li> <a onClick={() => this.userProfileNavigation("view-users")}>
+                Users
+              </a></li>
+              <li> <a onClick={() => this.userProfileNavigation("address-book")}>
+                Address Book
+              </a></li>
+              <li> <a className="borderS" onClick={this.logOut}>Logout</a></li>
+              </ul> */}
+            </div> 
+
+          </div> :null}
+          
+
+
+
+                   </li>
                 </ul>              
                 {/* {this.state.loginModal?<Login loginSucess={this.getLoginInfo} closeModal={()=>{this.setState({loginModal:false})}}/>:null}
                 {this.state.companyModal?<CompaniesSelection storeCompany={this.storeCompany} companyInfo={this.props.loginDetail} closeModal={()=>{this.setState({companyModal:false})}}/>:null}    
                 {this.state.sheduleaDemoModal?<ScheduleADemo closeModal={()=>{this.setState({sheduleaDemoModal:false})}}/>:null}     */}
+               
+
+               
           </div>
 
            
@@ -111,8 +178,8 @@ class Header extends Component{
 
 const mapStateToProps = state => {
   return {
-    // isLogin:state.storeSession.isLogin,
-    // loginDetail:state.storeSession.loginDetail,
+     isLogin:state.storeSession.isLogin,
+     loginDetail:state.storeSession.loginDetail,
     // companyID: state.companyDetailReducer.companyId
   	}
 }
