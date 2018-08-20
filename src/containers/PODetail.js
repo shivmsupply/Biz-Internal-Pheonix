@@ -823,7 +823,8 @@ class PODetail extends Component{
             return(
                 <tr key={"trListAdv"+index}>
                     <td>
-                        <Radio type="radio"
+                        <Radio 
+                            type="radio"
                             id={"rIsellser"+index}
                             name="rIsellerInfo"
                             value={suplliers.sellerId}
@@ -1015,7 +1016,7 @@ class PODetail extends Component{
                                         <ul className="width100 flex flexWrap">                                      
                                             {this.state.poDetails!= '' && this.state.poDetails!= undefined && this.state.poDetails.customFields!=undefined ?
                                             this.state.poDetails.customDisplayFields.map((item, index)=>{
-                                                return(<li key={index} className="width30 flexWrap"><label>{item.label}: </label><span>
+                                                return(<li key={"cudtom"+index} className="width30 flexWrap"><label>{item.label}: </label><span>
                                                 {this.state.poDetails.customFields[item.keyName]}</span></li>);  
                                             }): null} 
                                         </ul>
@@ -1045,7 +1046,7 @@ class PODetail extends Component{
                                     }
                                     <th width="10%">Amount (&#8377;)</th>
                                     {this.state.poDetails.config.poLineItemCustomFields.map((item, index) => {
-                                        return(<th width="10%">{item.fieldDisplayName}</th>)
+                                        return(<th key={"poLineItem"+index} width="10%">{item.fieldDisplayName}</th>)
                                     })} 
                                 </tr>
                             </thead>                           
@@ -1110,6 +1111,7 @@ class PODetail extends Component{
                                             Delivery Date: </label>{this.state.poDetails.deliveryDate ? CommonApi.dateConvert(this.state.poDetails.deliveryDate): "NA"}</td>
                                             <td colSpan={5 + (this.state.poDetails.config.billDiscountingMethodology == "lineItem-column" ?1:0) + (this.state.poDetails.config.convenienceFeeMethodology == "lineItem-column" ?	1:0)} className="pad0">
                                                 <table cellPadding="0" cellSpacing="0" className="plCharges">
+                                                    <tbody>
                                                     <tr>
                                                         <td colSpan={this.state.poDetails.config.billDiscountingMethodology ? 4:2}>SubTotal (&#8377;)</td>
                                                         <td colSpan={3}>{CommonApi.amountConvert(this.state.poDetails.payable[0].subTotal)}</td>
@@ -1225,7 +1227,8 @@ class PODetail extends Component{
                                                     <tr className="trBg">
                                                         <td colSpan={4+(this.state.poDetails.config.billDiscountingMethodology == "lineItem-column" ?1:0) + (this.state.poDetails.config.convenienceFeeMethodology == "lineItem-column" ?	1:0)} className="totalData">Grand Total (&#8377;)</td>
                                                         <td colSpan={1}><b>{this.state.poDetails.payable[0].grandTotal}</b></td>                                                    
-                                                    </tr>   
+                                                    </tr>  
+                                                    </tbody> 
                                                 </table>                                            
                                             </td>
                                         </tr>
@@ -1271,8 +1274,8 @@ class PODetail extends Component{
                             </li>
                             <li><h3>Documents &amp; Attachments</h3>
                                 <ul className="decimal">
-                                    {this.state.poDetails.attachmentFile.map((item) => {
-                                        return (<li><a name={item}onClick={this.fileDownload}>{item.split("-").slice(0, -1).join("-") + "."+ item.split(".").pop()}</a></li>)
+                                    {this.state.poDetails.attachmentFile.map((item, index) => {
+                                        return (<li key={"item"+index}><a name={item}onClick={this.fileDownload}>{item.split("-").slice(0, -1).join("-") + "."+ item.split(".").pop()}</a></li>)
                                     })}
                                 </ul>
                             </li>
@@ -1328,8 +1331,8 @@ class PODetail extends Component{
                                                 </tr>
                                             </thead>
                                             <tbody>                                                    
-                                                {this.state.poDetails.addressLineItemMapping["0"][0].mappingPaymentTerms.schedule!='' &&  this.state.poDetails.addressLineItemMapping["0"][0].mappingPaymentTerms.schedule!=undefined &&this.state.poDetails.addressLineItemMapping["0"][0].mappingPaymentTerms.schedule.map((item)=>{
-                                                    return(<tr>
+                                                {this.state.poDetails.addressLineItemMapping["0"][0].mappingPaymentTerms.schedule!='' &&  this.state.poDetails.addressLineItemMapping["0"][0].mappingPaymentTerms.schedule!=undefined &&this.state.poDetails.addressLineItemMapping["0"][0].mappingPaymentTerms.schedule.map((item, index)=>{
+                                                    return(<tr key={"addressLine"+index}>
                                                         <td>{item.interval}</td>
                                                         <td>{item.value}</td>
                                                     </tr>)

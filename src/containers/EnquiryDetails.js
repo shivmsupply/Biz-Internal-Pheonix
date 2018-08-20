@@ -338,5 +338,5 @@ const mapStateToProps = state => {
 		companyDetails: state.companyDetailReducer,
      }
 }
-console.log("hi=============>", EnquiryDetails)
+
 export default withRouter(connect(mapStateToProps)(EnquiryDetails));

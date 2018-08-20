@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 
 
 class Modal extends Component {
-    
+    constructor(props){
+        super(props)
+    }
     closeModal = (event) => {
+        console.log("event here ==========>", event)
         event.stopPropagation();
         document.getElementsByTagName('body')[0].style.overflow="auto";
         this.props.onClose();
@@ -11,7 +14,7 @@ class Modal extends Component {
 
     close_back_drop = (event) => {
         if(this.props.backDropClose){
-            this.props.onClose(); 
+            this.props.onClose(event); 
             document.getElementsByTagName('body')[0].style.overflow="auto";
         }  
     }
