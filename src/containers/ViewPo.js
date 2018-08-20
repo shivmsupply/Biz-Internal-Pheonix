@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import ListData from "./ListData";
 import ENV_VARIABLE from "../utils/Environment";
 import { withRouter } from "react-router-dom";
-import '../assets/styles/style.css'
+import '../assets/styles/listPo.css' 
+
 
 class ViewPOs extends React.Component {	
     constructor(props){

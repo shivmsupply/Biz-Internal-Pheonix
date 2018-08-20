@@ -48,3 +48,37 @@
 .pr2paytextCenter{
     text-align: center;
 }
+
+
+.filterMenu{
+    background: #f1f1f1;
+    display: block;
+    clear: both;
+}
+.filterControls {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+}
+
+.filterG {
+    display: inline-block;
+    margin: 15px;
+    width: 25%
+}
+
+.middle_drop{
+    width: 35%;
+}
+.dropdownWrapper select {
+    cursor: pointer;
+}
+
+.dropdownWrapper select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+    cursor: pointer;
+}

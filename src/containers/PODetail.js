@@ -289,7 +289,8 @@ class PODetail extends Component{
         this.setState(stateData);
     }
 
-    toggleAccordion(index){           
+    toggleAccordion(index){  
+        debugger;         
         var stateData = this.state;
         stateData.poDetails.addressLineItemMapping["0"][index].accordionData = !stateData.poDetails.addressLineItemMapping["0"][index].accordionData;
         this.setState(stateData);
@@ -924,7 +925,7 @@ class PODetail extends Component{
             onClick={this.gotoPreviousVersion}
             src={ENV_VARIABLE.IMAGE_URL+'arrow-right.png'} 
             alt="increment"
-                
+
             />: null}
             <span style={{padding:"10px"}}>Version {this.state.poDetails.amendmentNumber}</span>{this.state.poDetails.isLatestVersion == false ?
             <img onClick={this.gotoNextVersion}src={ENV_VARIABLE.IMAGE_URL+'arrow-right.png'} alt="increment"/>:null }</li></ul>:null}
@@ -1079,7 +1080,9 @@ class PODetail extends Component{
 
                                              <td colSpan={10 + this.state.poDetails.config.poLineItemCustomFields.length + (this.state.poDetails.config.billDiscountingMethodology=="lineItem-column" ? 1:0) + (this.state.poDetails.config.convenienceFeeMethodology=="lineItem-column" ? 1:0)} className="textL trBg cursorP"   onClick={this.toggleAccordion.bind(this, index)}>
                                                  {item.status.current.status ==="Rejected" || item.status.current.status ==="Short Closed"||item.status.current.status ==="Cancelled" ? null :<img width="25px"
-                                                 src={item.accordionData? ENV_VARIABLE.IMAGE_URL + "dropdown_icon.png":ENV_VARIABLE.IMAGE_URL + "dropdown_icon_up.png"}
+                                                //  src={item.accordionData? ENV_VARIABLE.IMAGE_URL + "dropdown_icon.png":ENV_VARIABLE.IMAGE_URL + "dropdown_icon_up.png"}
+                                                 
+                                                 src={item.accordionData? require('../assets/images/dropdown_icon.png'): require('../assets/images/dropdown_icon_up.png')}
                                                  />}
                                                  <span className="statusColor">{item.status.current.status}</span>
                                             </td>

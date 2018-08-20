@@ -65,3 +65,19 @@
 .pagination p span{
     color: black;
 }
+
+.ListFilter{
+    list-style-type: none;
+
+}
+
+.ListFilter .dropdownWrapper{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.ListFilter .dropdownWrapper select::-ms-expand {
+    display: none;
+}

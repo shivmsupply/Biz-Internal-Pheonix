@@ -11,6 +11,7 @@ import * as CommonApi  from '../common/CommonApi/commonApi';
 
 import Header  from '../components/Header/Header';
 import Footer  from '../components/Footer/Footer.js';
+import FilterList  from '../components/FilterList/FilterList.js';
 import LeftPanel  from '../components/LeftPanel/Left-Panel';
 import HomePage  from '../containers/HomePage';
 import LoginPage2  from '../containers/LoginPage2';
@@ -72,7 +73,8 @@ import EnquiryDetails from "../containers/EnquiryDetails";
         <Router>
         <Fragment> 
             <Header />
-            {this.props.isLogin?<LeftPanel />:null}
+           <FilterList />
+            {this.props.isLogin?<LeftPanel /> :null}
                 <div className="mainContent">
                     <Switch>
                         <Route exact strict path='/' component={HomePage} />
