@@ -4,7 +4,7 @@ import {Button, Text, Dropdown, Radio} from "../common/FormElements/FormElements
 import {withRouter} from 'react-router-dom';
 const queryString = require('query-string');
 import $http from "../utils/Http";
-import '../assets/styles/style.css';
+
 
  class FilterData extends Component{
     constructor(props){
@@ -92,12 +92,12 @@ import '../assets/styles/style.css';
         let currentDate = new Date();
         currentDate.setDate(currentDate.getDate() + 1);
          var mainUl={width:'100%',float:'left', margin: "20px 0px", padding: "20px 20px",background: "#fafafa",display:"flex",alignItems:"center"};
-         var mainLi={width:'12%',float:'left'};
+         var mainLi={width:'16%',float:'left'};
 		 var mainLiButton={  width: '36%',textAlign: 'right',margin: '1.2% 5px 0'};
 		 var mainLiDatePicker = {width:'12%',float:'left',margin:'8px 5px'}
         var applyBtn={border:'1px solid #ffd83d',borderTopRightRadius:"0px",borderBottomRightRadius:"0px"};
         var resetBtn={background:'#fff',border:'1px solid #b5b5b5',borderTopLeftRadius:"0px",borderBottomLeftRadius:"0px"};
-        return (<ul style={mainUl}>
+        return (<ul className="ListFilter"  style={mainUl}>
             {this.state.filterInfo.map((v,k)=><li key={k} style={v.key == 'fromDate'||v.key == 'toDate' ? mainLiDatePicker : mainLi}>
             {/* {v.key == 'fromDate'||v.key == 'toDate'?<div> <label style = {{fontSize:'14px'}}>{v.label}</label>
             <DatePicker maxDate={currentDate} selected={this.state.appliedFilter[v.key]} name={v.key} onSelect = {(date,name)=>{

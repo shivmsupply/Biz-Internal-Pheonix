@@ -9,7 +9,9 @@ import { Link } from "react-router-dom";
 import {Button, Text, Dropdown, Radio} from "../common/FormElements/FormElements";
 import ENV_VARIABLE from "../utils/Environment";
 import { withRouter } from "react-router-dom";
-import '../assets/styles/style.css' 
+import '../assets/styles/listPo.css' 
+
+
 class ViewPOs extends React.Component {	
     constructor(props){
         super(props);
