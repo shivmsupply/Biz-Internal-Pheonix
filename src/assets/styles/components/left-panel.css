@@ -63,7 +63,7 @@
     top: 0;
 }
 .transitionstyle{
-    width: 4%;
+    width: 5%;
     transition: width 1s;
     -webkit-transition: width 1s; /* Safari 3.1 to 6.0 */
 }
@@ -97,3 +97,12 @@
 /* p{
     color:red;
 } */
+.posRelative .Nav-ul {
+    margin-left: 0px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.posRelative .Nav-ul li{
+    margin: 10px 0px;
+}
