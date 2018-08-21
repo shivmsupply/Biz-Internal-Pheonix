@@ -7,6 +7,10 @@ import { Text,Button, Dropdown } from '../common/FormElements/FormElements';
 import * as CommonApi from '../common/CommonApi/commonApi';
 import Loading from '../common/Loading/Loading';
 
+// import '../assets/styles/components/enquiries.css';
+import "../assets/styles/components/viewComparatives.css";
+// import '../assets/styles/components/viewEnquiry.css';
+
 import { connect } from 'react-redux';
 
 class ListEnquiry extends Component {
@@ -366,13 +370,13 @@ class ListEnquiry extends Component {
     currentDate.setDate(currentDate.getDate() + 1);
 
         return (           
-                <div className="mainScreen"> <Loading isLoader={this.state.isLoading} />
+                <div className="mainScreen liNone"> <Loading isLoader={this.state.isLoading} />
                     <div className="pullSearch">
                     <input type="search" name="textField" onKeyPress={this.searchEnquiry} 
                            value={this.state.appliedFilter.textField}className="inputSearch"
                            placeholder="Search by Enquiry Id or PR Number"
                            onChange={this.handleChange} />
-                        <img onClick={this.searchInquiry.bind(this)} src={ENV_VARIABLE.IMAGE_URL + "if_icon-111-search_314478.svg"} width="25px" style={{top:"-10px"}}/>
+                        <img onClick={this.searchInquiry.bind(this)} src={require('../assets/images/if_icon-111-search_314478.svg')} width="25px" style={{top:"-10px"}}/>
                     </div>
                     <div className="applyFilter">
                     
@@ -399,7 +403,7 @@ class ListEnquiry extends Component {
                     <div style={{width:'15%',float:'right',marginTop:'21px'}}>Total no. of Enquiries: <b>{this.state.inquiryCount}</b></div>
                 </div>:null}
                 <div>
-                <table className="compTable">
+                <table className="compTable" style={{width: '100%'}}>
                     <thead>
                         <tr>
                             <th width="15%">Enquiry Id</th>

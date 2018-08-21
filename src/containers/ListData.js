@@ -433,7 +433,7 @@ downloadArchivePos(){
 		<Text name="search" onKeyPress={this.handleKeyPress} change={this.handleChange}  style={{margin:"3% auto 0"}} 
 		placeholder={this.props.placeHolder!= undefined ? this.props.placeHolder : "Search"} value={this.state.appliedFilter.search} className="noBorder"/>
 
-		<img onClick = {this.searchForList} className="searchImage" src={ENV_VARIABLE.IMAGE_URL + "if_icon-111-search_314478.svg"} width="25px" alt="BizLogo"/>
+		<img onClick = {this.searchForList} className="searchImage" src={ require('../assets/images/if_icon-111-search_314478.svg')} width="25px" alt="BizLogo"/>
 		
 		</div>
 		{this.props.tableDataType == "Orders"?<div style={{width:"36%", float:"right"}}><a onClick = {this.downloadArchivePos}>Download Archive POs</a></div>:null}
@@ -446,7 +446,7 @@ downloadArchivePos(){
 		{this.state.tableData != undefined  ?
 		<div className = "pagination-container">
 			<div style={{width:"8%", margin:"0 auto"}}>
-				<span style={{paddingRight:"10px"}} onClick = {() =>{this.pageChange("decrement")}}><img style={{transform: "rotate(180deg)"}} src={ENV_VARIABLE.IMAGE_URL+'arrow-right.png'} alt="increment"/></span><span className = "page-number"> {parseInt(this.state.appliedFilter.pageNumber) +1} </span><span  style={{paddingLeft:"10px"}}onClick = {() =>{this.pageChange("increment")}}><img className="companyLogo" src={ENV_VARIABLE.IMAGE_URL+'arrow-right.png'} alt="increment"/></span>
+				<span style={{paddingRight:"10px"}} onClick = {() =>{this.pageChange("decrement")}}><img style={{transform: "rotate(180deg)"}} src={require('../assets/images/arrow-right.png') } alt="increment"/></span><span className = "page-number"> {parseInt(this.state.appliedFilter.pageNumber) +1} </span><span  style={{paddingLeft:"10px"}}onClick = {() =>{this.pageChange("increment")}}><img className="companyLogo" src={require('../assets/images/arrow-right.png') } alt="increment"/></span>
 			</div>
 			<div style={{float:"left", marginLeft:"1%", marginBottom:"3%",marginTop:"-2%"}}>Total Number of {this.props.tableDataType} : {this.state.responseLength}</div>
 			<div style={{float:"right", marginRight:"1%",width:"15%", marginBottom:"3%",marginTop:"-2%"}}>

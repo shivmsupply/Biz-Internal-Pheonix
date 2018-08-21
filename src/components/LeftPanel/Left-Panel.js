@@ -57,7 +57,7 @@ class LeftNavigation extends Component {
                 )
             )
         return (
-            <div className={slideClass}>
+            <div className={slideClass} style={{    height: '100vh'}}>
                 <div className="profile-section flex">
                   
                    <div className="imgCircle">
