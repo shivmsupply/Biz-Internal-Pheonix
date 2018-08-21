@@ -8,9 +8,10 @@ import { connect } from 'react-redux';
 import '../assets/styles/style.css';
 // import DatePicker from "a-react-datepicker";
 import * as commonActions from "../actions/LoginActions";
-import '../assets/styles/components/enquiries.css';
+
 import "../assets/styles/components/viewComparatives.css";
 import '../assets/styles/components/viewEnquiry.css';
+import './SelectSupplier';
 // import Loading from '../common/Loading/Loading';
 
 class EnquiryDetails extends React.Component{
