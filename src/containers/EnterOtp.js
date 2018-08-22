@@ -8,7 +8,7 @@ import { Text } from '../common/FormElements/FormElements';
 import CompaniesSelection from '../components/CompaniesSelection/CompaniesSelection';
 import {resetFirstLogin, storeSession, storeEnterpriseAndCompany} from '../actions/LoginActions'
 import '../assets/styles/style.css';
-
+import {getEnterprices} from '../actions/FilterActions' 
 const errorMsg = {
     color:'red'
   };
@@ -80,7 +80,8 @@ class EnterOtp extends Component{
             // dispatch();
             this.props.storeSession(true,res.message);
             console.log(this.props.storeSession);
-            this.getInterprise();
+            let dataenterprices = this.props.getEnterprices();
+            console.log("Enterprice data in ======>",dataenterprices)
             this.props.resetFirstLogin()
             
             if(passInfo){
@@ -105,7 +106,7 @@ class EnterOtp extends Component{
       $http.getWithUrl(ENV_VARIABLE.HOST_NAME+'census/phoenix/enterprise/',(res)=>{
           console.log(res.message);
           this.EnterPrise=res.message;
-          this.setState({selectEnterprise:true});
+         // this.setState({selectEnterprise:true});
           
       }) 
   }
@@ -154,7 +155,8 @@ class EnterOtp extends Component{
 }
 const mapStateToProps = (state) =>{
     return{
-        LoginReducer:state.LoginReducer
+        LoginReducer:state.LoginReducer,
+        FilterReducer:state.FilterReducer
     }
 }
 
@@ -168,6 +170,9 @@ const mapDispatchToProps = (dispatch) =>{
         },
         storeEnterpriseAndCompany:(_eL,_cL,_sE,_sC)=>{
             dispatch(storeEnterpriseAndCompany(_eL,_cL,_sE,_sC))
+        },
+        getEnterprices:() =>{
+            dispatch(getEnterprices())
         }
     }
 }

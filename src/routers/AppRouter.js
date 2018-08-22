@@ -2,7 +2,7 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import {getEnterprices,updateEnterpriseId,updateCompanyId,updateProjectId,getCompany,getProject} from '../actions/FilterActions' 
 
 // IMPORT PROJECT REFERENCES
 import * as commonActions from "../actions/LoginActions";
@@ -32,10 +32,16 @@ import SelectSupplier from '../containers/SelectSupplier';
  class AppRouter extends Component {
     constructor(props){
         super(props);
+        var _ur=window.location.pathname.split('/');
+        this.urlEnterpriseId=_ur[2]?_ur[2]:'';
+        this.urlCompanyId=_ur[3]?_ur[3]:'';
+        this.urlProjectId=_ur[4]?_ur[4]:'';
+        
     }
 
     componentDidMount(){
         // if(window.localStorage._isL)this.props.storeSession(true,'');
+        
         
         CommonApi.getSession()
           .then((res)=>{
@@ -44,42 +50,49 @@ import SelectSupplier from '../containers/SelectSupplier';
               return res
         })
         .then(()=>{
-            return CommonApi.getEnterpriseList()
-        }).then((res)=>{
-                this.enterpriseDetail['enterpriseLIst']=res
+            if(this.urlEnterpriseId)this.props.updateEnterpriseId(this.urlEnterpriseId);
+            this.props.getEnterprices();
         }).then(()=>{
-            return CommonApi.getCompanyList(window.location.pathname.split('/')[2])
+            if(this.urlCompanyId){
+              this.props.updateCompanyId(this.urlCompanyId)
+              this.props.getCompany(this.urlEnterpriseId)
+            }
+        }).then(()=>{
+            if(this.urlProjectId){
+                this.props.updateProjectId(this.urlProjectId)
+                this.props.getProject(this.urlEnterpriseId,this.urlCompanyId)
+            }
         }).then((res)=>{
-            let _e=this.enterpriseDetail.enterpriseLIst.message.map(o=>{
-                return {label:o.enterpriseName,value:o.id}
-             })
-             let _c=res.message.map(o=>{
-                return {label:o.companyName,value:o.id}
-             })
-            let  _selectedEnterpriseId=window.location.pathname.split('/')[2];
-            let  _selectedCompanyId=window.location.pathname.split('/')[3]
-            console.log('enterpriseDetail-->',_e,_c);
-            this.props.storeEnterpriseAndCompany(_e,_c,_selectedEnterpriseId,_selectedCompanyId)
+            // let _e=this.enterpriseDetail.enterpriseLIst.message.map(o=>{
+            //     return {label:o.enterpriseName,value:o.id}
+            //  })
+            //  let _c=res.message.map(o=>{
+            //     return {label:o.companyName,value:o.id}
+            //  })
+            // let  _selectedEnterpriseId=window.location.pathname.split('/')[2];
+            // let  _selectedCompanyId=window.location.pathname.split('/')[3]
+            // console.log('enterpriseDetail-->',_e,_c);
+            // this.props.storeEnterpriseAndCompany(_e,_c,_selectedEnterpriseId,_selectedCompanyId)
         })
-        .catch(res=>{
-            
+        .catch(err=>{
+            console.log(err,">>>>>>>>>>>>>error")
     
         })
     
         }
 
     render(){
-        // console.log('dddd',this.props.isLogin);
+       
         return (
-        <Router>
-        <Fragment> 
+            <Router>
+            <Fragment> 
 
             
-            {this.props.isLogin?<LeftPanel /> :null}
+              {this.props.isLogin?<LeftPanel /> :null}
 
                 <div className="mainContent">
                 <Header />
-           <FilterList />
+                {this.props.isLogin?<FilterList />:null}
                     <Switch>
                         {/* <Route exact strict path='/' component={HomePage} /> */}
                         <Route path='/enterOtp' component={EnterOtp}/>
@@ -111,7 +124,8 @@ import SelectSupplier from '../containers/SelectSupplier';
             isLogin:state.storeSession.isLogin,
             loginDetail:state.storeSession.loginDetail,
             breadCrumbs:state.storeState.breadCrumbs,
-            selectedInfo:state.companyDetailReducer
+            selectedInfo:state.companyDetailReducer,
+            FilterReducer:state.FilterReducer
     
          }
     }
@@ -120,9 +134,29 @@ import SelectSupplier from '../containers/SelectSupplier';
         
       return {
          storeSession: (isLogin,loginDetail) => dispatch(commonActions.storeSession(isLogin,loginDetail)),
-         storeEnterpriseAndCompany: (enterpriseList,companyList,selectedEnterpriseId,selectedCompanyId) => dispatch(commonActions.storeEnterpriseAndCompany(enterpriseList,companyList,selectedEnterpriseId,selectedCompanyId)),
+         getEnterprices:() =>{
+                dispatch(getEnterprices())
+         },
+        updateEnterpriseId  :(_eId)=>{
+            dispatch(updateEnterpriseId(_eId))
+        },
+        updateCompanyId  :(_cId)=>{
+            dispatch(updateCompanyId(_cId))
+        },
+        updateProjectId  :(_pId)=>{
+            dispatch(updateProjectId(_pId))
+        },
+        getCompany  :(_eId)=>{
+            dispatch(getCompany(_eId))
+        },
+        getProject  :(_eId,_cId)=>{
+            dispatch(getProject(_eId,_cId))
         }
+          
+     }
     }
+
+    
     export default connect(mapStateToProps,mapDispatchToProps)(AppRouter);
 
 

@@ -19,7 +19,7 @@ class LeftNavigation extends Component {
             ]    
         }        
       this.click=  this.click.bind(this) 
-      debugger;
+      
     }
     handleClick(e){
         let dockStatus = this.state.dockIn;
@@ -27,7 +27,7 @@ class LeftNavigation extends Component {
     }
 
     click(value){
-        debugger;
+       
        this.props.history.push("/"+value+"/"+this.props.selectedInfo.selectedEnterprise+"/"+this.props.selectedInfo.selectedCompany);
     }
     render(){let tabs;
@@ -76,7 +76,7 @@ class LeftNavigation extends Component {
 
 
 const mapStateToProps = state => {
-   debugger;
+  
 	return {
         getAccessControl:state.storeSession.loginDetail.privilege,
         selectedInfo:state.companyDetailReducer
