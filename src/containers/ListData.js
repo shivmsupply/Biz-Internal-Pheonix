@@ -47,7 +47,19 @@ class ListData extends React.Component {
     }
 
     
-	componentWillReceiveProps(){
+	componentWillReceiveProps(nextProps){
+		var stateData = this.state;
+		
+		if(!(stateData.filterService == nextProps.filterService && stateData.serviceName == nextProps.serviceName)){
+		stateData.filterService = nextProps.filterService ;
+		stateData.serviceName =  nextProps.serviceName ;
+		
+		this.setState(stateData);
+		this.getFilteredData();
+		this.setState({"displayType":"open"});
+		}
+		 
+		
 		
 	}
     handleCompanyChange(companyId){

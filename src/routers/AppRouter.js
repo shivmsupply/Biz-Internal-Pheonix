@@ -104,9 +104,9 @@ import SelectSupplier from '../containers/SelectSupplier';
                         <Route path = '/select-supplier/:enterpriseID?/:companyId?/:projectId?/:enquiryId?/' component={SelectSupplier} />
                         <Route path="/createNewPassword" component={CreateNewPassword}/>
                         
-                        <Route path = '/list-po/:enterpriseID?/:companyId?' component={ViewPO} />
+                        <Route path = '/list-po/:enterpriseID?/:companyId?/:projectId?/' component={ViewPO} />
                         
-                        <Route path = '/view-po/:enterpriseID?/:companyId?/:projectId/:poId/:amendmentNumber' component={PODetail} />
+                        <Route path = '/view-po/:enterpriseID?/:companyId?/:projectId?/:poId/:amendmentNumber' component={PODetail} />
                         <Route component={HomePage} />
                     </Switch>
                 </div>
