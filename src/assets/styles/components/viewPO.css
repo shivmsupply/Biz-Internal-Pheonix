@@ -284,3 +284,19 @@ button{
 .poDetails-page ul{
     list-style-type: none !important;
 }
+
+.bgLayout{
+    padding: 15px;
+}
+
+.poDetails-page .flex .profileImg{
+    height: 100px;
+    width:100px;
+}
+
+.poDetails-page .main-div>ul.flex{
+    display: inline-flex;
+}
+.poDetails-page .main-div>ul.flex li{
+    display: inline-block;
+}

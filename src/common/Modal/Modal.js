@@ -5,8 +5,9 @@ class Modal extends Component {
     constructor(props){
         super(props)
     }
+    
     closeModal = (event) => {
-        console.log("event here ==========>", event)
+        // console.log("event here ==========>", event)
         event.stopPropagation();
         document.getElementsByTagName('body')[0].style.overflow="auto";
         this.props.onClose();
