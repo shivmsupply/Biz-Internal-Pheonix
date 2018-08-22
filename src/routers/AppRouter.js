@@ -25,6 +25,7 @@ import EnterOtp from "../containers/EnterOtp"
 import ScanQr from "../containers/ScanQr"
 import ViewEnquiry from "../containers/ViewEnquiry";
 import EnquiryDetails from "../containers/EnquiryDetails";
+import SelectSupplier from '../containers/SelectSupplier';
 
 // COMPONENT
 
@@ -87,6 +88,7 @@ import EnquiryDetails from "../containers/EnquiryDetails";
                         <Route path="/scanQr" component={ScanQr}/> 
                         <Route path="/view-enquiries/:enterpriseId?/:companyId?" component={ViewEnquiry}/> 
                         <Route path="/detail-enquiries/:enterpriseId/:companyId/:projectId/:enquiryId" component={EnquiryDetails} />
+                        <Route path = '/select-supplier/:enterpriseID?/:companyId?/:projectId?/:enquiryId?/' component={SelectSupplier} />
                         <Route path="/createNewPassword" component={CreateNewPassword}/>
                         
                         <Route path = '/list-po/:enterpriseID?/:companyId?' component={ViewPO} />

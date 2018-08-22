@@ -7,6 +7,9 @@
     padding: 20px;
 
 }
+.mainDiv li {
+    list-style-type: none;
+}
 .mainDiv table {
     width: 100%;
     border: 1px solid #b5b5b5;
