@@ -35,7 +35,7 @@ export const updateEnterpriseId=(_eID)=>{
 
 // GET UPDATED COMPANY-ID
 export const updateCompanyId=(_cID)=>{
-    debugger
+   
     return{
         type:types.SELECTED_COMPANY,
         companyId:_cID
@@ -46,7 +46,7 @@ export const updateCompanyId=(_cID)=>{
 
 // GET UPDATED COMPANY-ID
 export const updateProjectId=(_cID)=>{
-    debugger
+    
     return{
         type:types.SELECTED_PROJECT,
         projectId:_cID
