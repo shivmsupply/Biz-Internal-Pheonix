@@ -36,12 +36,11 @@ import SelectSupplier from '../containers/SelectSupplier';
         this.urlEnterpriseId=_ur[2]?_ur[2]:'';
         this.urlCompanyId=_ur[3]?_ur[3]:'';
         this.urlProjectId=_ur[4]?_ur[4]:'';
-        
     }
 
     componentDidMount(){
         // if(window.localStorage._isL)this.props.storeSession(true,'');
-        
+         
         
         CommonApi.getSession()
           .then((res)=>{
@@ -80,7 +79,7 @@ import SelectSupplier from '../containers/SelectSupplier';
         })
     
         }
-
+  
     render(){
        
         return (
@@ -92,7 +91,7 @@ import SelectSupplier from '../containers/SelectSupplier';
 
                 <div className="mainContent">
                 <Header />
-                {this.props.isLogin?<FilterList />:null}
+                <FilterList  />
                     <Switch>
                         {/* <Route exact strict path='/' component={HomePage} /> */}
                         <Route path='/enterOtp' component={EnterOtp}/>
