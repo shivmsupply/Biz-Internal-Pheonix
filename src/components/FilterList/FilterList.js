@@ -12,15 +12,16 @@ class FilterList extends Component{
             GroupDetail:[],
             plantDetail:[]
         }
-       
+      
     }
   handleChange=(d,e)=>{
+      debugger
     this.updateUrl('enterprise',e.data)
     const {dispatch}=this.props;
     dispatch(allAction.updateEnterpriseId(e.data));
     dispatch(allAction.getCompany(e.data));
   }
-
+    
   
   updateUrl=(type,data)=>{
       if(type=='enterprise'){
