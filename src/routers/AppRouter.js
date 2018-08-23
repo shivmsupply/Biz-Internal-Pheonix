@@ -27,6 +27,7 @@ import ViewEnquiry from "../containers/ViewEnquiry";
 import EnquiryDetails from "../containers/EnquiryDetails";
 import SelectSupplier from '../containers/SelectSupplier';
 import ViewShipmentDetail from '../components/Shipment/ViewShipmentDetail'
+import ViewShipment from '../components/Shipment/ViewShipment'
 
 // COMPONENT
 
@@ -95,7 +96,7 @@ import ViewShipmentDetail from '../components/Shipment/ViewShipmentDetail'
                         <Route path="/createNewPassword" component={CreateNewPassword}/>
                         
                         <Route path = '/list-po/:enterpriseID?/:companyId?/:projectId?/' component={ViewPO} />
-                        
+                        <Route path = '/shipment/:enterpriseId?/:companyId?/:projectId?/:ShipmentCompanyId?/:shipmentId?' component={ViewShipment} />
                         <Route path = '/view-po/:enterpriseID?/:companyId?/:projectId?/:poId/:amendmentNumber' component={PODetail} />
                         <Route path = '/shipment-detail/:enterpriseId?/:companyId?/:projectId?/:ShipmentCompanyId?/:shipmentId?' component={ViewShipmentDetail} />
 
