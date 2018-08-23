@@ -171,3 +171,25 @@
     border:1px solid #ccc;
 
 }
+
+.Google-Auth-logo {
+    margin: 0px auto;
+    text-align: center;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.gText h3 {
+    margin: 20px 0px;
+    font-size: 22px;
+    color: #ffba3f;
+    font-weight: 500;
+}
+
+.authG-img img {
+    width: 120px;
+}
+
+.wrap-logincontainer {
+    margin: auto;
+}

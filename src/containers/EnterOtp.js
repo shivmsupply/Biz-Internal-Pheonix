@@ -24,7 +24,8 @@ class EnterOtp extends Component{
             otpError:'required',    
             formSubmitted:false,
             selectEnterprise:false,
-            otpWrong:false
+            otpWrong:false,
+            instructionPupup:false
         }
         this.handleSubmit=this.handleSubmit.bind(this);
         this.handleChange=this.handleChange.bind(this);
@@ -51,7 +52,9 @@ class EnterOtp extends Component{
     let endPoint;
     console.log("login detail", this.props.LoginReducer)
     if(passInfo){
-
+        this.setState({
+            instructionPupup: true
+        })
         jsonBody ={
             newPassword: this.props.LoginReducer.pwdChangeDetail.newPassword,
             oldPassword: this.props.LoginReducer.pwdChangeDetail.oldPassword,
@@ -76,23 +79,14 @@ class EnterOtp extends Component{
           debugger
           if(res.http_code == 200){
             window.localStorage._isL=true;
-            // const {dispatch}=this.props;
-            // dispatch();
             this.props.storeSession(true,res.message);
             console.log(this.props.storeSession);
             this.getInterprise();
             this.props.resetFirstLogin()
             
             if(passInfo){
-                //For First time login REDIRECT here
                 this.props.history.push('/')
             }
-            
-            else{
-                //for rest of time login REDIRECT here
-            }
-            
-            
           }
           if(res.http_code == 403){
             this.setState({otpWrong:true})
@@ -122,31 +116,58 @@ class EnterOtp extends Component{
 
    
     render(){
-        console.log("WHAT WE GET IN OTP ==========>", this.props.LoginReducer)
+       // console.log("WHAT WE GET IN OTP ==========>", this.props.LoginReducer)
         return(
         <div className="loginICont">
             {this.state.selectEnterprise?<CompaniesSelection allEnterprise={this.EnterPrise} storeEnterprise={this.storeEnterprise}/>:null} 
-            <div className="mar-top-20 msLoginBlock">
-                <div className="captionLogin">Enter OTP</div>
-                    <form onSubmit={this.handleSubmit} noValidate>
-                        <div className="msFormGroup">
-                            <Text 
-                                labelWidth="0" 
-                                placeholder="Enter Otp *"  
-                                name="otp" 
-                                className="inputControl"
-                                value={this.state.otp}
-                                validation="otp"
-                                change={this.handleChange}
-                                errorMessage={this.state.otpError}
-                                submitted={this.state.formSubmitted}
-                            />
+            <div className="wrap-logincontainer">
+                
+                {this.state.instructionPupup?
+                    (<div className="Google-Auth-logo">
+                        <div className="authG-img">
+                            <img src={require('../assets/images/google-authenticator.svg')}/>
                         </div>
-                        {this.state.otpWrong==true?<p style={errorMsg}>Please enter the correct OTP</p>:null}
-                        <div className="msFormGroup msGroupBtn">
-                                <button type="submit"  className="msBtn">Submit</button>
+                        <div className="gText">
+                            <h3>Google Authenticator</h3>
                         </div>
-                    </form> 
+                        <div className="gLoader">
+                            <img src={require('../assets/images/loader-three.png')}/>
+                        </div>
+                    </div>):null
+                } 
+
+                <div className="mar-top-20 msLoginBlock">
+                    <div className="captionLogin">Enter OTP</div>
+                        <form onSubmit={this.handleSubmit} noValidate>
+                            <div className="msFormGroup">
+                                <Text 
+                                    labelWidth="0" 
+                                    placeholder="Enter Otp *"  
+                                    name="otp" 
+                                    className="inputControl"
+                                    value={this.state.otp}
+                                    validation="otp"
+                                    change={this.handleChange}
+                                    errorMessage={this.state.otpError}
+                                    submitted={this.state.formSubmitted}
+                                />
+                            </div>
+                            {this.state.otpWrong==true?<p style={errorMsg}>Please enter the correct OTP</p>:null}
+                            <div className="msFormGroup msGroupBtn">
+                                    <button type="submit"  className="msBtn">Submit</button>
+                            </div>
+                        </form> 
+                    </div>
+                    
+                    {this.state.instructionPupup?
+                        ( 
+                        <div className="popPupVideo">
+                            <iframe width="250" height="150" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                            </iframe>
+                        </div>
+                        ):null
+                    } 
+                
                 </div>
             </div>
         )

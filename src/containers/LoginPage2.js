@@ -33,6 +33,7 @@ function newState(){
     this.forgoteSubmitted=false;
     this.invalidUser=false;
 }
+
 class Login extends Component{
     constructor(props){
        super(props);
