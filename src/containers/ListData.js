@@ -1,5 +1,4 @@
 import React from "react";
-
 const queryString = require('query-string');
 import FilterData from './FilterData';
 import $http from "../utils/Http";
@@ -32,8 +31,8 @@ class ListData extends React.Component {
 			responseLength:""
 		}
 		this.getFilteredData = this.getFilteredData.bind(this);
-       this.applyFilter = this.applyFilter.bind(this);
-	   this.resetFilter = this.resetFilter.bind(this);
+        this.applyFilter = this.applyFilter.bind(this);
+	    this.resetFilter = this.resetFilter.bind(this);
 	    this.getTableData = this.getTableData.bind(this);
 		this.pageChange = this.pageChange.bind(this);
 		this.changeDisplayType = this.changeDisplayType.bind(this);
@@ -47,7 +46,19 @@ class ListData extends React.Component {
     }
 
     
-	componentWillReceiveProps(){
+	componentWillReceiveProps(nextProps){
+		var stateData = this.state;
+		
+		if(!(stateData.filterService == nextProps.filterService && stateData.serviceName == nextProps.serviceName)){
+		stateData.filterService = nextProps.filterService ;
+		stateData.serviceName =  nextProps.serviceName ;
+		
+		this.setState(stateData);
+		this.getFilteredData();
+		this.setState({"displayType":"open"});
+		}
+		 
+		
 		
 	}
     handleCompanyChange(companyId){
@@ -70,8 +81,6 @@ class ListData extends React.Component {
 	  
 	}
 	changeDisplayType(data){
-		
-		
 		var stateData = this.state;
 		stateData.displayType = data;
 		stateData.appliedFilter = {"pageNumber":0, "itemsPerPage":10}

@@ -16,9 +16,10 @@ class ViewPOs extends React.Component {
         {displayName:'View Purchase Orders',navigation:'list-po'},
         ]
 		const { dispatch } = this.props;
-        // dispatch(commonActions.setBreadCrumb(_breadCrumb,true));
-		this.state = {
+        var _ur=window.location.pathname.split('/');
 		
+		this.state = {
+		filterServiceName:"",
 		tabs:[{"label":"Open Orders", "value":"open"}, {"label":"Past Orders", "value":"closed"}],
 		tableKeys :[{
 				"headerName" : "PO ID",
@@ -54,23 +55,29 @@ class ViewPOs extends React.Component {
 			breadCrumbs :[{"displayName":"PR2Pay"},{"displayName":"POs", "navigation":"/list-po"}]		
 		}
 		if(this.props.match.params.companyId !== 'ero'){
-		  this.serviceName=ENV_VARIABLE.HOST_NAME+"po2grn/phoenix/po/pos/"+this.props.match.params.companyId
-		  this.filterServiceName=ENV_VARIABLE.HOST_NAME+"po2grn/phoenix/po/filters/"+this.props.match.params.companyId
+		  this.serviceName=ENV_VARIABLE.HOST_NAME+"po2grn/phoenix/po/pos/"+(this.props.match.params.enterpriseID != undefined ? this.props.match.params.enterpriseID +"/"  : "")+(this.props.match.params.companyId != undefined ? this.props.match.params.companyId +"/"  : "")+(this.props.match.params.projectId != undefined ? this.props.match.params.projectId +"/"  : "")
+		  this.filterServiceName=ENV_VARIABLE.HOST_NAME+"po2grn/phoenix/po/filters/"+(this.props.match.params.enterpriseID != undefined ? this.props.match.params.enterpriseID +"/"  : "")+(this.props.match.params.companyId != undefined ? this.props.match.params.companyId +"/"  : "")+(this.props.match.params.projectId != undefined ? this.props.match.params.projectId +"/"  : "")
+		
 		}
-		else{
-			this.serviceName=ENV_VARIABLE.HOST_NAME+"po2grn/phoenix/po/pos";
-			this.filterServiceName=ENV_VARIABLE.HOST_NAME+"po2grn/phoenix/po/filters";
-		}       
+		    
     }   
 
     clickPO(item){
 		this.props.history.push("/view-po/"+item.customerInformation.enterpriseId+"/"+item.customerInformation.companyId+"/"+item.customerInformation.projectId+"/"+item.poId+"/"+item.amendmentNumber);
 	}
 
-    componentWillReceiveProps(){		
+    componentWillReceiveProps(nextProps){
+			
 		if(this.props.sessionInfo!=undefined && this.props.sessionInfo.loginDetail!=undefined&& this.props.sessionInfo.loginDetail != ''){
 			this.setState({loginInfo :this.props.userSelectedCompany});
 		}
+		debugger;
+		this.serviceName=ENV_VARIABLE.HOST_NAME+"po2grn/phoenix/po/pos/"+(this.props.match.params.enterpriseID != undefined ? this.props.match.params.enterpriseID +"/"  : "")+(this.props.match.params.companyId != undefined ? this.props.match.params.companyId +"/"  : "")+(nextProps.match.params.projectId != undefined ? nextProps.match.params.projectId +"/"  : "")
+		this.filterServiceName = ENV_VARIABLE.HOST_NAME+"po2grn/phoenix/po/filters/"+(this.props.match.params.enterpriseID != undefined ? this.props.match.params.enterpriseID +"/"  : "")+(this.props.match.params.companyId != undefined ? this.props.match.params.companyId +"/"  : "")+(nextProps.match.params.projectId != undefined ? nextProps.match.params.projectId +"/"  : "")
+		
+		
+		
+		
 		
 	}
 
@@ -100,7 +107,8 @@ const mapStateToProps = state => {
   return {
     userSelectedCompany:state.companyDetailReducer,
 	States : state.storeState.stateInfo,
-	sessionInfo:state.storeSession.loginDetail
+	sessionInfo:state.storeSession.loginDetail,
+	filterReducer:state.FilterReducer
    }
 }
 export default withRouter(connect(mapStateToProps)(ViewPOs));

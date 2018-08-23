@@ -164,8 +164,6 @@
 }
 
 .profileImg {
-    height: 100%;
-    width:100%;
     background: #fff;
     border-radius: 50%;
     border:1px solid #ccc;
@@ -193,3 +191,14 @@
 .wrap-logincontainer {
     margin: auto;
 }
+
+.poDetails-page .profileImg{
+    display: inline-table !important;
+    margin-top: 30px;
+}
+
+.header .profileImg{
+    height: 100%;
+    width: 100%;
+}
+

@@ -59,26 +59,6 @@ export function saveInputValue(value) {
     }
 }
 
-export function increment() {
-    return {
-        type: types.INCREMENT,
-        data: 1
-    }
-}
-
-export function addCounter(value) {
-    return {
-        type: types.ADD_COUNTER,
-        data: value
-    }
-}
-
-export function decrement(value) {
-    return {
-        type: types.DEC_COUNTER,
-        data: value
-    }
-}
 
 
 export const  changePass = dataChange => {
@@ -100,5 +80,12 @@ export const  loginInfo = loginData => {
 export const resetFirstLogin = () =>{
     return{
         type: types.LOGIN_DATA_RESET,
+    }
+}
+
+export const handleUrl = (data) =>{
+    return{
+        type:types.TAB_URL,
+        url: data
     }
 }

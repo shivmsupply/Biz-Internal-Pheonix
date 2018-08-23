@@ -247,7 +247,7 @@ export class Dropdown extends React.Component{
 					className={(this.props.errorMessage!=undefined&&this.props.errorMessage.length>0&&this.props.submitted?'error-border':'')}
 				>
 					<option value = "" disabled>Select {this.props.placeholder}</option>
-					{this.props.options.map((element, index) => {
+					{this.props.options&&this.props.options.map((element, index) => {
 					return <option key = {index} label = {element.label} value= {element.value}>{element.label}</option>
 				})
 				}

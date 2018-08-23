@@ -1,0 +1,138 @@
+ .usertab{
+    display: flex;
+    margin: 20px 55px auto;
+    width: 90%;
+    border-bottom: 1px solid #b5b5b5;
+}
+.usertab li{
+    cursor: pointer;
+    font-size: 14px;
+    padding:6px;
+    border-top: 2px solid #b5b5b5;
+    border-left: 2px solid #b5b5b5;
+    border-right: 2px solid #b5b5b5;
+    border-top-right-radius:10px;
+    border-top-left-radius: 10px;
+    color: #7e8aa0;
+    width: 165px;
+    text-align: center;
+
+}
+.backTAB{
+    border-top: 2px solid #F6BF5E !important;
+    border-left: 2px solid #F6BF5E !important;
+    border-right: 2px solid #F6BF5E !important;
+    background: #ffeccb !important;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.mar-left-6{
+    margin-left:6px;
+}
+
+/* add users css*/
+.myAccounts{
+    display: flex;
+    list-style-type: none;
+    margin: 25px 0 0 55px;
+}
+.profileImg{
+    height: 100px;
+    width:100px;
+    background: #fff;
+    border-radius: 50%;
+    border:1px solid #b5b5b5;
+
+}
+
+.myAccounts  .profilelogo{
+    height: 100px;
+    width: 100px;
+}
+.margin-li{
+    margin: 10px 0 0 20px;
+}
+.wid-200{
+    width:200px;
+}
+.pad-top-10{
+    padding-top: 10px;
+}
+.mar-10{
+    margin: 10px;
+}
+.mar-top-15{
+    margin-top:15px;
+}
+.designali{
+    display: flex;
+    align-items: center;
+    margin-top: 48px;
+}
+.crtbtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+.commonbtnCss{
+    padding: 5px;
+    border: 2px solid #F6BF5E;
+    outline: none;
+    background: #fff;
+    color: #444;
+    border-radius: 5px;
+    width: 125px;
+    margin: 5px;
+}
+/* Assign project & Roles */
+.projectdiv{
+    width:325px;
+    min-height: 300px;
+    border:1px solid #989898;
+}
+.prohead{
+    display: flex;
+    justify-content: space-between;
+    background: #ccc;
+    align-items: center;
+    height: 40px;
+}
+.pad-10{
+    padding:10px;
+}
+.star{
+    color:red;
+}
+.mar-left-20{
+    margin-left:20px;
+}
+.selectproject{
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #989898;
+}
+.mar-left-30{
+    margin-left:30px;
+}
+.btndiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+.allbtn{
+    width: 100px;
+    padding: 5px;
+    outline: none;
+    background: #fff;
+    border: 2px solid #F6BF5E;
+    margin:5px;
+}
+.red{
+    color: red;
+}
+
+.create-user-page ul.usertab, ul.crtbtn, {
+    list-style-type: none !important;
+}
