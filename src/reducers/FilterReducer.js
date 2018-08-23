@@ -126,6 +126,8 @@ const FilterReducer = (state = initialState, action) => {
             return {
                 ...state,
                 selectedEnterprise:action.enterpriseId,
+                companyOptions:[],
+                projectOptions:[],
                 selectedCompany:'',
                 selectedProject:''
             }
@@ -136,6 +138,7 @@ const FilterReducer = (state = initialState, action) => {
             return {
                 ...state,
                 selectedCompany:action.companyId,
+                projectOptions:[],
                 selectedProject:''
             }
         break

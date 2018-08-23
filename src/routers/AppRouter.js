@@ -49,31 +49,21 @@ import SelectSupplier from '../containers/SelectSupplier';
               return res
         })
         .then(()=>{
-            if(this.urlEnterpriseId)this.props.updateEnterpriseId(this.urlEnterpriseId);
+            if(this.urlEnterpriseId){
+            this.props.updateEnterpriseId(this.urlEnterpriseId);
+            this.props.getCompany(this.urlEnterpriseId)
+        }
             this.props.getEnterprices();
         }).then(()=>{
             if(this.urlCompanyId){
               this.props.updateCompanyId(this.urlCompanyId)
-              this.props.getCompany(this.urlEnterpriseId)
+              this.props.getProject(this.urlEnterpriseId,this.urlCompanyId)
             }
         }).then(()=>{
             if(this.urlProjectId){
                 this.props.updateProjectId(this.urlProjectId)
-                this.props.getProject(this.urlEnterpriseId,this.urlCompanyId)
             }
-        }).then((res)=>{
-            // let _e=this.enterpriseDetail.enterpriseLIst.message.map(o=>{
-            //     return {label:o.enterpriseName,value:o.id}
-            //  })
-            //  let _c=res.message.map(o=>{
-            //     return {label:o.companyName,value:o.id}
-            //  })
-            // let  _selectedEnterpriseId=window.location.pathname.split('/')[2];
-            // let  _selectedCompanyId=window.location.pathname.split('/')[3]
-            // console.log('enterpriseDetail-->',_e,_c);
-            // this.props.storeEnterpriseAndCompany(_e,_c,_selectedEnterpriseId,_selectedCompanyId)
-        })
-        .catch(err=>{
+        }).catch(err=>{
             console.log(err,">>>>>>>>>>>>>error")
     
         })
@@ -91,7 +81,7 @@ import SelectSupplier from '../containers/SelectSupplier';
 
                 <div className="mainContent">
                 <Header />
-                <FilterList  />
+                {this.props.isLogin?<FilterList  />:null}
                     <Switch>
                         {/* <Route exact strict path='/' component={HomePage} /> */}
                         <Route path='/enterOtp' component={EnterOtp}/>
