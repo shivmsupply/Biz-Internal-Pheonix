@@ -1,0 +1,283 @@
+
+.container{
+    margin:0 auto;
+    padding: 0px 0px 20px 0px;
+	max-height: 790px;
+    overflow-y: auto;
+	border:1px solid #b5b5b5;
+	margin:10px;	
+    min-height: 700px; 
+	padding: 10px;
+}
+ .container label{
+    color: #7e8aa0; 
+    /* margin-right: 4px; */
+}
+.wid100{
+    width:100%;
+}
+.wid40{
+    width:40%;
+}
+.wid50{
+    width:50%;
+}
+.wid80{
+    width:80%;
+}
+.moveLeft{
+    float: left;
+}
+.moveRight{
+    float: right;
+}
+.container span{
+    color: #7e8aa0; 
+    font-weight: bold;
+} 
+.topMargin{
+    margin-top:20px
+}
+.displayFlex{
+    display: flex;
+    justify-content:  space-between;/*justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;*/
+    padding: 10px;
+    border: 1px solid #b5b5b5;
+    background: #f7f7f7;
+    /* margin-top: 20px; */;
+    flex-wrap: wrap;
+}
+.width60{
+    width: 60%;
+}
+.width30{
+    width: 26%;
+}
+.accordionContainer{
+    padding: 10px;
+    /* margin-bottom: 20px; */
+    display: flex;
+    justify-content:  space-between;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+.tableDiv{
+    display: flex;
+    /* height:250px; */
+    width: 100%;
+    /* margin-bottom: 20px; */
+    overflow: auto;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+.tableDiv table{
+    border-collapse: collapse;
+    table-layout: fixed;
+    width:100%;
+}
+.tableDiv table thead th{
+    background-color: #f2f2f2;
+    color: #7e8aa0;
+}
+.detailWrap > p{
+margin-bottom: 10px;
+}
+.chargesInfo{
+    width:70%;
+    float:right;
+}
+.grnButton, .remarkBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+}
+.totalInfo{
+    display: flex;
+    padding: 10px;
+    justify-content: flex-end;
+}
+.grnButton button{
+    width: 150px;
+    padding: 7px;
+    border: 2px solid #f6bf5e;
+    background: #fff;
+    outline: none;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+}
+.fileContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+
+}
+.remarkPopUp{
+    width: 60%;
+    margin: 0 auto;
+}
+
+.remarkPopUp  p{
+    width:100%;
+    float: left;
+    margin: 5px;
+}
+.remarkPopUp  p:nth-child(1){
+    margin-top: 20px;
+}
+.remarkPopUp  p label{
+    width: auto;
+    float: left;
+}
+
+.remarkPopUp textarea{
+    height: 50px;
+    /* margin-top: 10px; */
+}
+.grnCharges{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.hadingSpan{
+    font-weight: bold;
+    color: #363c48 !important;
+}
+.accordionImg{
+    float: right;
+    width: 22px;
+    height: 14px;
+}
+.errorMsgHide span{
+    display: none;
+}
+.borderRed{
+    border: 2px solid #444 !important;
+}
+.remarkBtn button{
+    width: 110px;
+    padding: 5px;
+    border: 2px solid #f6bf5e;
+    background: #fff;
+    outline: none;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+}
+.dateError input{
+    border: 1px solid #bd4931 !important;
+}
+.errorInfo{
+    color:#bd4931;
+}
+
+.rotateImg {
+  -webkit-transform: rotate(-180deg);/* Safari */
+   -moz-transform: rotate(-180deg); /* Firefox */
+    -ms-transform: rotate(-180deg); /* IE */
+   -o-transform: rotate(-180deg);/* Opera */
+}
+
+
+.width10{
+    width: 10%;
+}
+.chargesDiv{
+    width: 36%;
+    float: right;
+    padding: 5px;
+}
+.totalDiv{
+    padding: 8px;
+    background: #f2f2f2;
+    text-align: right;
+    border: 1px solid #f7f7f7;
+
+}
+
+.chargesDiv p{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border: 1px solid #f7f7f7;
+}
+.fileWrap{
+    border: 1px solid #f2f2f2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+    padding: 2px;
+    position: relative;
+}
+.crossimg{
+    position: absolute;
+    right: 5px;
+    top: 6px;
+    cursor: pointer;
+}
+.fileDiv{
+    position: relative;
+    padding: 5px;
+    border: 1px solid #f2f2f2;
+    margin-bottom: 10px;
+}
+.fileWrap2{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+}
+.extraInfo{width:30%}
+.extraInfo label{
+    width: 50%;
+    float: left;
+}
+.extraInfo p{
+    width: 100%;
+    float: left;
+}
+.extraInfo span{
+    width: 50%;
+    text-align: right;
+    float: left;
+}
+.okbtn{
+    cursor: pointer;
+    padding: 5px;
+    margin-top: 20px;
+    width: 115px;
+    background: #fff;
+    outline: none;
+    border: 2px solid #f6bf5e;
+    border-radius: 5px;
+}
+.mar-top-10{
+    margin-top:10px !important;
+    color: #7e8aa0;
+    font-size: 14px;
+}
+.grnNumber{
+    font-weight: bold;
+}
+
+.remarkPopUp  p span{
+
+    float: left;
+    text-align: left;
+    margin-left: 5px;
+}
+.mandSymbol{
+    color: #bd4931 !important;
+    margin: 2px;
+}
+.textRight{
+    text-align: right;
+}
+.remarkSpan{
+    word-wrap: break-word;
+    width: 30%;
+    word-break: break-word;
+    overflow: hidden;
+    display: block;
+}
