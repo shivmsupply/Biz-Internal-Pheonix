@@ -27,8 +27,8 @@ class LeftNavigation extends Component {
     }
 
     click(value){
-       
-       this.props.history.push("/"+value+"/"+this.props.selectedInfo.selectedEnterprise+"/"+this.props.selectedInfo.selectedCompany);
+       debugger;
+       this.props.history.push("/"+value+"/"+(this.props.filterReducer.selectedEnterprise!=undefined&&this.props.filterReducer.selectedEnterprise!=''?this.props.filterReducer.selectedEnterprise+"/" : "")+(this.props.filterReducer.selectedEnterprise!=undefined&&this.props.filterReducer.selectedCompany!=''?this.props.filterReducer.selectedCompany+"/" : "")+(this.props.filterReducer.selectedEnterprise!=undefined&&this.props.filterReducer.selectedProject!=''?this.props.filterReducer.selectedProject+"/" : ""))
     }
     render(){let tabs;
               
@@ -79,7 +79,8 @@ const mapStateToProps = state => {
   
 	return {
         getAccessControl:state.storeSession.loginDetail.privilege,
-        selectedInfo:state.companyDetailReducer
+        selectedInfo:state.companyDetailReducer,
+        filterReducer:state.FilterReducer
      }
 }
 
