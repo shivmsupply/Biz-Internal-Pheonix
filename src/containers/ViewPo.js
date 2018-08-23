@@ -71,7 +71,7 @@ class ViewPOs extends React.Component {
 		if(this.props.sessionInfo!=undefined && this.props.sessionInfo.loginDetail!=undefined&& this.props.sessionInfo.loginDetail != ''){
 			this.setState({loginInfo :this.props.userSelectedCompany});
 		}
-		debugger;
+		
 		this.serviceName=ENV_VARIABLE.HOST_NAME+"po2grn/phoenix/po/pos/"+(this.props.match.params.enterpriseID != undefined ? this.props.match.params.enterpriseID +"/"  : "")+(this.props.match.params.companyId != undefined ? this.props.match.params.companyId +"/"  : "")+(nextProps.match.params.projectId != undefined ? nextProps.match.params.projectId +"/"  : "")
 		this.filterServiceName = ENV_VARIABLE.HOST_NAME+"po2grn/phoenix/po/filters/"+(this.props.match.params.enterpriseID != undefined ? this.props.match.params.enterpriseID +"/"  : "")+(this.props.match.params.companyId != undefined ? this.props.match.params.companyId +"/"  : "")+(nextProps.match.params.projectId != undefined ? nextProps.match.params.projectId +"/"  : "")
 		

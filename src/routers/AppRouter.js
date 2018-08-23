@@ -37,12 +37,11 @@ import CreateUsers from '../containers/CreateUsers'
         this.urlEnterpriseId=_ur[2]?_ur[2]:'';
         this.urlCompanyId=_ur[3]?_ur[3]:'';
         this.urlProjectId=_ur[4]?_ur[4]:'';
-        
     }
 
     componentDidMount(){
         // if(window.localStorage._isL)this.props.storeSession(true,'');
-        
+         
         
         CommonApi.getSession()
           .then((res)=>{
@@ -51,37 +50,27 @@ import CreateUsers from '../containers/CreateUsers'
               return res
         })
         .then(()=>{
-            if(this.urlEnterpriseId)this.props.updateEnterpriseId(this.urlEnterpriseId);
+            if(this.urlEnterpriseId){
+            this.props.updateEnterpriseId(this.urlEnterpriseId);
+            this.props.getCompany(this.urlEnterpriseId)
+        }
             this.props.getEnterprices();
         }).then(()=>{
             if(this.urlCompanyId){
               this.props.updateCompanyId(this.urlCompanyId)
-              this.props.getCompany(this.urlEnterpriseId)
+              this.props.getProject(this.urlEnterpriseId,this.urlCompanyId)
             }
         }).then(()=>{
             if(this.urlProjectId){
                 this.props.updateProjectId(this.urlProjectId)
-                this.props.getProject(this.urlEnterpriseId,this.urlCompanyId)
             }
-        }).then((res)=>{
-            // let _e=this.enterpriseDetail.enterpriseLIst.message.map(o=>{
-            //     return {label:o.enterpriseName,value:o.id}
-            //  })
-            //  let _c=res.message.map(o=>{
-            //     return {label:o.companyName,value:o.id}
-            //  })
-            // let  _selectedEnterpriseId=window.location.pathname.split('/')[2];
-            // let  _selectedCompanyId=window.location.pathname.split('/')[3]
-            // console.log('enterpriseDetail-->',_e,_c);
-            // this.props.storeEnterpriseAndCompany(_e,_c,_selectedEnterpriseId,_selectedCompanyId)
-        })
-        .catch(err=>{
+        }).catch(err=>{
             console.log(err,">>>>>>>>>>>>>error")
     
         })
     
         }
-
+  
     render(){
        
         return (
@@ -92,7 +81,7 @@ import CreateUsers from '../containers/CreateUsers'
 
                 <div className="mainContent">
                 <Header />
-                {this.props.isLogin?<FilterList />:null}
+                {this.props.isLogin?<FilterList  />:null}
 
                     <Switch>
                         {/* <Route exact strict path='/' component={HomePage} /> */}

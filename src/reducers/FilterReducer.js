@@ -21,8 +21,6 @@ const FilterReducer = (state = initialState, action) => {
         case types.GET_ENTERPRICE_LIST+'_PENDING':
             return {
                 ...state,
-                companyOptions:[],
-                projectOptions:[],
                 enterpriseOptions: [],
                 fetching: true,
                 fetched: false,
@@ -33,8 +31,6 @@ const FilterReducer = (state = initialState, action) => {
         case types.GET_ENTERPRICE_LIST+'_FULFILLED':
             return {
                 ...state,
-                companyOptions:[],
-                projectOptions:[],
                 enterpriseOptions: action.payload,
                 fetching: false,
                 fetched: true,
@@ -45,8 +41,6 @@ const FilterReducer = (state = initialState, action) => {
         case types.GET_ENTERPRICE_LIST+'_REJECTED':
             return {
                 ...state,
-                companyOptions:[],
-                projectOptions:[],
                 enterpriseOptions: action.payload,
                 zipCodes: [],
                 fetching: false,
@@ -60,7 +54,6 @@ const FilterReducer = (state = initialState, action) => {
             return {
                 ...state,
                 companyOptions: [],
-                projectOptions:[],
                 fetching: true,
                 fetched: false,
                 failed: false
@@ -71,7 +64,6 @@ const FilterReducer = (state = initialState, action) => {
             return {
                 ...state,
                 companyOptions: action.payload,
-                projectOptions:[],
                 fetching: false,
                 fetched: true,
                 failed: false
@@ -82,7 +74,6 @@ const FilterReducer = (state = initialState, action) => {
             return {
                 ...state,
                 companyOptions: action.payload,
-                projectOptions:[],
                 zipCodes: [],
                 fetching: false,
                 fetched: false,
@@ -130,6 +121,8 @@ const FilterReducer = (state = initialState, action) => {
             return {
                 ...state,
                 selectedEnterprise:action.enterpriseId,
+                companyOptions:[],
+                projectOptions:[],
                 selectedCompany:'',
                 selectedProject:''
             }
@@ -140,6 +133,7 @@ const FilterReducer = (state = initialState, action) => {
             return {
                 ...state,
                 selectedCompany:action.companyId,
+                projectOptions:[],
                 selectedProject:''
             }
         break
