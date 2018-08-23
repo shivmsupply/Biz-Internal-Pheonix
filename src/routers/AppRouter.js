@@ -88,7 +88,7 @@ import SelectSupplier from '../containers/SelectSupplier';
                         <Route path='/login' component={LoginPage} />
                         <Route exact path='/' component={LoginPage2} />
                         <Route path="/scanQr" component={ScanQr}/> 
-                        <Route path="/view-enquiries/:enterpriseId?/:companyId?" component={ViewEnquiry}/> 
+                        <Route path="/view-enquiries/:enterpriseId?/:companyId?/:projectId?" component={ViewEnquiry}/> 
                         <Route path="/detail-enquiries/:enterpriseId/:companyId/:projectId/:enquiryId" component={EnquiryDetails} />
                         <Route path = '/select-supplier/:enterpriseID?/:companyId?/:projectId?/:enquiryId?/' component={SelectSupplier} />
                         <Route path="/createNewPassword" component={CreateNewPassword}/>

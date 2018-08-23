@@ -7,6 +7,7 @@ import * as CommonApi from '../common/CommonApi/commonApi';
 import { connect } from 'react-redux';
 import '../assets/styles/style.css';
 // import DatePicker from "a-react-datepicker";
+import DatePicker from "a-react-datepicker";
 import * as commonActions from "../actions/LoginActions";
 
 import "../assets/styles/components/viewComparatives.css";
@@ -97,17 +98,17 @@ class EnquiryDetails extends React.Component{
         var d = inputDate.getTime();
         return d;
     }
-    // updateDate() {
-    //     let companyId = this.props.match.params.companyId;
-    //     let enquiryId = this.props.match.params.enquiryId;
-    //     let dateBody = {
-    //         "respondByDate":1531180800000,
-    //         "deliveryByDate":1531180800
-    //     }
-    //     $http.putWithUrl(ENV_VARIABLE.HOST_NAME+"rfq/inquiry/" + companyId+"/" + enquiryId +"/date",(dateBody),(res)=>{  
+    updateDate() {
+        let companyId = this.props.match.params.companyId;
+        let enquiryId = this.props.match.params.enquiryId;
+        let dateBody = {
+            "respondByDate":1531180800000,
+            "deliveryByDate":1531180800
+        }
+        $http.putWithUrl(ENV_VARIABLE.HOST_NAME+"rfq/inquiry/" + companyId+"/" + enquiryId +"/date",(dateBody),(res)=>{  
 
-    //     })
-    // }
+        })
+    }
 
     getSupplierInfo() {
         // api.stg.msupply.biz/rfq/phoenix/fetchInquiryDetailsForFloat/EQ-0003-1808-0082
@@ -201,7 +202,7 @@ class EnquiryDetails extends React.Component{
                                 }):null }
                             </ul>
                             <div className="width20">
-                                 {/* <ul>
+                                  <ul>
                                     <li>
                                         <label>Enquiry Validity: </label>
                                         
@@ -232,7 +233,7 @@ class EnquiryDetails extends React.Component{
                                     
                                     </li>
                                     
-                                </ul>  */}
+                                </ul>  
                             </div>
                         </div>
                     </div> :null}
