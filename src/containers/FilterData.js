@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import {Button, Text, Dropdown, Radio} from "../common/FormElements/FormElements";
-// import DatePicker from "a-react-datepicker";
+ import DatePicker from "a-react-datepicker";
 import {withRouter} from 'react-router-dom';
 const queryString = require('query-string');
 import $http from "../utils/Http";
@@ -99,12 +99,12 @@ import $http from "../utils/Http";
         var resetBtn={background:'#fff',border:'1px solid #b5b5b5',borderTopLeftRadius:"0px",borderBottomLeftRadius:"0px"};
         return (<ul className="ListFilter"  style={mainUl}>
             {this.state.filterInfo.map((v,k)=><li key={k} style={v.key == 'fromDate'||v.key == 'toDate' ? mainLiDatePicker : mainLi}>
-            {/* {v.key == 'fromDate'||v.key == 'toDate'?<div> <label style = {{fontSize:'14px'}}>{v.label}</label>
+             {v.key == 'fromDate'||v.key == 'toDate'?<div> <label style = {{fontSize:'14px'}}>{v.label}</label>
             <DatePicker maxDate={currentDate} selected={this.state.appliedFilter[v.key]} name={v.key} onSelect = {(date,name)=>{
                  var submitData = this.state.appliedFilter;
                  submitData[name] = this.convertDate(date);
                  this.setState({appliedFilter:submitData});
-            }}/></div>:null}  */}
+            }}/></div>:null}  
            {v.key != 'toDate'&&v.key != 'fromDate'?<Dropdown  name={v.key} label={v.label} value ={this.state.appliedFilter[v.key]}  change={this.handleChange} disabled = {v.filterDisabled} options={v.value}  />:null}
            </li>)}
           
