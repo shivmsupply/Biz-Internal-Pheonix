@@ -96,7 +96,7 @@ import ViewShipment from '../components/Shipment/ViewShipment'
                         <Route path="/createNewPassword" component={CreateNewPassword}/>
                         
                         <Route path = '/list-po/:enterpriseID?/:companyId?/:projectId?/' component={ViewPO} />
-                        <Route path = '/shipment/:enterpriseId?/:companyId?/:projectId?/:ShipmentCompanyId?/:shipmentId?' component={ViewShipment} />
+                        <Route path = '/shipment/:enterpriseId?/:companyId?/:projectId?/' component={ViewShipment} />
                         <Route path = '/view-po/:enterpriseID?/:companyId?/:projectId?/:poId/:amendmentNumber' component={PODetail} />
                         <Route path = '/shipment-detail/:enterpriseId?/:companyId?/:projectId?/:ShipmentCompanyId?/:shipmentId?' component={ViewShipmentDetail} />
 

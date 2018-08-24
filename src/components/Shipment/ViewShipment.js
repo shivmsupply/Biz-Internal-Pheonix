@@ -30,6 +30,7 @@ import ListData from "../../containers/ListData"
         {displayName:'Shipment & GRN',navigation:'shipment'},
         ]
 		const { dispatch } = this.props;
+		
         dispatch(commonActions.setBreadCrumb(_breadCrumb,true));
         this.state = {
 		uniqueFilters : {
@@ -81,15 +82,11 @@ import ListData from "../../containers/ListData"
 		breadCrumbs :[{"displayName":"PR2Pay","link":"/"},{"displayName":"Shipment & GRN", "link":"shipment"}]
 		}
 		if(this.props.match.params.companyId !== 'ero'){
-		  this.serviceName=ENV_VARIABLE.HOST_NAME+"po2grn/shipment/shipments/"+this.props.match.params.companyId
-		  this.filterServiceName=ENV_VARIABLE.HOST_NAME+"po2grn/shipment/filters/"+this.props.match.params.companyId
+		  this.serviceName=ENV_VARIABLE.HOST_NAME+"po2grn/phoenix/shipment/shipments/"+(this.props.match.params.enterpriseID != undefined ? this.props.match.params.enterpriseID +"/"  : "")+(this.props.match.params.companyId != undefined ? this.props.match.params.companyId +"/"  : "")+(this.props.match.params.projectId != undefined ? this.props.match.params.projectId +"/"  : "")
+		  this.filterServiceName=ENV_VARIABLE.HOST_NAME+"po2grn/phoenix/shipment/filters/"+(this.props.match.params.enterpriseID != undefined ? this.props.match.params.enterpriseID +"/"  : "")+(this.props.match.params.companyId != undefined ? this.props.match.params.companyId +"/"  : "")+(this.props.match.params.projectId != undefined ? this.props.match.params.projectId +"/"  : "")
 		 
 		}
-		else{
-			this.serviceName=ENV_VARIABLE.HOST_NAME+"po2grn/shipment/shipments";
-			this.filterServiceName=ENV_VARIABLE.HOST_NAME+"po2grn/shipment/filters";
-			 
-		}
+		
 		
 		
         
@@ -113,7 +110,10 @@ import ListData from "../../containers/ListData"
 		}
 	
 	}
-	componentWillReceiveProps(){
+	componentWillReceiveProps(nextProps){
+		
+		this.serviceName=ENV_VARIABLE.HOST_NAME+"po2grn/phoenix/shipment/shipments/"+(this.props.filterReducer.selectedEnterprise != undefined && this.props.filterReducer.selectedEnterprise!='' ? this.props.filterReducer.selectedEnterprise +"/"  : "")+(this.props.match.params.companyId != undefined ? this.props.match.params.companyId +"/"  : "")+(nextProps.match.params.projectId != undefined ? nextProps.match.params.projectId +"/"  : "")
+		this.filterServiceName = ENV_VARIABLE.HOST_NAME+"po2grn/phoenix/shipment/filters/"+(this.props.filterReducer.selectedEnterprise != undefined && this.props.filterReducer.selectedEnterprise!='' ? this.props.filterReducer.selectedEnterprise +"/"  : "")+(this.props.match.params.companyId != undefined ? this.props.match.params.companyId +"/"  : "")+(nextProps.match.params.projectId != undefined ? nextProps.match.params.projectId +"/"  : "")
 		
 		
 		
@@ -136,7 +136,8 @@ const mapStateToProps = state => {
   return {
     userSelectedCompany:state.companyDetailReducer,
 	States : state.storeState.stateInfo,
-	sessionInfo:state.storeSession.loginDetail
+	sessionInfo:state.storeSession.loginDetail,
+	filterReducer:state.FilterReducer
    }
 }
 export default withRouter(connect(mapStateToProps)(ViewShipment));
