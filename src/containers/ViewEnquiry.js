@@ -372,7 +372,7 @@ class ListEnquiry extends Component {
         this.apiCallFunc(this.state.tabActiveName, this.state.currentStatus);
       }
       eroSaved(status,key) {
-        //   //debugger
+       debugger
           if(this.props.match.params.companyId === 'ero' && status === 'Saved') {
             return;
           }
@@ -381,7 +381,7 @@ class ListEnquiry extends Component {
           }
           else {
               debugger
-            this.props.history.push('/detail-enquiries/'+this.props.match.params.enterpriseId+"/"+key.associatedCompanyId +"/"+key.associatedProjectId+ '/' + key.id)
+            this.props.history.push('/detail-enquiries/'+key.enterpriseId+"/"+key.associatedCompanyId +"/"+key.associatedProjectId+ '/' + key.id)
           }
       }
     render() {

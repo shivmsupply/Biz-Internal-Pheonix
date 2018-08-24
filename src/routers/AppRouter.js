@@ -83,7 +83,7 @@ import ViewShipment from '../components/Shipment/ViewShipment'
 
                 <div className="mainContent">
                 <Header />
-                {this.props.isLogin?<FilterList  />:null}
+                {this.props.isLogin&&this.props.showHeaderFilter?<FilterList  />:null}
                     <Switch>
                         {/* <Route exact strict path='/' component={HomePage} /> */}
                         <Route path='/enterOtp' component={EnterOtp}/>
@@ -112,11 +112,12 @@ import ViewShipment from '../components/Shipment/ViewShipment'
     }
 
     const mapStateToProps = state => {
-	
+	     debugger
         return {
             isLogin:state.storeSession.isLogin,
             loginDetail:state.storeSession.loginDetail,
             breadCrumbs:state.storeState.breadCrumbs,
+            showHeaderFilter:state.storeState.isDetail,
             selectedInfo:state.companyDetailReducer,
             FilterReducer:state.FilterReducer
     
