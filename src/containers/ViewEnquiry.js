@@ -6,7 +6,7 @@ import ENV_VARIABLE from "../utils/Environment";
 import { Text,Button, Dropdown } from '../common/FormElements/FormElements';
 import * as CommonApi from '../common/CommonApi/commonApi';
 import Loading from '../common/Loading/Loading';
-
+import DatePicker from "a-react-datepicker";
 // import '../assets/styles/components/enquiries.css';
 import "../assets/styles/components/viewComparatives.css";
 // import '../assets/styles/components/viewEnquiry.css';
@@ -37,8 +37,10 @@ class ListEnquiry extends Component {
             totalEnquiries:0,
             pageNumber:0,
             dateError:"",
-            currentStatus:["Submitted","New","ComparativeReceived"]
+            currentStatus:["Submitted","New","ComparativeReceived"],
+            urlState : this.props.match.params
         }   
+        console.log(this.state.urlState)
         window.scrollTo(0, 0);
         this.handleChangeDate = this.handleChangeDate.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -52,6 +54,15 @@ class ListEnquiry extends Component {
          this.incre = this.incre.bind(this);
         this.decre = this.decre.bind(this);
     }
+
+    // componentWillReceiveProps(nextProps){
+    //     debugger
+    //     let stateTemp = this.state.urlState
+    //     if(stateTemp.enterpriseId!=nextProps.filetrDetail.selectedEnterprise||stateTemp.companyId!=nextProps.filetrDetail.selectedCompany||stateTemp.projectId!=nextProps.filetrDetail.selectedProject){
+    //         this.apiCallFunc("open",this.state.inquiryCurrentStatus);
+    //     }
+    //     // debugger
+    // }
 
 
     apiCallFunc(val,value) {
@@ -82,8 +93,12 @@ class ListEnquiry extends Component {
             firstHalfUrl = "rfq/phoenix/enterprise/"+this.props.match.params.enterpriseId +'/company/'+ this.props.match.params.companyId+'/inquiries?itemsPerPage='+this.state.itemsPerPage+"&pageNumber="+this.state.pageNumber
         }
         else{
-            let companyId = this.props.match.params.companyId; 
-            firstHalfUrl = "rfq/phoenix/enterprise/"+this.props.match.params.enterpriseId +'/company/'+ this.props.match.params.companyId+'/inquiries/?itemsPerPage='+this.state.itemsPerPage+"&pageNumber="+this.state.pageNumber
+            let companyID = this.props.match.params.companyId
+            let enterpriseId = this.props.match.params.enterpriseId;
+            let projectId = this.props.match.params.projectId; 
+            debugger
+            firstHalfUrl = "rfq/phoenix/enterprise"+(enterpriseId ?'/'+enterpriseId:"") +'/company'+ (companyID ? '/'+companyID:"") +'/project'+(projectId ? '/'+projectId:"")+'/inquiries/?itemsPerPage='+this.state.itemsPerPage+"&pageNumber="+this.state.pageNumber
+            debugger
         }
         
         // var filterUrl = new URLSearchParams(this.props.location.search);
@@ -151,6 +166,9 @@ class ListEnquiry extends Component {
         let statusArr =[];
         let projectArray = [];
         let companyId='';
+        let companyID = this.props.match.params.companyId
+        let enterpriseId = this.props.match.params.enterpriseId;
+        let projectId = this.props.match.params.projectId; 
         if(this.props.match.params.companyId==='ero'){
              companyId = "";
         }
@@ -158,7 +176,7 @@ class ListEnquiry extends Component {
              companyId = this.props.match.params.companyId;}
         this.setState({isLoading:true})
         // api.stg.msupply.biz/rfq/phoenix/enterprise/:enterpriseId/company/:companyId/filters
-        $http.getWithUrl(ENV_VARIABLE.HOST_NAME+'rfq/phoenix/enterprise/'+this.props.match.params.enterpriseId+'/company/'+companyId+'/filters', (res)=>{
+        $http.getWithUrl(ENV_VARIABLE.HOST_NAME+'rfq/phoenix/enterprise'+(enterpriseId ?'/'+enterpriseId:"") +'/company'+ (companyID ? '/'+companyID:"") +'/project'+(projectId ? '/'+projectId:"")+'/filters', (res)=>{
             
             let filterData = res.message;
             filterData.usersInfo.map((key)=>{
@@ -190,6 +208,7 @@ class ListEnquiry extends Component {
     }
 
     handleChangeDate(item,name) {
+        debugger
         CommonApi.convertFromDate(item);
         var subData = this.state.appliedFilter;
         if(name =="fromDate"){
@@ -211,7 +230,7 @@ class ListEnquiry extends Component {
     }
 
     handleChange(e) {
-        // //debugger;
+        debugger;
         let databody=this.state.appliedFilter;
         // if(typeof(databody.fromDate) == "object"){
         //     databody.fromDate=new Date(databody.fromDate)
@@ -353,7 +372,7 @@ class ListEnquiry extends Component {
         this.apiCallFunc(this.state.tabActiveName, this.state.currentStatus);
       }
       eroSaved(status,key) {
-        //   //debugger
+       debugger
           if(this.props.match.params.companyId === 'ero' && status === 'Saved') {
             return;
           }
@@ -362,7 +381,7 @@ class ListEnquiry extends Component {
           }
           else {
               debugger
-            this.props.history.push('/detail-enquiries/'+this.props.match.params.enterpriseId+"/"+key.associatedCompanyId +"/"+key.associatedProjectId+ '/' + key.id)
+            this.props.history.push('/detail-enquiries/'+key.enterpriseId+"/"+key.associatedCompanyId +"/"+key.associatedProjectId+ '/' + key.id)
           }
       }
     render() {
@@ -385,9 +404,9 @@ class ListEnquiry extends Component {
                         {/* <li><Dropdown name="projectId" placeholder="Project" change={this.handleChange} options={this.state.projectList} value={this.state.appliedFilter.projectId} /></li> */}
                         <li><Dropdown name="inquiryStatus" placeholder="Status" change={this.handleChange} options={this.state.statusData} value={this.state.appliedFilter.inquiryStatus} /></li>
                         <li><Dropdown name="userId" placeholder="User" change={this.handleChange} options={this.state.userList} value={this.state.appliedFilter.userId} /></li>
-                        {/* <li><DatePicker name="fromDate" maxDate={currentDate} selected={this.state.appliedFilter.fromDate} label="From Date" onSelect={this.handleChangeDate} /></li> */}
+                        <li><DatePicker name="fromDate" maxDate={currentDate} selected={this.state.appliedFilter.fromDate} label="From Date" onSelect={this.handleChangeDate} /></li>
 
-                        {/* <li><DatePicker name="toDate"maxDate={currentDate} selected={this.state.appliedFilter.toDate} label="To Date" onSelect={this.handleChangeDate} /></li> */}
+                        <li><DatePicker name="toDate"maxDate={currentDate} selected={this.state.appliedFilter.toDate} label="To Date" onSelect={this.handleChangeDate} /></li>
 
                         <li><button className="applyBtn button" onClick={()=>this.applyFilters("filter")}>Apply</button>
                         <button  className="resetBtn button" onClick={this.resetBtn}>Reset</button></li>
@@ -464,5 +483,13 @@ class ListEnquiry extends Component {
         )
     }
 }
-export default  connect(null)(ListEnquiry);
+
+const mapStateToProps= state=>{
+    debugger
+    return {
+       filetrDetail:state.FilterReducer
+    }
+}    
+
+export default  connect(mapStateToProps)(ListEnquiry);
 

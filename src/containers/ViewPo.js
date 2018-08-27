@@ -9,7 +9,7 @@ import '../assets/styles/listPo.css'
 class ViewPOs extends React.Component {	
     constructor(props){
         super(props);
-        debugger;
+       
         window.scrollTo(0,0);
 		this.clickPO = this.clickPO.bind(this);
 		 let _breadCrumb=[{displayName:'PR2Pay'},

@@ -26,6 +26,8 @@ import ScanQr from "../containers/ScanQr"
 import ViewEnquiry from "../containers/ViewEnquiry";
 import EnquiryDetails from "../containers/EnquiryDetails";
 import SelectSupplier from '../containers/SelectSupplier';
+import ViewShipmentDetail from '../components/Shipment/ViewShipmentDetail'
+import ViewShipment from '../components/Shipment/ViewShipment'
 
 import CreateUsers from '../containers/CreateUsers'
 // COMPONENT
@@ -81,7 +83,8 @@ import CreateUsers from '../containers/CreateUsers'
 
                 <div className="mainContent">
                 <Header />
-                {this.props.isLogin?<FilterList  />:null}
+
+                {this.props.isLogin&&this.props.showHeaderFilter?<FilterList  />:null}
 
                     <Switch>
                         {/* <Route exact strict path='/' component={HomePage} /> */}
@@ -89,16 +92,15 @@ import CreateUsers from '../containers/CreateUsers'
                         <Route path='/login' component={LoginPage} />
                         <Route exact path='/' component={LoginPage2} />
                         <Route path="/scanQr" component={ScanQr}/> 
-                        <Route path="/view-enquiries/:enterpriseId?/:companyId?" component={ViewEnquiry}/> 
+                        <Route path="/view-enquiries/:enterpriseId?/:companyId?/:projectId?" component={ViewEnquiry}/> 
                         <Route path="/detail-enquiries/:enterpriseId/:companyId/:projectId/:enquiryId" component={EnquiryDetails} />
                         <Route path = '/select-supplier/:enterpriseID?/:companyId?/:projectId?/:enquiryId?/' component={SelectSupplier} />
                         <Route path="/createNewPassword" component={CreateNewPassword}/>
                         
                         <Route path = '/list-po/:enterpriseID?/:companyId?/:projectId?/' component={ViewPO} />
-                        
+                        <Route path = '/shipment/:enterpriseId?/:companyId?/:projectId?/' component={ViewShipment} />
                         <Route path = '/view-po/:enterpriseID?/:companyId?/:projectId?/:poId/:amendmentNumber' component={PODetail} />
-                        
-                        <Route path="/create-users" component={CreateUsers}/>
+                        <Route path = '/shipment-detail/:enterpriseId?/:companyId?/:projectId?/:ShipmentCompanyId?/:shipmentId?' component={ViewShipmentDetail} />
                         <Route component={HomePage} />
                     </Switch>
                 </div>
@@ -111,11 +113,12 @@ import CreateUsers from '../containers/CreateUsers'
     }
 
     const mapStateToProps = state => {
-	
+	     debugger
         return {
             isLogin:state.storeSession.isLogin,
             loginDetail:state.storeSession.loginDetail,
             breadCrumbs:state.storeState.breadCrumbs,
+            showHeaderFilter:state.storeState.isDetail,
             selectedInfo:state.companyDetailReducer,
             FilterReducer:state.FilterReducer
     

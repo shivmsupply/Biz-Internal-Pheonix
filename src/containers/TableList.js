@@ -45,11 +45,10 @@ renderColumnValue(item, columnItem){
 	var renderedValue = this.getPropByString(item, columnItem.key);
 	if(columnItem.headerName == "GRN"){
 		if(item.GRNReceived == true){
-			if(this.props.userSelectedCompany.companyId == "ero" || this.props.userSelectedCompany.currentCompanyDetail.privileges["shipment-read"] == true)
+			
 			return <a to = "" onClick={()=>{columnItem.onClickFunction(item)}}>View GRN</a>
 		}
 		else{
-			if(this.props.userSelectedCompany.companyId != "ero" && this.props.userSelectedCompany.currentCompanyDetail.privileges["shipment-create"] == true)
 			return <a to = "" onClick={()=>{columnItem.onClickFunction(item)}}>Create GRN</a>
 		}
 	}

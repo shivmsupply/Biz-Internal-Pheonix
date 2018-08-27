@@ -47,6 +47,7 @@ class ListData extends React.Component {
 
     
 	componentWillReceiveProps(nextProps){
+		
 		var stateData = this.state;
 		
 		if(!(stateData.filterService == nextProps.filterService && stateData.serviceName == nextProps.serviceName)){
@@ -174,6 +175,7 @@ class ListData extends React.Component {
 	
 	this.setState({isLoading:true})
 		$http.getWithUrl(this.state.serviceName+q,(response)=>{
+			
 				this.setState({isLoading:false});
 				if(response.http_code == 400){
 					
