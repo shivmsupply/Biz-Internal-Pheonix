@@ -31,7 +31,6 @@ import ViewShipment from '../components/Shipment/ViewShipment'
 import UserList from '../containers/UserList'
 import CreateUsers from '../containers/CreateUsers'
 
-import ViewShipment from '../components/Shipment/ViewShipment';
 import Grn from '../components/Shipment/Grn';
 import MyAction from '../containers/MyActions'
 
