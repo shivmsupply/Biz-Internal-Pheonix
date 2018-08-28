@@ -38,7 +38,7 @@ export class Text extends React.Component{
 			wrapperWid = Number(this.props.width) - 10;
 			wrapperWid = wrapperWid + 'px'; 
 		}
-		console.log("disabled value ------------->", this.props)
+		// console.log("disabled value ------------->", this.props)
 		return (
 			<div 
 				style={this.props.style} 
@@ -122,7 +122,7 @@ export class TextArea extends React.Component{
 		}
 		return (
 			
-			<div style={this.props.style} className={"inputTextWrapper flex flex-center"+ (this.props.disabled? "disabled":'')}>
+			<div style={this.props.style} className={"inputTextWrapper"+ (this.props.disabled? "disabled":'')}>
 				<label 
 					style={this.props.labelWidth ? {width:labelWid+'px'} : null} 
 					className={(this.props.label!=undefined?"show":"hide")} >

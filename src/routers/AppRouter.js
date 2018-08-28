@@ -26,9 +26,15 @@ import ViewEnquiry from "../containers/ViewEnquiry";
 import EnquiryDetails from "../containers/EnquiryDetails";
 import SelectSupplier from '../containers/SelectSupplier';
 import ViewShipmentDetail from '../components/Shipment/ViewShipmentDetail'
+
 import ViewShipment from '../components/Shipment/ViewShipment'
 import UserList from '../containers/UserList'
 import CreateUsers from '../containers/CreateUsers'
+
+import ViewShipment from '../components/Shipment/ViewShipment';
+import Grn from '../components/Shipment/Grn';
+import MyAction from '../containers/MyActions'
+
 // COMPONENT
 
  class AppRouter extends Component {
@@ -101,9 +107,14 @@ import CreateUsers from '../containers/CreateUsers'
                         <Route path = '/view-po/:enterpriseID?/:companyId?/:projectId?/:poId/:amendmentNumber' component={PODetail} />
 
                         <Route path = '/shipment-detail/:enterpriseId?/:companyId?/:projectId?/:ShipmentCompanyId?/:shipmentId?' component={ViewShipmentDetail} />
+                        <Route path = '/view-grn/:enterpriseId?/:companyId?/:projectId?/:ShipmentCompanyId?/:shipmentId?' component={Grn} />
+                        <Route path = '/create-grn/:enterpriseId?/:companyId?/:projectId?/:ShipmentCompanyId?/:shipmentId?' component={Grn} />
 
                         <Route path = '/create-users/:enterpriseID?/:companyId?/:projectId?/:userType?/:userAdditionStep?/:userID?' component={CreateUsers} />
                         <Route path = '/view-users/:enterpriseID?/:companyId?/:projectId?/:type?/:eroCid?/' component={UserList} />
+
+                        <Route path="/myaction/:enterpriseId?/:companyId?/:projectId?" component={MyAction}/>
+
                         <Route component={HomePage} />
                     </Switch>
                 </div>
@@ -116,7 +127,7 @@ import CreateUsers from '../containers/CreateUsers'
     }
 
     const mapStateToProps = state => {
-	     debugger
+	     
         return {
             isLogin:state.storeSession.isLogin,
             loginDetail:state.storeSession.loginDetail,

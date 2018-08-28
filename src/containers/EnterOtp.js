@@ -110,8 +110,10 @@ class EnterOtp extends Component{
 //    const { dispatch } = this.props;
 //    dispatch(commonActions.storeEnterpriseAndCompany(_eL,_cL,_sE,_sC));    
    this.setState({selectEnterprise:false});
-    this.props.history.push('/list-po/'+_sE+'/'+_sC);
-  // this.props.history.push('/view-enquiries/'+_sE+'/'+_sC);
+
+//    this.props.history.push('/list-po/'+_sE+'/'+_sC);
+   this.props.history.push('/view-enquiries');
+
    debugger
   }
 

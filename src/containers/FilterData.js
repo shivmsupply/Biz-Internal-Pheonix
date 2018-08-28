@@ -107,7 +107,7 @@ import $http from "../utils/Http";
             <DatePicker maxDate={currentDate} selected={this.state.appliedFilter[v.key]} name={v.key} onSelect = {(date,name)=>{
                  var submitData = this.state.appliedFilter;
                  submitData[name] = this.convertDate(date);
-				 debugger;
+				
                  this.setState({appliedFilter:submitData});
 
             }}/></div>:null}  

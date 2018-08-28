@@ -9,7 +9,7 @@ import logoImg from '../../assets/images/BIZ_logo.png';
 // import ScheduleADemo from '../ScheduleADemo/ScheduleADemo';
 // import * as commonActions from "../../actions/commonActions";
 // import CompaniesSelection from '../CompaniesSelection/CompaniesSelection';
-// import * as CommonApi  from '../CommonApi/commonApi';
+ import * as CommonApi  from '../../common/CommonApi/commonApi';
 
 class Header extends Component{
     constructor(props){
@@ -49,16 +49,16 @@ class Header extends Component{
     //   );
     // }
 
-  // logOut =()=>{
-  //  CommonApi.userLogout().then(res=>{
-  //   window.localStorage.removeItem('_isL');
-  //     this.props.onLogout();
-  //     this.props.history.push('/')
-  //     window.location.reload();
-  //   }).catch(res=>{
-  //     console.log(res);
-  //   })
-  // }
+  logOut =()=>{
+   CommonApi.userLogout().then(res=>{
+    window.localStorage.removeItem('_isL');
+      // this.props.onLogout();
+      this.props.history.push('/')
+      // window.location.reload();
+    }).catch(res=>{
+      console.log(res);
+    })
+  }
 
 
   //   toPrtoPay(e) {
@@ -109,7 +109,7 @@ class Header extends Component{
                     alt=""
                   /> 
                   </div>
-                  <span className="mar-left-8"> Hi FIRST LAST 
+                  <span className="mar-left-8"> Hi {this.props.loginDetail.firstName} {this.props.loginDetail.lastName} 
                    </span> 
                    <img className="arrow mar-left-8"
                     src={require('../../assets/images/dropdown_icon.png')}
@@ -179,6 +179,7 @@ class Header extends Component{
 }
 
 const mapStateToProps = state => {
+  
   return {
      isLogin:state.storeSession.isLogin,
      loginDetail:state.storeSession.loginDetail,
