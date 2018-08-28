@@ -104,7 +104,7 @@ import MyAction from '../containers/MyActions'
                         <Route path = '/view-grn/:enterpriseId?/:companyId?/:projectId?/:ShipmentCompanyId?/:shipmentId?' component={Grn} />
                         <Route path = '/create-grn/:enterpriseId?/:companyId?/:projectId?/:ShipmentCompanyId?/:shipmentId?' component={Grn} />
 
-                        {/* <Route path="/myaction/:enterpriseId?/:companyId?/:projectId?" component={MyAction}/> */}
+                        <Route path="/myaction/:enterpriseId?/:companyId?/:projectId?" component={MyAction}/>
                         <Route component={HomePage} />
                     </Switch>
                 </div>

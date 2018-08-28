@@ -174,3 +174,12 @@
 .existerror{
     color:red;
 }
+.myActions li{
+    list-style-type: none;
+}
+.myActions label{
+    width:100% !important;
+}
+.myAccounts li.margin-li .flex, .myAccounts li.mar-10 .flex{
+display: block;
+}

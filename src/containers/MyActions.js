@@ -51,9 +51,11 @@ class MyActions extends Component {
     this.setState({ errors: submitErrors });
   }
   closeUser(){
+    
     this.setState({usercreate:false});
-    window.location.reload();
+   window.location.reload();
   }
+
   handleSubmit(e) {
     if(e !== undefined)e.preventDefault();
          this.setState({formSubmitted:true});
@@ -69,6 +71,7 @@ class MyActions extends Component {
               userRoles: ["2"],
               isSmartPhoneUser: true
             }),(res)=>{
+              debugger;
                  this.setState({isLoading : false});
                  if(res.http_code==403){
                  }
@@ -85,16 +88,17 @@ class MyActions extends Component {
   }
   render() {
     return (
-      <div className={styles.myActions}>
+      <div className="myActions">
       <form onSubmit={this.handleSubmit} noValidate>
-          <ul className={styles.myAccounts}>
-            <li className={styles.profileImg}>
-              <img className={styles.profilelogo} src={ENV_VARIABLE.IMAGE_URL+"No_Image_02.png"} alt="profile_logo"/>
+          <ul className="myAccounts">
+   
+            <li className="profileImg" style={{width:'100px',height:'100px'}}>
+              <img className="profilelogo" src={require('../assets/images/No_Image_02.png')} alt="profile_logo"/>
             </li>
-            <li className={styles["margin-li"] + " " + styles["wid-265"]}>
+            <li className="margin-li wid-265">
              <div>
                 <Text
-                  className={styles["wid-240"] + " " + styles["pad-top-10"]}
+                  className="wid-240 pad-top-10"
                   name="firstName"
                   label="First Name"
                   value={this.state.data.firstName}
@@ -106,7 +110,7 @@ class MyActions extends Component {
               </div>
               
                 <div>
-                  <div className={styles["mar-top-15"]}>
+                  <div className="mar-top-15">
                     <Text
                       name="email"
                       label="Email Id"
@@ -121,7 +125,7 @@ class MyActions extends Component {
               
      
             </li>
-            <li className={styles["mar-10"]}>
+            <li className="mar-10">
              <div>
                 <Text
                   name="lastName"
@@ -134,7 +138,7 @@ class MyActions extends Component {
                 />
               </div>
              
-                <div className={styles["mar-top-15"]}>
+                <div className="mar-top-15">
                   <Text
                     name="phoneNumber"
                     label="Phone Number"
@@ -149,9 +153,9 @@ class MyActions extends Component {
             </li>
            
           </ul>
-          <div className={styles.errorexist+' '+styles['margin-top-30']}>
-          {this.state.userExit===true?<p className={styles.existerror}>A user already exist with the provided email id or contact details </p>:null}
-            <button className={styles.saveChange} type="submit">
+          <div className="errorexist margin-top-30">
+          {this.state.userExit===true?<p className="existerror">A user already exist with the provided email id or contact details </p>:null}
+            <button className="saveChange" type="submit">
               Create User
             </button>
           </div>
@@ -159,13 +163,13 @@ class MyActions extends Component {
           </form>
           <Modal  height="135px" header="Success"
                isOpen={this.state.usercreate}
-                 onClose={()=>{this.setState({usercreate:false});this.props.closeModal();}}
+                 onClose={this.closeUser}
                  backDropClose={true}
                  crossBtn={true}>
                  <p>User created successfully</p>
                  <button
-            className={styles.okbtn}
-            onClick={() => this.closeUser()}
+            className="okbtn"
+            onClick={() => {this.closeUser()}}
           >
             OK
           </button>              
