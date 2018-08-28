@@ -97,15 +97,15 @@ import ListData from "../../containers/ListData"
 	clickShipment(item){
 		
 		
-		this.props.history.push("shipment-detail/"+item.customerInformation.companyId+"/"+item.customerInformation.projectId+"/"+item.id)
+		this.props.history.push("/shipment-detail/"+item.customerInformation.enterpriseId +"/"+item.customerInformation.companyId+"/"+item.customerInformation.projectId+"/"+item.id)
 	}
 	clickForGRN(item){
 		if(item.GRNReceived){
-					this.props.history.push("view-grn/"+item.customerInformation.companyId+"/"+item.customerInformation.projectId+"/"+item.id)
+					this.props.history.push("/view-grn/"+item.customerInformation.enterpriseId +"/"+item.customerInformation.companyId+"/"+item.customerInformation.projectId+"/"+item.id)
 
 		}
 		else{
-					this.props.history.push("create-grn/"+item.customerInformation.companyId+"/"+item.customerInformation.projectId+"/"+item.id)
+					this.props.history.push("/create-grn/"+item.customerInformation.enterpriseId+"/"+ item.customerInformation.companyId+"/"+item.customerInformation.projectId+"/"+item.id)
 
 		}
 	
@@ -124,7 +124,7 @@ import ListData from "../../containers/ListData"
         return <div>
 	{
 			(this.props.userSelectedCompany.companyId!= ''||this.props.match.params.companyId == 'ero') && this.props.sessionInfo!=undefined?
-     <ListData placeHolder = "Search by Shipment Id" breadCrumbs= {this.state.breadCrumbs} sessionInfo = {this.props.sessionInfo} userSelectedCompany = {this.props.userSelectedCompany}tabs= {this.state.tabs}  responseName = "shipments" uniqueFilters = {this.state.uniqueFilters} tableDataType = "Shipments" tableKeys = {this.state.tableKeys} serviceName = {this.serviceName} filterService = {this.filterServiceName}/> 
+     <ListData placeHolder = "Search by Shipment Id, PO Id or PO Ref Id" breadCrumbs= {this.state.breadCrumbs} sessionInfo = {this.props.sessionInfo} userSelectedCompany = {this.props.userSelectedCompany}tabs= {this.state.tabs}  responseName = "shipments" uniqueFilters = {this.state.uniqueFilters} tableDataType = "Shipments" tableKeys = {this.state.tableKeys} serviceName = {this.serviceName} filterService = {this.filterServiceName}/> 
 	:null}
 		   
 		   </div>
