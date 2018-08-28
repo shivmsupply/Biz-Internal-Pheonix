@@ -7,12 +7,6 @@ class Modal extends Component {
     }
     
     closeModal = (event) => {
-<<<<<<< HEAD
-        // console.log("event here ==========>", event)
-=======
-        console.log("event here ==========>", event)
-        debugger;
->>>>>>> aaa8b270992780a8449917bd3c1161d09698dbcb
         event.stopPropagation();
         document.getElementsByTagName('body')[0].style.overflow="auto";
         this.props.onClose();
