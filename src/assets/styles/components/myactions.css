@@ -1,0 +1,176 @@
+.myActions{
+    min-height: 980px;
+}
+.heading{
+    margin: 20px 0 0 25px;
+    /*font-family: sans-serif;*/
+    font-size: 14px;
+}
+.myAccounts{
+    display: flex;
+    margin: 25px 0 0 30px;
+}
+.profileImg{
+    height: 100px;
+    width:100px;
+    background: #fff;
+    border-radius: 50%;
+    border:1px solid #ccc;
+}
+.wid-265{
+    width:265px;
+}
+.mar-10{
+    margin: 10px;
+}
+.mar-top-10{
+    margin-top: 10px;
+}
+.margin-li{
+    margin: 10px 0 0 20px;
+}
+.mar-top-15{
+    margin-top:15px;
+}
+.pad-top-10{
+    padding-top: 10px;
+}
+.myAccountsText{
+    /*font-family: sans-serif;*/
+    font-size: 14px;
+    margin: 10px 0 0 25px;
+}
+.passDiv{
+    width: 265px;
+    margin: 15px 0 0 150px;
+}
+.savediv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.checkDiv{
+    display: flex;
+    width: 253px;
+    justify-content: space-between;
+}
+.saveChange{
+    cursor: pointer;
+    padding: 7px;
+    background: #fff;
+    outline: none;
+    border: 2px solid #F6BF5E;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.userAccess{
+    margin: 35px 0 0 145px;
+    font-size: 14px;
+    font-family: sans-serif
+}
+.forgettext{
+    text-align: right;
+    margin: 10px;
+}
+.flex{
+    display: flex;
+}
+.designali{
+    display: flex;
+    align-items: center;
+    margin-top: 48px;
+}
+.tooltip {
+    position: relative;
+    cursor: pointer;
+    text-align: right;
+    margin: -25px 5px 0 0px;
+    width: 98%;
+}
+.tooltip img{
+    width: 16px;
+}
+.tooltip .tooltiptext {
+    position: absolute;
+    visibility: hidden;
+    font-weight: normal;
+    text-align: left;
+    z-index: 1;
+    top: 100%;
+    left: 130%;
+    margin-left: -63px;
+    margin-top: 5px;
+    width: 253px;
+    background-color: #fff;
+    color: #7e8aa0;
+    /*font-size: 12px;*/
+    border-radius: 6px;
+    padding: 5px 0 9px 10px;
+    border: 1px solid #ccc;
+}
+.tooltip .tooltiptextEro {
+    position: absolute;
+    visibility: hidden;
+    font-weight: normal;
+    text-align: left;
+    z-index: 1;
+    top: 100%;
+    left: 120%;
+    margin-left: -60px;
+    margin-top: 5px;
+    width: 241px;
+    background-color: #fff;
+    color: #7e8aa0;
+    /*font-size: 12px;*/
+    border-radius: 6px;
+    padding: 5px 0 9px 10px;
+    border: 1px solid #ccc;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+.tooltip:hover .tooltiptextEro {
+    visibility: visible;
+}
+.passmismatch{
+    color: red;
+}
+.flexalign{
+    display: flex;
+}
+.comptext{
+    color:#3498ff;
+    text-decoration: underline
+}
+.mar-left-10{
+    margin-left:10px;
+}
+.profilelogo{
+    height: 100px;
+    width: 100px;
+}
+.blue{
+    color: #3498ff;
+}
+.margin-top-30{
+    margin-top:30px;
+}
+.okbtn{
+    cursor: pointer;
+    padding: 5px;
+    margin-top: 10px;
+    width: 115px;
+    background: #fff;
+    outline: none;
+    border: 2px solid #ffd83d;
+    border-radius: 5px;
+}
+.errorexist{
+    width: 100%;
+    text-align: center;
+}
+.existerror{
+    color:red;
+}

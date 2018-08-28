@@ -7,6 +7,7 @@ class Modal extends Component {
     }
     closeModal = (event) => {
         console.log("event here ==========>", event)
+        debugger;
         event.stopPropagation();
         document.getElementsByTagName('body')[0].style.overflow="auto";
         this.props.onClose();
@@ -40,7 +41,7 @@ class Modal extends Component {
                         {this.props.crossBtn?
                             <span 
                                 className="crossBtn" 
-                                onClick={this.closeModal(this)}>
+                                onClick={this.closeModal.bind(this)}>
                                     x
                             </span>
                         :null}

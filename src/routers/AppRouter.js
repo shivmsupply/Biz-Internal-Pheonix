@@ -27,7 +27,9 @@ import ViewEnquiry from "../containers/ViewEnquiry";
 import EnquiryDetails from "../containers/EnquiryDetails";
 import SelectSupplier from '../containers/SelectSupplier';
 import ViewShipmentDetail from '../components/Shipment/ViewShipmentDetail'
-import ViewShipment from '../components/Shipment/ViewShipment'
+import ViewShipment from '../components/Shipment/ViewShipment';
+import Grn from '../components/Shipment/Grn';
+import MyAction from '../containers/MyActions'
 
 // COMPONENT
 
@@ -99,7 +101,10 @@ import ViewShipment from '../components/Shipment/ViewShipment'
                         <Route path = '/shipment/:enterpriseId?/:companyId?/:projectId?/' component={ViewShipment} />
                         <Route path = '/view-po/:enterpriseID?/:companyId?/:projectId?/:poId/:amendmentNumber' component={PODetail} />
                         <Route path = '/shipment-detail/:enterpriseId?/:companyId?/:projectId?/:ShipmentCompanyId?/:shipmentId?' component={ViewShipmentDetail} />
+                        <Route path = '/view-grn/:enterpriseId?/:companyId?/:projectId?/:ShipmentCompanyId?/:shipmentId?' component={Grn} />
+                        <Route path = '/create-grn/:enterpriseId?/:companyId?/:projectId?/:ShipmentCompanyId?/:shipmentId?' component={Grn} />
 
+                        {/* <Route path="/myaction/:enterpriseId?/:companyId?/:projectId?" component={MyAction}/> */}
                         <Route component={HomePage} />
                     </Switch>
                 </div>
@@ -112,7 +117,7 @@ import ViewShipment from '../components/Shipment/ViewShipment'
     }
 
     const mapStateToProps = state => {
-	     debugger
+	     
         return {
             isLogin:state.storeSession.isLogin,
             loginDetail:state.storeSession.loginDetail,

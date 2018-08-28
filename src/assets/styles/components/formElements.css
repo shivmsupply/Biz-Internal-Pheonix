@@ -248,3 +248,7 @@ input[disabled],textarea[disabled],select[disabled]{
     cursor: not-allowed;
 
 }
+
+.inputTextWrapper input[type="text"].error-border{
+    border:1px solid #bd4931 !important
+}

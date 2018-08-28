@@ -281,3 +281,15 @@ margin-bottom: 10px;
     overflow: hidden;
     display: block;
 }
+
+.dateWrapInput input{
+    width:50% !important;
+    margin-left: 10px;
+}
+
+.reasonWrap label{
+    float: left;
+}
+.reasonWrap textarea{
+    width: 100%;
+}

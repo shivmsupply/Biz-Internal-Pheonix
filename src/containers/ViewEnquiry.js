@@ -230,7 +230,7 @@ class ListEnquiry extends Component {
     }
 
     handleChange(e) {
-        debugger;
+       
         let databody=this.state.appliedFilter;
         // if(typeof(databody.fromDate) == "object"){
         //     databody.fromDate=new Date(databody.fromDate)
@@ -372,7 +372,7 @@ class ListEnquiry extends Component {
         this.apiCallFunc(this.state.tabActiveName, this.state.currentStatus);
       }
       eroSaved(status,key) {
-       debugger
+      
           if(this.props.match.params.companyId === 'ero' && status === 'Saved') {
             return;
           }
@@ -380,7 +380,7 @@ class ListEnquiry extends Component {
             this.props.history.push('/pr2pay/' + this.props.match.params.companyId +'/enquiries/create-enquiry/'+key.associatedProjectId + '/' + key.id)
           }
           else {
-              debugger
+            
             this.props.history.push('/detail-enquiries/'+key.enterpriseId+"/"+key.associatedCompanyId +"/"+key.associatedProjectId+ '/' + key.id)
           }
       }
@@ -485,7 +485,7 @@ class ListEnquiry extends Component {
 }
 
 const mapStateToProps= state=>{
-    debugger
+    
     return {
        filetrDetail:state.FilterReducer
     }
