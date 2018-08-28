@@ -4,7 +4,8 @@ const initialState={
     EnterpriseDetail:[],
     companyDeatil:[],
     selectedEnterprise:'',
-    selectedCompany:''
+    selectedCompany:'',
+    currentCompanyDetail:''
 }
 const storeCurrentCompanyDetail=(state= initialState,action)=>{
   switch (action.type) {

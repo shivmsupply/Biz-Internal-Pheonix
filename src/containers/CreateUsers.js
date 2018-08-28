@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {  withRouter } from "react-router-dom";
-import "../assets/styles/components/createUser.css";
-// import "../assets/styles/components/"
+import { Link, withRouter } from "react-router-dom";
+import '../assets/styles/components/createUser.css';
 import combineClass from "classnames";
 import * as LoginActions from "../actions/LoginActions";
-
 import AddUsers from '../components/CreateUsers/AddUsers';
 import AssignRoles from '../components/CreateUsers/AssignRoles';
-
 class CreateUsers extends Component {
     constructor(props){
         super(props);
@@ -16,7 +13,7 @@ class CreateUsers extends Component {
             tabValue:'add-users'
         }
 
-        console.log("props checking===>",this.props.match.params.userID);
+        //console.log("props checking===>",this.props.match.params.userID);
         this.routeParam =this.props.match.params; 
         let _breadCrumb=[{displayName:'PR2Pay',navigation:''},
         {displayName:'Users',navigation:'/pr2pay/'+this.routeParam.companyId+'/view-users'},
@@ -38,12 +35,12 @@ class CreateUsers extends Component {
         })
     }
   render() {
-    var addUsers=combineClass({"backTAB" : this.state.tabValue=='add-users'});
-    var assignRoles=combineClass({"backTAB" :this.state.tabValue=='assign-roles'}); 
-  // console.log("tabValue update ===========>", this.state.tabValue)
+    var addUsers=combineClass({"backTAB":this.state.tabValue=='add-users'});
+    var assignRoles=combineClass({"backTAB":this.state.tabValue=='assign-roles'}); 
+    //console.log("tabValue update ===========>", this.state.tabValue)
 
     return (
-      <div className="create-user-page">
+      <div>
       
         <ul className="usertab">
           <li className="addUsers" onClick={()=>this.changeTab('add-users')}>
@@ -51,7 +48,7 @@ class CreateUsers extends Component {
           </li>
        
           {this.props.match.params.userID!==undefined ?
-          <li className='mar-left-6' onClick={()=>this.changeTab('assign-roles')}>
+          <li className='assignRoles mar-left-6' onClick={()=>this.changeTab('assign-roles')}>
            Assign Project & Roles
           </li>:null}
         </ul>
@@ -63,7 +60,6 @@ class CreateUsers extends Component {
     );
   }
 }
-
 const mapStateToProps = state => {
   return {
     loginDetail: state.storeSession.loginDetail,
@@ -71,5 +67,4 @@ const mapStateToProps = state => {
     companyID: state.companyDetailReducer.companyId
   };
 };
-
 export default withRouter(connect(mapStateToProps)(CreateUsers));

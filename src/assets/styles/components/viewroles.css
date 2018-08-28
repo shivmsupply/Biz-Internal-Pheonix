@@ -1,0 +1,164 @@
+.viwProDiv{
+    height: auto
+}
+.bredCrum{
+    margin: 15px 0 0 25px;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    margin: 15px 0 0 22px;
+}
+.addProject{
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    width: 84%;
+    margin: 15px 0px 0 45px;
+}
+.addProjecInfo{
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: 20px 0 0 50px; 
+}
+.pojectText{
+    font-size: 14px;
+   font-family: sans-serif;
+    color: #444;
+}
+.projectButton{
+    cursor: pointer;
+    outline: none;
+    padding: 7px;
+    background: #fff;
+    border: 2px solid #F6BF5E;
+}
+.projectdetails{
+    width: 30%;
+    display:inline-block;
+	
+    box-shadow: 0px 2px 10px 0px #c1bdbd;
+    border-radius: 5px;
+    margin:10px;
+}
+.prodescription{
+    width: 200px;
+    margin: 15px 0 0 22px;
+}
+.proAdd{
+    width: 185px;
+    line-height: 1.4;
+    margin: 0 0 0 22px;
+}
+.viewUsers{
+    cursor: pointer;
+    outline: none;
+    margin: 9px 0 0 17px;
+    padding: 6px;
+    background: #fff;
+    border: 2px solid #F6BF5E;
+    min-width: 90%;
+    border-radius: 5px;
+}
+.viewBtn{
+    display: flex;
+    justify-content: center;
+}
+.viewBtn button{
+    cursor: pointer;
+    outline: none;
+    width: 265px;
+    padding: 6px;
+    background: #fff;
+    border: 2px solid #F6BF5E;
+    border-radius: 5px;
+    margin: 20px;
+}
+.editimg{
+    cursor: pointer;
+    height:15px;
+}
+.privilegeDetail{
+	    padding-top: 7px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 7px;
+    padding-left: 6%;
+}
+.associatedPrivileges{
+	padding-left:10px;
+}
+.privilegeName{
+width: 42%;
+    display: inline-block;
+}
+.moduleDisplayName{
+	
+	text-align:left;
+}
+.modulesContainer{
+	padding-left:20px;
+	
+}
+.modulesTable{
+	margin-top:10px;
+	
+}
+
+.modulesTable {
+  width:20%;
+  float:left;
+ 
+}
+.privilegesTableContainer{
+	width: 75%;
+    float: left;
+    border-right: 1px solid #f0f0f0;
+    overflow-x: scroll;
+    margin-top: 10px;
+}
+.privilegesTable{
+	width: 200%;
+    overflow-x: scroll;
+    
+}
+.modulesTable tbody tr td {
+	width:150px;
+	padding:11px;
+	border:1px solid #ccc;
+}
+.privilegesTable tbody tr td {
+	width:140px;
+	border:1px solid #ccc;
+}
+.roles-name-container{
+	margin-left:20px;
+	margin-top:10px;
+	
+	width:40%;
+}
+.privilegesTableContainer::-webkit-scrollbar {
+    
+    height: 5px;
+    background:#f0f0f0;
+
+}
+.privilegesTableContainer::-webkit-scrollbar-thumb {
+    background-color:#808080;
+       
+}
+.custom-roles-header{
+	margin-left:8%;
+}
+.edit-role-img{
+	float:right;
+	cursor:pointer;
+}
+
+.projectdiv .dropdownWrapper.flex{
+    margin: 0px 20px;
+} 

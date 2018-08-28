@@ -1,0 +1,40 @@
+.pagination{
+	align-items: center;
+	max-width: 165px;
+	overflow: hidden;
+	flex-wrap: nowrap;
+}
+.pagination li:first-child,.pagination li:last-child{
+	border: none;
+	height: 16px;
+    width: 14px;
+
+}
+.pagination li img{
+	height: 100%;
+	width: 100%;
+}
+.pagination li{
+	height: 18px;
+    width: 28px;
+    text-align: center;
+    font-size: 14px;
+	border: 1px solid #d8d8d8;
+	cursor: pointer;
+	margin:0px 2px;
+}
+.active{
+	border: 1px solid #000 !important;
+}
+.rotate{
+	transform: rotate(180deg);
+}
+
+
+.paginations .tableDiv{
+    margin: 20px 0 20px 55px !important;
+}
+
+.paginations .tableDiv .tableLayout{
+    margin-top: 0px !important;
+}

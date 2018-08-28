@@ -8,7 +8,7 @@ const initialState = {
     selectedEnterprise:"",
     selectedCompany:"",
     selectedProject:"",
-    fetching: false,
+    fetching: false,    
     fetched: false,
     failed: false
 };

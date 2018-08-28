@@ -19,6 +19,7 @@ export function storeEnterpriseAndCompany(_eList,_cList,_sE,_sC) {
         selectedCompany:_sC
     }
 }
+
 export function storeSession(isLogin,loginDetail) {
     return {
         type: types.SESSION_INFO,
@@ -26,6 +27,7 @@ export function storeSession(isLogin,loginDetail) {
         loginDetail:loginDetail
     }
 }
+
 export function storeState(stateInfo) {
     return {
         type: types.GET_State,
@@ -58,8 +60,6 @@ export function saveInputValue(value) {
         data: value
     }
 }
-
-
 
 export const  changePass = dataChange => {
     return {

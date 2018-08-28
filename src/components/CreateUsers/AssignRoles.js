@@ -6,24 +6,32 @@ import ENV_VARIABLE from "../../utils/Environment";
 import $http from "../../utils/Http";
 import { Dropdown, Checkbox } from "../../common/FormElements/FormElements";
 
-function newState() {
-  this.selectProject = false;
-  this.projectInfo = "";
-  this.projectArray = [];
-  this.roles = [];
-  this.countProject = 0;
-}
+
 class AssignRoles extends Component {
+
   constructor(props) {
     super(props);
-    this.state = new newState();
+    this.state ={
+      selectProject:false,
+      projectInfo : "",
+      projectArray: [],
+      roles:[],
+      viewRoles:"",
+      selectedRoles:'',
+      countProject:0,
+      selectedAllInfo:'',
+    
+    }
     this.selectId = this.selectId.bind(this);
+   // console.log("assignrole---->", this.props.match.params);
   }
+
   gotoUserList(gotoList) {
     this.props.history.push("/pr2pay/" + this.props.companyID + "/" + gotoList);
   }
+  
   gotoCreateUser() {
-    debugger;
+   
     this.props.history.push(
       "/pr2pay/" +
         this.props.companyID +
@@ -36,6 +44,7 @@ class AssignRoles extends Component {
     );
     this.props.tabUpdate("add-users");
   }
+
   componentDidMount() {
     this.setState({ isLoading: true });
     $http.getWithUrl(
@@ -51,6 +60,7 @@ class AssignRoles extends Component {
           });
         } else {
         }
+       
       }
     );
     if (this.props.match.params.userID !== "") {
@@ -67,6 +77,14 @@ class AssignRoles extends Component {
           }
           if (res.http_code == 200) {
             console.log(res.message.authorizations);
+            this.isFirst=Object.keys(res.message.authorizations).length;
+            if(this.isFirst>0){
+            this.setState({selectedRoles:res.message.authorizations[this.props.match.params.companyId]?res.message.authorizations[this.props.match.params.companyId].role:[]})
+           
+          }
+          debugger
+            this.setState({selectedAllInfo:res.message});
+             
           }
         }
       );
@@ -84,42 +102,63 @@ class AssignRoles extends Component {
           return;
         }
         if (res.http_code == 200) {
+         
           console.log(res.message);
           this.setState({
             roles: res.message
           });
-          debugger;
+          if(this.isFirst>0){
+            this.selectRoles("notFirst",this.state.selectedRoles);
+          }
         }
       }
     );
   }
-  selectRoles(e, d) {
-    debugger;
-    for (let i = 0; i < this.value.length; i++) {
-      if (this.value[i].id === d.data) {
-        var selectedRolesData = this.value[i];
-        console.log("selected id=====>", selectedRolesData);
-      }
-    }
-  }
-  selectId(event, projectId) {
-    if (event.target.checked === true) {
-      this.state.projectArray.push(projectId);
-      this.setState({
-        countProject: this.state.projectArray.length
-      });
-    } else {
-      for (var i = 0; i < this.state.projectArray.length; i++) {
-        if (this.state.projectArray[i] == projectId) {
-          this.state.projectArray.splice(i, 1);
-          this.setState({
-            countProject: this.state.projectArray.length
-          });
+
+
+  selectRoles = (e, d) =>{
+   
+    let _temp=this.state
+    if(e=='notFirst')_temp["selectedRoles"]=d;
+    else _temp["selectedRoles"]=d.data;
+    var selectedRolesData, sortedAssociatedPrivileges;
+    for (let i = 0; i < this.state.roles.length; i++) {
+      if (this.state.roles[i].id === _temp["selectedRoles"]) {
+        //selectedRolesData = this.state.roles[i];
+        var displayData=Object.values(this.state.roles[i].privilegesUI);
+
+        if(displayData.length>0){
+          sortedAssociatedPrivileges = displayData.sort(function(a,b) {return a.displayOrder - b.displayOrder});
         }
       }
-    }
-    console.log(this.state.projectArray.length);
+    } 
+    
+    _temp["viewRoles"]=sortedAssociatedPrivileges;
+     this.setState(_temp);
   }
+
+  selectId(event, projectId) {
+    debugger
+    let _temp=this.state;
+    if(!_temp.selectedAllInfo.authorizations[this.props.match.params.companyId])
+    _temp.selectedAllInfo.authorizations[this.props.match.params.companyId]={
+      projects:[]
+    };
+    debugger
+    if (event.target.checked === true) {
+      _temp.selectedAllInfo.authorizations[this.props.match.params.companyId].projects.push(projectId)
+      // this.state.projectArray.push(projectId);
+      this.setState({
+        // countProject: this.state.projectArray.length
+        countProject:_temp.selectedAllInfo.authorizations[this.props.match.params.companyId].projects.length
+      });
+    } else {
+      let ind=_temp.selectedAllInfo.authorizations[this.props.match.params.companyId].projects.indexOf(projectId)
+      _temp.selectedAllInfo.authorizations[this.props.match.params.companyId].projects.splice(ind,1);
+    }
+    this.setState(_temp);
+  }
+  
   getProjectNameAndId(projectInfo) {
     return Object.keys(projectInfo).map(info => (
       <div key={info} className="selectproject">
@@ -127,10 +166,15 @@ class AssignRoles extends Component {
           id={info}
           name="selectProject"
           onChange={event => this.selectId(event, projectInfo[info].id)}
+           checked={this.state.selectedAllInfo!=''&&this.state.selectedAllInfo.authorizations[this.props.match.params.companyId]&&this.state.selectedAllInfo.authorizations[this.props.match.params.companyId].projects.indexOf(projectInfo[info].id)>-1}
         />
         <p className="mar-left-30">{projectInfo[info].projectName}</p>
       </div>
     ));
+  }
+
+  assignRole=()=>{
+    console.log(this.state);
   }
 
   render() {
@@ -159,15 +203,29 @@ class AssignRoles extends Component {
                   placeholder="Roles *"
                   mand="true"
                   name="state"
-                  value={this.state.roles}
+                  value={this.state.selectedRoles}
                   options={this.state.roles.map(obj => {
                     return { label: obj.displayName, value: obj.id };
                   })}
-                  change={this.selectRoles}
+                  change={(e, d) => this.selectRoles(e, d)}
                 />
               </p>
               <button className="commonbtnCss">Add New Role</button>
             </div>
+            {this.state.viewRoles!==''?
+            <div> 
+           {this.state.viewRoles&&Object.keys(this.state.viewRoles).map((keyValue)=>
+            <div className="rolesdata" key={keyValue}>
+              <div>{this.state.viewRoles[keyValue].displayName}
+            </div>
+              {Object.keys(this.state.viewRoles[keyValue].associatedPrivileges).map((obj, authorizationKey)=>
+            <div key={authorizationKey} className='mar-left-20'>
+              <p>{this.state.viewRoles[keyValue].associatedPrivileges[authorizationKey].displayName}</p>
+            </div>)}
+           {this.state.viewRoles[keyValue].associatedPrivileges.length>0?null:<p>--</p>}
+            </div>
+            )}
+          </div>:null}
           </div>
         </div>
         <div className="btndiv">
@@ -185,7 +243,7 @@ class AssignRoles extends Component {
           </button>
           <button
             className="allbtn"
-            onClick={() => this.gotoUserList("view-users")}
+            onClick={this.assignRole}
           >
             Assign Role
           </button>

@@ -78,9 +78,8 @@ class ListData extends React.Component {
 		this.setState(stateData);
 	   this.getFilteredData();
 	   this.setState({"displayType":"open"});
-	  
-	  
 	}
+
 	changeDisplayType(data){
 		var stateData = this.state;
 		stateData.displayType = data;
@@ -108,27 +107,28 @@ class ListData extends React.Component {
 		this.getTableData();
 		
 	}
+
 	handleKeyPress(e){
 		if(e.key == "Enter"){
 			this.searchForList()
-			
-			
 		}
 	}
+	
 	searchForList(){
 		var stateData = this.state
 			stateData.appliedFilter= {
 				"itemsPerPage" :10,
 				"pageNumber" : 0,
-				"search":this.state.appliedFilter.search
-				
+				"search":this.state.appliedFilter.search			
 			}
+
 			this.setState(stateData);
 			var newURL=this.props.location
 			newURL.search=serialize(this.state.appliedFilter);
 			this.props.history.push(this.props.location.pathname+this.props.location.search);
 			this.getFilteredData();
 	}
+
 	handleChange(e, data){
 		var stateData= this.state;
 		stateData.appliedFilter[e.target.name] = e.target.value;
@@ -151,6 +151,7 @@ class ListData extends React.Component {
 	   this.getFilters();
 	  
 	}
+
 	getTableData(){
 		var k ="";
 		var q = "?"
@@ -162,13 +163,11 @@ class ListData extends React.Component {
 		
 		else if(k=="toDate" &&this.state.appliedFilter[k]!=''&&this.state.appliedFilter[k]!=undefined)
 			q=  q+k+"="+(new Date(this.state.appliedFilter[k]).setHours("0", "0", "0", "0")+86400000)+"&"
-		else if(this.state.appliedFilter[k] !== ''){
+			else if(this.state.appliedFilter[k] !== ''){
 
-			q = q+k+"="+this.state.appliedFilter[k]+"&"
-		}
-		}
-		
-		
+				q = q+k+"="+this.state.appliedFilter[k]+"&"
+			}
+		}	
 	}
 
 	q = q.substring(0, q.length - 1); 

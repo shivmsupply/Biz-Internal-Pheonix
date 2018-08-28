@@ -43,11 +43,15 @@ class LeftNavigation extends Component {
                  <a onClick={()=>this.click("view-enquiries")}>
                     <img src={require('../../assets/images/ViewEnquiry.svg')} width="24px" height="24px"/>{!this.state.dockIn?<span>View Enquiries</span> :null}</a>
              </li>
-            <li key={3} className="leftPanelLi" title={this.state.dockIn ? "View Pos": ""}>                
+             <li key={3} className="leftPanelLi" title={this.state.dockIn ? "View Enquiries": ""}>                
+                 <a onClick={()=>this.click("view-users")}>
+                    <img src={require('../../assets/images/ViewEnquiry.svg')} width="24px" height="24px"/>{!this.state.dockIn?<span>Users</span> :null}</a>
+             </li>
+            <li key={4} className="leftPanelLi" title={this.state.dockIn ? "View Pos": ""}>                
                 <a onClick={()=>this.click("list-po")}>
                 <img src={require('../../assets/images/PurchaseOrder.svg')} width="24px" height="24px"/>{!this.state.dockIn?<span>View Pos</span> :null}</a>
              </li>
-             <li key={4} className="leftPanelLi" title={this.state.dockIn ? "Shipment": ""}>                
+             <li key={5} className="leftPanelLi" title={this.state.dockIn ? "Shipment": ""}>                
                 <a onClick={()=>this.click("shipment")}>
                 <img src={require('../../assets/images/PurchaseOrder.svg')} width="24px" height="24px"/>{!this.state.dockIn?<span>List Shipment</span> :null}</a>
              </li> 

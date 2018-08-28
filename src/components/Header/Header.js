@@ -101,7 +101,7 @@ class Header extends Component{
              <div className="dropbtn" >
               
               
-              <p className="userIcondiv">
+              <div className="userIcondiv">
                 <div className="userlogo">
                   <img
                     className="profileImg"
@@ -115,7 +115,7 @@ class Header extends Component{
                     src={require('../../assets/images/dropdown_icon.png')}
                     alt=""
                   />
-              </p>
+              </div>
               
               
               
@@ -132,6 +132,8 @@ class Header extends Component{
               <li><a onClick={() => this.userProfileNavigation("company-detail")}>
                 Company
               </a></li>
+
+              
               <li><a onClick={this.logOut}>Logout</a></li>
               </ul>
               {/* <ul>

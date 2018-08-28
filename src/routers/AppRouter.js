@@ -8,7 +8,6 @@ import {getEnterprices,updateEnterpriseId,updateCompanyId,updateProjectId,getCom
 import * as commonActions from "../actions/LoginActions";
 import * as CommonApi  from '../common/CommonApi/commonApi';
 
-
 import Header  from '../components/Header/Header';
 import Footer  from '../components/Footer/Footer.js';
 import FilterList  from '../components/FilterList/FilterList.js';
@@ -28,7 +27,7 @@ import EnquiryDetails from "../containers/EnquiryDetails";
 import SelectSupplier from '../containers/SelectSupplier';
 import ViewShipmentDetail from '../components/Shipment/ViewShipmentDetail'
 import ViewShipment from '../components/Shipment/ViewShipment'
-
+import UserList from '../containers/UserList'
 import CreateUsers from '../containers/CreateUsers'
 // COMPONENT
 
@@ -100,7 +99,11 @@ import CreateUsers from '../containers/CreateUsers'
                         <Route path = '/list-po/:enterpriseID?/:companyId?/:projectId?/' component={ViewPO} />
                         <Route path = '/shipment/:enterpriseId?/:companyId?/:projectId?/' component={ViewShipment} />
                         <Route path = '/view-po/:enterpriseID?/:companyId?/:projectId?/:poId/:amendmentNumber' component={PODetail} />
+
                         <Route path = '/shipment-detail/:enterpriseId?/:companyId?/:projectId?/:ShipmentCompanyId?/:shipmentId?' component={ViewShipmentDetail} />
+
+                        <Route path = '/create-users/:enterpriseID?/:companyId?/:projectId?/:userType?/:userAdditionStep?/:userID?' component={CreateUsers} />
+                        <Route path = '/view-users/:enterpriseID?/:companyId?/:projectId?/:type?/:eroCid?/' component={UserList} />
                         <Route component={HomePage} />
                     </Switch>
                 </div>

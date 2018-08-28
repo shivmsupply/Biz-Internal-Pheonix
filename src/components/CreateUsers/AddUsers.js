@@ -1,33 +1,34 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import {  withRouter } from "react-router-dom";
-
 import ENV_VARIABLE from "../../utils/Environment";
 import $http from "../../utils/Http";
 import { Text } from "../../common/FormElements/FormElements";
-function newState() {
-  this.data = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    mobile: "",
-    designation: ""
-  };
-  this.errors = {
-    firstName: "required",
-    email: "required",
-    lastName: "required",
-    mobile: "required",
-    designation: ""
-  };
-  this.formSubmitted = false;
-  this.emailVerified = false;
-  this.userExixt = false;
-}
+
+
 class AddUsers extends Component {
   constructor(props) {
     super(props);
-    this.state = new newState();
+    this.state={
+      data:{
+        firstName: "",
+        lastName: "",
+        email: "",
+        mobile: "",
+        designation: ""
+      },
+      errors:{
+        firstName: "required",
+        email: "required",
+        lastName: "required",
+        mobile: "required",
+        designation: ""
+      },
+      formSubmitted : false,
+      emailVerified : false,
+      userExixt : false,
+
+    }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -88,9 +89,10 @@ class AddUsers extends Component {
   }
 
   handleSubmit(e) {
-    debugger;
     if (e !== undefined) e.preventDefault();
     this.setState({ formSubmitted: true });
+
+
     if (this.props.match.params.userID === undefined) {
       if (
         Object.keys(this.state.errors).filter(key => {
@@ -136,17 +138,18 @@ class AddUsers extends Component {
             this.props.tabUpdate("assign-roles");
           }
         }
-      );
+      ) ;
     }
     if (this.props.match.params.userID !== undefined) {
-      console.log("update working");
-      debugger;
+      //console.log("update working");
+    
       if (
         this.state.data.designation === null ||
         this.state.data.designation == undefined
       ) {
         this.state.data.designation = "";
       }
+
       $http.putWithUrl(
         ENV_VARIABLE.HOST_NAME +
           "census/user/" +
@@ -193,7 +196,7 @@ class AddUsers extends Component {
             <li className="profileImg">
               <img
                 className="profilelogo"
-                src={ENV_VARIABLE.IMAGE_URL + "No_Image_02.png"}
+                src={require('../../assets/images/No_Image_02.png')}
                 alt="profile_logo"
               />
             </li>
@@ -267,7 +270,7 @@ class AddUsers extends Component {
               {this.state.userExixt === true ? (
               <ul className="crtbtn">
                 <li>
-                  <p className={red}>
+                  <p className="red">
                     USer is already exists with email/userName/mobile
                   </p>
                 </li>
