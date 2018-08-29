@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link, withRouter } from "react-router-dom";
+import {  withRouter } from "react-router-dom";
 import '../assets/styles/components/createUser.css';
 import combineClass from "classnames";
 import * as LoginActions from "../actions/LoginActions";
 import AddUsers from '../components/CreateUsers/AddUsers';
 import AssignRoles from '../components/CreateUsers/AssignRoles';
+
 class CreateUsers extends Component {
+
     constructor(props){
         super(props);
         this.state={
@@ -26,19 +28,18 @@ class CreateUsers extends Component {
     changeTab(userAdditionStep){
       debugger;
       if(this.props.match.params.userID!==''){
-        this.props.history.push("/pr2pay/" + this.props.companyID+'/'+'edit-users/'+userAdditionStep+"/"+this.props.match.params.userID);
+        this.props.history.push("/create-users/" + this.props.companyID+'/'+'edit-users/'+userAdditionStep+"/"+this.props.match.params.userID);
       }else{
-        this.props.history.push("/pr2pay/" + this.props.companyID+'/'+'create-users/'+userAdditionStep);
+        this.props.history.push("/create-users/" + this.props.companyID+'/'+'add-users/'+userAdditionStep);
       }
         this.setState({
             tabValue:userAdditionStep
         })
     }
   render() {
-    var addUsers=combineClass({"backTAB":this.state.tabValue=='add-users'});
-    var assignRoles=combineClass({"backTAB":this.state.tabValue=='assign-roles'}); 
-    //console.log("tabValue update ===========>", this.state.tabValue)
-
+    var addUsers=combineClass({['backTAB']:this.state.tabValue=='add-users'});
+    var assignRoles=combineClass({['backTAB']:this.state.tabValue=='assign-roles'}); 
+   
     return (
       <div>
       
@@ -52,8 +53,7 @@ class CreateUsers extends Component {
            Assign Project & Roles
           </li>:null}
         </ul>
-        {/* <AddUsers/>
-        <AssignRoles/> */}
+    
         {this.state.tabValue==='add-users'?<AddUsers tabUpdate={()=>this.changeTab(this.props.match.params.userAdditionStep)}/>:null}
         {this.state.tabValue==='assign-roles'?<AssignRoles tabUpdate={()=>this.changeTab('add-users')}/>:null}
       </div>

@@ -127,26 +127,26 @@ class ViewShipmentSetail extends Component{
         //console.log('attachment Key-->',_fileArr)
         var creatJson={
             "shipmentType" : "SIEMENS",
-            "channel" : "INTERNAL_PANEL ",
+            "channel" : "INTERNAL_PANEL",
             "GRNReferenceDate" : new Date(this.state.data.referenceDate).getTime(),
             "supplierSatisfaction" : true,
             "lineItems":_lineItem,
             "attachmentFile":_fileArr
         }
         console.log(creatJson);
-        debugger;
-    //     this.setState({isLoading:true})
-
-    //     $http.putWithUrl(ENVIROMENT_VAR.HOST_NAME+'po2grn/grn/'+this.routeParam.companyId+'/'+this.routeParam.projectId+'/'+this.routeParam.shipmentId,JSON.stringify(creatJson),(res)=>{
-    //     if(res.http_code != 200){
-    //         this.setState({createGrnError:res.message,isLoading:false})
-    //         return
-    //     }
-    //     if(res.http_code == 200){
-    //         this.setState({grnSuccessPopup:true,isLoading:false});
-    //         //console.log('created----->',res.message);              
-    //        }	
-    //    })
+        this.setState({isLoading:true})
+         debugger;
+         
+        $http.putWithUrl(ENVIROMENT_VAR.HOST_NAME+'po2grn/phoenix/grn/'+this.routeParam.companyId+'/'+this.routeParam.projectId+'/'+this.routeParam.ShipmentCompanyId,JSON.stringify(creatJson),(res)=>{
+        if(res.http_code != 200){
+            this.setState({createGrnError:res.message,isLoading:false})
+            return
+        }
+        if(res.http_code == 200){
+            this.setState({grnSuccessPopup:true,isLoading:false});
+            //console.log('created----->',res.message);              
+           }	
+       })
     }
     invoiceDoc;withoutInvoice;
     getShipmentDetail(){
@@ -182,7 +182,7 @@ class ViewShipmentSetail extends Component{
             if(error!==''&&error.length>0){_data.fileError=error; this.setState(_data);return;}
             if(this.fileArray.length>=3){_data.fileError='Maximum 3 file can be upload';
             this.setState(_data);return;};
-            request.open('POST',ENVIROMENT_VAR.HOST_NAME+'util/uploadFile');
+            request.open('POST',ENVIROMENT_VAR.HOST_NAME+'phoenix/util/uploadFile');
             request.onreadystatechange = () => { 
             if (request.readyState == 4){
                 let data = this.state;
@@ -353,7 +353,7 @@ currentDate.setDate(currentDate.getDate() + 1);
             </div>
        {this.state._isError2?<div className="grnButton errorInfo"><p>Please add remarks for rejected line item quantity </p></div>:null}
 
-           <div className="tableDiv">
+           <div className="tableDiv" style={{width:'100%',margin:'0px'}}>
           <table className="compTable">
             <thead>
               <tr>
@@ -481,6 +481,7 @@ currentDate.setDate(currentDate.getDate() + 1);
             <Modal
           height="150px"
           header="Successful"
+        //   isOpen={true}
           isOpen={this.state.grnSuccessPopup}
           onClose={() => {
             this.setState({ grnSuccessPopup: false });
@@ -495,8 +496,14 @@ currentDate.setDate(currentDate.getDate() + 1);
           <button
             className="okbtn"
             onClick={() => {
-                this.props.history.push('/pr2pay/'+this.routeParam.companyId+'/shipment')
-                this.grnPopUpClose();}}
+                // let _temp=this.props
+                // let _url=_temp.location.pathname.split('/');
+                // _url[1]='shipment'
+                // _url=_url.join('/')
+                // console.log(_url)
+                this.props.history.push('/shipment')
+                this.grnPopUpClose();
+                }}
           >
             OK
           </button>

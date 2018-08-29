@@ -1,11 +1,10 @@
 import React,{ Component } from 'react';
 import {Button, Text, Dropdown, Radio} from "../common/FormElements/FormElements";
-
- import DatePicker from "a-react-datepicker";
+import DatePicker from "a-react-datepicker";
 
 import {withRouter} from 'react-router-dom';
 const queryString = require('query-string');
-import $http from "../utils/Http";
+
 
 
  class FilterData extends Component{
@@ -116,9 +115,8 @@ import $http from "../utils/Http";
            </li>)}
           
 		 <li  style={mainLiButton}>
-       <Button type="button" display="1" value="Apply" style={applyBtn} click={this.applyAction}/>
-
-       <Button type="button" display="1" value="Reset" style={resetBtn} click={this.resetFilter}/>
+            <Button type="button" display="1" value="Apply" style={applyBtn} click={this.applyAction}/>
+            <Button type="button" display="1" value="Reset" style={resetBtn} click={this.resetFilter}/>
         </li>
         </ul>)
     }

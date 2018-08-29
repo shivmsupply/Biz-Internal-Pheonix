@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import * as LoginActions from "../actions/LoginActions";
 import  "../assets/styles/components/userlist.css";
 
+import  "../assets/styles/components/main.css";
 //import UnassignedUserList from "../components/UserList/UnassignedUserList";
 import AssignedUserList from "../components/UserList/AssignedUserList";
 import combineClass from "classnames";
@@ -72,7 +73,6 @@ class UserList extends Component {
   }
 
   render() {
-    console.log("login user ===================>", this.props.loginDetail.id)
     var assigned = combineClass({
      'backTAB': this.state.flagList == "assignedList"
     });
@@ -80,7 +80,7 @@ class UserList extends Component {
       'backTAB': this.state.flagList == "unassignedList"
     });
     return (
-      <div>
+      <div className="user-list-page">
        {/* <div>
            <div className={styles.pullSearch}>
               <input type="search" className={styles.inputSearch} placeholder="Search user by Name, email ID,Phone Number" />

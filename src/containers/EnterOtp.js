@@ -1,11 +1,10 @@
-
 import React,{Component} from 'react';
 import { connect } from 'react-redux'
 import {withRouter} from 'react-router-dom';
 import $http from '../utils/Http';
 import ENV_VARIABLE from '../utils/Environment';
 import { Text } from '../common/FormElements/FormElements';
-import CompaniesSelection from '../components/CompaniesSelection/CompaniesSelection';
+// import CompaniesSelection from '../components/CompaniesSelection/CompaniesSelection';
 import {resetFirstLogin, storeSession, storeEnterpriseAndCompany} from '../actions/LoginActions'
 import '../assets/styles/style.css';
 import {getEnterprices} from '../actions/FilterActions' 
@@ -30,13 +29,13 @@ class EnterOtp extends Component{
         this.handleSubmit=this.handleSubmit.bind(this);
         this.handleChange=this.handleChange.bind(this);
         this.getInterprise=this.getInterprise.bind(this);
-        this.storeEnterprise=this.storeEnterprise.bind(this);
+        // this.storeEnterprise=this.storeEnterprise.bind(this);
         console.log('works!!!!!!!!!!!!');
 
   }
 
   handleChange=(e,d)=>{
-      debugger;
+      
     this.setState({otpWrong:false});
      let _temp=this.state;
      _temp[e.target.name]=d.data;
@@ -45,7 +44,7 @@ class EnterOtp extends Component{
   }
 
   handleSubmit=(e)=>{
-      debugger;
+     
     if(e !== undefined)e.preventDefault();
     let jsonBody;
     let passInfo = this.props.LoginReducer.loginInfo.message.firstLogin;
@@ -76,18 +75,18 @@ class EnterOtp extends Component{
 
     $http.postWithUrl(ENV_VARIABLE.HOST_NAME+endPoint,JSON.stringify(jsonBody),(res)=>{
        
-          debugger
+          
           if(res.http_code == 200){
             window.localStorage._isL=true;
             this.props.storeSession(true,res.message);
             console.log(this.props.storeSession);
-            let dataenterprices = this.props.getEnterprices();
-            console.log("Enterprice data in ======>",dataenterprices)
+            this.props.getEnterprices();
             this.props.resetFirstLogin()
-            
-            if(passInfo){
-                this.props.history.push('/')
-            }
+            debugger
+            this.props.history.push('/view-enquiries');
+            // if(passInfo){
+            //     this.props.history.push('/')
+            // }
           }
           if(res.http_code == 403){
             this.setState({otpWrong:true})
@@ -100,29 +99,27 @@ class EnterOtp extends Component{
       $http.getWithUrl(ENV_VARIABLE.HOST_NAME+'census/phoenix/enterprise/',(res)=>{
           console.log(res.message);
           this.EnterPrise=res.message;
-         // this.setState({selectEnterprise:true});
-          
       }) 
   }
 
-  storeEnterprise=(_eL,_cL,_sE,_sC)=>{
-      this.props.storeEnterpriseAndCompany(_eL,_cL,_sE,_sC)
-//    const { dispatch } = this.props;
-//    dispatch(commonActions.storeEnterpriseAndCompany(_eL,_cL,_sE,_sC));    
-   this.setState({selectEnterprise:false});
+//   storeEnterprise=(_eL,_cL,_sE,_sC)=>{
+//     //   this.props.storeEnterpriseAndCompany(_eL,_cL,_sE,_sC)
+// //    const { dispatch } = this.props;
+// //    dispatch(commonActions.storeEnterpriseAndCompany(_eL,_cL,_sE,_sC));    
+//    this.setState({selectEnterprise:false});
 
-//    this.props.history.push('/list-po/'+_sE+'/'+_sC);
-   this.props.history.push('/view-enquiries');
+// //    this.props.history.push('/list-po/'+_sE+'/'+_sC);
+//    this.props.history.push('/view-enquiries');
 
-   debugger
-  }
+// //    debugger
+//   }
 
    
     render(){
        // console.log("WHAT WE GET IN OTP ==========>", this.props.LoginReducer)
         return(
         <div className="loginICont">
-            {this.state.selectEnterprise?<CompaniesSelection allEnterprise={this.EnterPrise} storeEnterprise={this.storeEnterprise}/>:null} 
+            {/* {this.state.selectEnterprise?<CompaniesSelection allEnterprise={this.EnterPrise} storeEnterprise={this.storeEnterprise}/>:null}  */}
             <div className="wrap-logincontainer">
                 
                 {this.state.instructionPupup?
@@ -191,9 +188,9 @@ const mapDispatchToProps = (dispatch) =>{
         storeSession:(flag,response)=>{
             dispatch(storeSession(flag, response))
         },
-        storeEnterpriseAndCompany:(_eL,_cL,_sE,_sC)=>{
-            dispatch(storeEnterpriseAndCompany(_eL,_cL,_sE,_sC))
-        },
+        // storeEnterpriseAndCompany:(_eL,_cL,_sE,_sC)=>{
+        //     dispatch(storeEnterpriseAndCompany(_eL,_cL,_sE,_sC))
+        // },
         getEnterprices:() =>{
             dispatch(getEnterprices())
         }

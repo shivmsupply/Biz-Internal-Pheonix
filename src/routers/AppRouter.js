@@ -2,7 +2,7 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {getEnterprices,updateEnterpriseId,updateCompanyId,updateProjectId,getCompany,getProject} from '../actions/FilterActions' 
+import { getEnterprices,updateEnterpriseId,updateCompanyId,updateProjectId,getCompany,getProject} from '../actions/FilterActions' 
 
 // IMPORT PROJECT REFERENCES
 import * as commonActions from "../actions/LoginActions";
@@ -47,9 +47,7 @@ import MyAction from '../containers/MyActions'
 
     componentDidMount(){
         // if(window.localStorage._isL)this.props.storeSession(true,'');
-         
-        
-        CommonApi.getSession()
+       CommonApi.getSession()
           .then((res)=>{
               window.localStorage._isL=true;
               this.props.storeSession(true,res);
@@ -74,8 +72,7 @@ import MyAction from '../containers/MyActions'
             console.log(err,">>>>>>>>>>>>>error")
     
         })
-    
-        }
+    }
   
     render(){
        
