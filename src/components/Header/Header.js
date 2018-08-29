@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { Link, withRouter } from 'react-router-dom';
-// import Scroll from '../../Util/Scroll';
-// import styles from './header.css';
-import ENV_VARIABLE from '../../utils/Environment';
+import { withRouter } from 'react-router-dom';
 import logoImg from '../../assets/images/BIZ_logo.png';
-// import Login from '../Login/Login';
-// import ScheduleADemo from '../ScheduleADemo/ScheduleADemo';
-// import * as commonActions from "../../actions/commonActions";
-// import CompaniesSelection from '../CompaniesSelection/CompaniesSelection';
  import * as CommonApi  from '../../common/CommonApi/commonApi';
 
 class Header extends Component{
@@ -116,15 +109,9 @@ class Header extends Component{
                     alt=""
                   />
               </div>
-              
-              
-              
             </div>    
-
-
-               
-                
-                 <div className="dropdown-content">
+            
+           <div className="dropdown-content">
             <ul>
               <li><a onClick={() => this.userProfileNavigation("my-actions")}>
                 My Account

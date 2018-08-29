@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {Link, withRouter} from 'react-router-dom';
+import { withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import cls from 'classnames';
-import Env from '../../utils/Environment'
+
+
 class LeftNavigation extends Component {
     constructor(props){
         super(props);

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-
 import ENV_VARIABLE from "../../utils/Environment";
 import $http from "../../utils/Http";
 import { Dropdown, Checkbox } from "../../common/FormElements/FormElements";

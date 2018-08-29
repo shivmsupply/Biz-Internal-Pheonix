@@ -18,14 +18,14 @@
     text-align: center;
 
 }
-/* .usertab li:active{
+.usertab li:active{
     border-top: 2px solid #F6BF5E !important;
     border-left: 2px solid #F6BF5E !important;
     border-right: 2px solid #F6BF5E !important;
     background: #ffeccb !important;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
-} */
+}
 .backTAB{
     border-top: 2px solid #F6BF5E !important;
     border-left: 2px solid #F6BF5E !important;
@@ -57,6 +57,7 @@
     display: flex;
     flex-flow: row-reverse;
     width: 90%;
+
     margin: 10px auto;
    
 }
@@ -135,6 +136,8 @@
 .pagination p span{
     color: black;
 }
+
+
 .tableDiv{
     display: flex;
     width: 90%;
@@ -149,10 +152,17 @@
 }
 .tableDiv table thead th{
     border-right: none;
+    padding: 7px;
     background-color: #f2f2f2;
     color: #989898;
 }
 
+.user-list-page .tableDiv .tableLayout{
+    margin-top:0px;
+}
+.user-list-page .tableDiv {
+    margin: 30px 0 20px 55px;
+}
 .pullSearch{
     border-bottom: 1px solid #b5b5b5;
     float: right;
@@ -276,6 +286,7 @@
 .adduser{
     display: flex;
     margin: 20px 55px auto;
+    list-style-type: none;
     width: 90%;
     flex-direction: row-reverse;
 }
@@ -285,4 +296,13 @@
     background: #fff;
     border: 2px solid #F6BF5E;
     border-radius: 5px
+}
+
+.center.viewPerPage.flexhide {
+    display: inherit;
+}
+
+.pageBar.paginations span.heading {
+    display: inline-table;
+    margin: 0px;
 }

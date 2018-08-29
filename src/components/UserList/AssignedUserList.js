@@ -4,9 +4,6 @@ import { withRouter } from "react-router-dom";
 import ENV_VARIABLE from "../../utils/Environment";
 import $http from "../../utils/Http";
 import { Dropdown } from "../../common/FormElements/FormElements";
-
-
-import  "../../assets/styles/components/main.css";
 import Pagination from "./Pagination.js";
 import Loading from "../../common/Loading/Loading";
 
@@ -176,14 +173,16 @@ class AssignedUserList extends Component {
               )
             )}
           </td>
-          {this.props.accessRole!==''&&this.props.accessRole.privileges['user-create']===true? <td
+          {/* {this.props.accessRole!==''&&this.props.accessRole.privileges['user-create']===true?  */}
+          <td
             className="text-left"
             onClick={() =>
               this.editRoles("edit-users", assigneUserDetails.data[list].id,'assigend-users')
             }
           >
             <a>View/Edit</a>
-          </td>:null} 
+          </td>
+          {/* :null}  */}
           <td>
             <label className='switch tooltip'>
               <input 
@@ -241,13 +240,15 @@ class AssignedUserList extends Component {
                 <th>Phone No.</th>
                 <th>Projects</th>
                 <th>Role</th>
-                {this.props.accessRole!==''&&this.props.accessRole.privileges['company-edit']===true?<th>Access Right(S)</th>:null}
+                {/* {this.props.accessRole!==''&&this.props.accessRole.privileges['company-edit']===true? */}
+                <th>Access Right(S)</th>
+                {/* :null} */}
                 <th />
               </tr>
               {this.state.userCount === 0 ? (
                 <tr className="white">
-                  <td colSpan="4">
-                    {" "}
+                  <td colSpan="7">
+                    
                     <p className="textCenter"> Data not found</p>
                   </td>
                 </tr>
