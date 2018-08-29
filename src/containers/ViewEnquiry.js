@@ -10,6 +10,7 @@ import DatePicker from "a-react-datepicker";
 // import '../assets/styles/components/enquiries.css';
 import "../assets/styles/components/viewComparatives.css";
 // import '../assets/styles/components/viewEnquiry.css';
+import * as commonActions from "../actions/LoginActions";
 
 import { connect } from 'react-redux';
 
@@ -49,7 +50,7 @@ class ListEnquiry extends Component {
         let _breadCrumb=[{displayName:'PR2Pay',navigation:''},
         {displayName:'View-Enquiries',navigation:''}]
         const { dispatch } = this.props;
-        // dispatch(commonActions.setBreadCrumb(_breadCrumb,true));  
+        dispatch(commonActions.setBreadCrumb(_breadCrumb,true));  
         this.handlePageNumber = this.handlePageNumber.bind(this); 
          this.incre = this.incre.bind(this);
         this.decre = this.decre.bind(this);

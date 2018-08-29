@@ -27,7 +27,7 @@ class ViewShipmentDetail extends Component{
         {displayName:'Shipment & GRN',navigation:'/pr2pay/'+this.routeParam.ShipmentCompanyId+'/shipment'},
         {displayName:this.routeParam.shipmentId,navigation:''}]
         const { dispatch } = this.props;
-        dispatch(commonActions.setBreadCrumb("_breadCrumb",true));
+        dispatch(commonActions.setBreadCrumb("_breadCrumb",false));
     }
     invoiceDoc;totalLineItem;
     getShipmentDetail(){
