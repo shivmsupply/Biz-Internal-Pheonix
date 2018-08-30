@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { Link, withRouter } from 'react-router-dom';
-// import Scroll from '../../Util/Scroll';
-// import styles from './header.css';
-import ENV_VARIABLE from '../../utils/Environment';
+import { withRouter } from 'react-router-dom';
 import logoImg from '../../assets/images/BIZ_logo.png';
+
 // import Login from '../Login/Login';
 // import ScheduleADemo from '../ScheduleADemo/ScheduleADemo';
-// import * as commonActions from "../../actions/commonActions";
+import * as commonActions from "../../actions/LoginActions";
 // import CompaniesSelection from '../CompaniesSelection/CompaniesSelection';
+
  import * as CommonApi  from '../../common/CommonApi/commonApi';
 
 class Header extends Component{
@@ -53,6 +52,7 @@ class Header extends Component{
    CommonApi.userLogout().then(res=>{
     window.localStorage.removeItem('_isL');
       // this.props.onLogout();
+      this.props.storeSession(false,'');
       this.props.history.push('/')
       // window.location.reload();
     }).catch(res=>{
@@ -85,6 +85,9 @@ class Header extends Component{
   //     this.props.getAllState()
   //     this.props.isPr2Pay();
   //  }
+  gotoRegistration =()=>{
+    this.props.history.push('/myAction/'+(this.props.filterReducer.selectedEnterprise?this.props.filterReducer.selectedEnterprise+"/" : "")+(this.props.filterReducer.selectedCompany?this.props.filterReducer.selectedCompany+"/" : "")+(this.props.filterReducer.selectedProject?this.props.filterReducer.selectedProject+"/" : ""));
+  }
 
     render(){
         return(
@@ -101,7 +104,7 @@ class Header extends Component{
              <div className="dropbtn" >
               
               
-              <p className="userIcondiv">
+              <div className="userIcondiv">
                 <div className="userlogo">
                   <img
                     className="profileImg"
@@ -115,44 +118,19 @@ class Header extends Component{
                     src={require('../../assets/images/dropdown_icon.png')}
                     alt=""
                   />
-              </p>
-              
-              
-              
+              </div>
             </div>    
-
-
-               
-                
-                 <div className="dropdown-content">
+            
+           <div className="dropdown-content">
             <ul>
-              <li><a onClick={() => this.userProfileNavigation("my-actions")}>
-                My Account
-              </a></li>
-              <li><a onClick={() => this.userProfileNavigation("company-detail")}>
-                Company
-              </a></li>
-			  
+
+              {this.props.getAccessControl&&this.props.getAccessControl['user-create']===true?<li><a onClick={this.gotoRegistration.bind(this)}>
+                Add Phoenix User
+              </a></li>:null}
+
               <li><a onClick={this.logOut}>Logout</a></li>
               </ul>
-              {/* <ul>
-              <li><a onClick={() => this.userProfileNavigation("my-actions")}>
-                My Account
-              </a></li>
-              <li> <a onClick={() => this.userProfileNavigation("company-detail")}>
-                Company
-              </a></li>
-              <li> <a onClick={() => this.userProfileNavigation("project-details")}>
-                Projects
-              </a> </li>
-              <li> <a onClick={() => this.userProfileNavigation("view-users")}>
-                Users
-              </a></li>
-              <li> <a onClick={() => this.userProfileNavigation("address-book")}>
-                Address Book
-              </a></li>
-              <li> <a className="borderS" onClick={this.logOut}>Logout</a></li>
-              </ul> */}
+              
             </div> 
 
           </div> :null}
@@ -181,7 +159,9 @@ const mapStateToProps = state => {
   
   return {
      isLogin:state.storeSession.isLogin,
+     getAccessControl:state.storeSession.loginDetail.privilege,
      loginDetail:state.storeSession.loginDetail,
+     filterReducer:state.FilterReducer
     // companyID: state.companyDetailReducer.companyId
   	}
 }
@@ -189,7 +169,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
 	
   return {
-	//  storeSession: (isLogin,loginDetail) => dispatch(commonActions.storeSession(isLogin,loginDetail)),
+	  storeSession: (isLogin,loginDetail) => dispatch(commonActions.storeSession(isLogin,loginDetail)),
 	//  storeState:(s)=>dispatch(commonActions.storeState(s)),
   //  storeCurrentCompanyDetail: (companyId,companyDetail,privileges) => dispatch(commonActions.storeCurrentCompanyDetail(companyId,companyDetail,privileges)),
 

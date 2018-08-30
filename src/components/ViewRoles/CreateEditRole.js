@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Link, withRouter } from 'react-router-dom';
@@ -9,21 +10,27 @@ import { Button,Text,Checkbox } from '../../common/FormElements/FormElements';
 import editImg from '../../assets/images/edit.png';
 import Modal from "../../common/Modal/Modal";
 import * as commonActions from "../../actions/LoginActions";
-export default class CreateEditRole extends React.Component{
-	
-	constructor(props){
+
 		
+
+
+export default class CreateEditRole extends React.Component{
+	constructor(props){
+
 		super(props);
 		this.state = {
 			privileges:this.props.selectedRole.privileges == undefined || this.props.selectedRole.privileges == "" ? {}: this.props.selectedRole.privileges,
 			displayName:this.props.selectedRole != undefined && this.props.selectedRole != "" ? this.props.selectedRole.displayName:"",
+
 			createEditRoleModal:true,
 			modulesSelected:[]
+
 		}
 		
 		this.CreateRole = this.CreateRole.bind(this);
 		this.handlePrivilegeChange = this.handlePrivilegeChange.bind(this);
 		this.handleChange = this.handleChange.bind(this);
+
 		this.toggleModuleSelection = this.toggleModuleSelection.bind(this);
 		debugger;
 	}
@@ -75,29 +82,36 @@ export default class CreateEditRole extends React.Component{
 		this.setState(stateData);
 	}
 	
+
 	CreateRole(){
 		var submitData = this.state;
 		
 		if(this.props.action == "create"){
+
 			$http.postWithUrl(ENV_VARIABLE.HOST_NAME+'census/phoenix/enterprise/'+this.props.enterpriseId+'/company/'+this.props.companyId+'/role' ,JSON.stringify(submitData) ,(response)=>{
+
 				if(response.http_code == 200)
 				this.setState({"successPopup" : true,"createEditRoleModal":false,"successPopup" : "New Role Created Successfully" })
 			})
 		}
 		else{
+
 			$http.putWithUrl(ENV_VARIABLE.HOST_NAME+'census/phoenix/enterprise/'+this.props.enterpriseId+'/company/'+this.props.companyId+'/role/'+this.props.selectedRole.id ,JSON.stringify(submitData) ,(response)=>{
+
 				if(response.http_code == 200)
 				this.setState({"successPopup" : true,"createEditRoleModal":false,"successPopup" : "Role Edited Successfully" })
 			
 			})
 		}
 	}
+
 	handleChange(e, data){
 		var stateData = this.state;
 		stateData[e.target.name] = data.data;
 		this.setState(stateData);
 	}
 	
+
 		render(){
 		
 		
@@ -160,6 +174,7 @@ export default class CreateEditRole extends React.Component{
 	
 	
 	
+
 }
 
 

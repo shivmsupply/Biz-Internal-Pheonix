@@ -2,12 +2,11 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {getEnterprices,updateEnterpriseId,updateCompanyId,updateProjectId,getCompany,getProject} from '../actions/FilterActions' 
+import { getEnterprices,updateEnterpriseId,updateCompanyId,updateProjectId,getCompany,getProject} from '../actions/FilterActions' 
 
 // IMPORT PROJECT REFERENCES
 import * as commonActions from "../actions/LoginActions";
 import * as CommonApi  from '../common/CommonApi/commonApi';
-
 
 import Header  from '../components/Header/Header';
 import Footer  from '../components/Footer/Footer.js';
@@ -28,7 +27,11 @@ import ViewEnquiry from "../containers/ViewEnquiry";
 import EnquiryDetails from "../containers/EnquiryDetails";
 import SelectSupplier from '../containers/SelectSupplier';
 import ViewShipmentDetail from '../components/Shipment/ViewShipmentDetail'
-import ViewShipment from '../components/Shipment/ViewShipment';
+
+import ViewShipment from '../components/Shipment/ViewShipment'
+import UserList from '../containers/UserList'
+import CreateUsers from '../containers/CreateUsers'
+
 import Grn from '../components/Shipment/Grn';
 import MyAction from '../containers/MyActions'
 
@@ -45,9 +48,7 @@ import MyAction from '../containers/MyActions'
 
     componentDidMount(){
         // if(window.localStorage._isL)this.props.storeSession(true,'');
-         
-        
-        CommonApi.getSession()
+       CommonApi.getSession()
           .then((res)=>{
               window.localStorage._isL=true;
               this.props.storeSession(true,res);
@@ -72,8 +73,7 @@ import MyAction from '../containers/MyActions'
             console.log(err,">>>>>>>>>>>>>error")
     
         })
-    
-        }
+    }
   
     render(){
        
@@ -81,12 +81,13 @@ import MyAction from '../containers/MyActions'
             <Router>
             <Fragment> 
 
-            
               {this.props.isLogin?<LeftPanel /> :null}
 
                 <div className="mainContent">
                 <Header />
+
                 {this.props.isLogin&&this.props.showHeaderFilter?<FilterList  />:null}
+
                     <Switch>
                         {/* <Route exact strict path='/' component={HomePage} /> */}
                         <Route path='/enterOtp' component={EnterOtp}/>
@@ -102,11 +103,17 @@ import MyAction from '../containers/MyActions'
                         <Route path = '/list-po/:enterpriseID?/:companyId?/:projectId?/' component={ViewPO} />
                         <Route path = '/shipment/:enterpriseId?/:companyId?/:projectId?/' component={ViewShipment} />
                         <Route path = '/view-po/:enterpriseID?/:companyId?/:projectId?/:poId/:amendmentNumber' component={PODetail} />
+
                         <Route path = '/shipment-detail/:enterpriseId?/:companyId?/:projectId?/:ShipmentCompanyId?/:shipmentId?' component={ViewShipmentDetail} />
                         <Route path = '/view-grn/:enterpriseId?/:companyId?/:projectId?/:ShipmentCompanyId?/:shipmentId?' component={Grn} />
                         <Route path = '/create-grn/:enterpriseId?/:companyId?/:projectId?/:ShipmentCompanyId?/:shipmentId?' component={Grn} />
 
-                        {/* <Route path="/myaction/:enterpriseId?/:companyId?/:projectId?" component={MyAction}/> */}
+                        <Route path = '/create-users/:enterpriseId?/:companyId?/:projectId?/:userType?/:userAdditionStep?/:userID?/:roleType?' component={CreateUsers} />
+                        <Route path = '/users/:enterpriseId?/:companyId?/:projectId?/:userType?/:userAdditionStep?/:userID?/:roleType?' component={CreateUsers} />
+                        <Route path = '/view-users/:enterpriseId?/:companyId?/:projectId?/:type?/:eroCid?/' component={UserList} />
+
+                        <Route path="/myaction/:enterpriseId?/:companyId?/:projectId?" component={MyAction}/>
+
                         <Route component={HomePage} />
                     </Switch>
                 </div>

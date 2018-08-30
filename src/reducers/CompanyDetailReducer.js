@@ -1,12 +1,15 @@
 import * as types from "../constants/";
+
 const initialState={
     EnterpriseDetail:[],
     companyDeatil:[],
     selectedEnterprise:'',
-    selectedCompany:''
+    selectedCompany:'',
+    currentCompanyDetail:''
 }
 const storeCurrentCompanyDetail=(state= initialState,action)=>{
   switch (action.type) {
+    
    case types.ENTERPRISE_COMPANY:
      return {
        ...state,
@@ -16,7 +19,15 @@ const storeCurrentCompanyDetail=(state= initialState,action)=>{
        selectedCompany:action.selectedCompany
 
       }
-      
+
+    case types.GET_COMPANY_DETAIL:
+     return {
+       ...state,
+       companyId:action.companyId,
+       currentCompanyDetail:action.companyDetail,
+       loginPrivileges:action.privileges
+      }
+
    default:
      return state
  }

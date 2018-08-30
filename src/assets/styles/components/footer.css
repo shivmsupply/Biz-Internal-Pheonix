@@ -30,3 +30,15 @@
 .footer .textCopy{
     margin-left:10px;
 }
+
+.popPupVideo{
+    position: fixed;
+    bottom: 55px;
+    right: 15px; 
+}
+
+.popPupVideo iframe{
+    border: 1px solid black;
+    box-shadow: 0px 0px 2px 2px  #c7c7c7;
+    border:none;
+}

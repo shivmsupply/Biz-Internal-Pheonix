@@ -21,6 +21,7 @@ export const FetchZipCodesReducer = (state = initialState, action) => {
                 fetched: false,
                 failed: false
             };
+
         case types.FETCH_ZIPCODES_FULFILLED:
             return {
                 ...state,
@@ -29,6 +30,7 @@ export const FetchZipCodesReducer = (state = initialState, action) => {
                 fetched: true,
                 failed: false
             };
+            
         case types.FETCH_ZIPCODES_REJECTED:
             return {
                 ...state,

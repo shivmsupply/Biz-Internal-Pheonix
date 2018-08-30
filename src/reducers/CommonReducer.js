@@ -10,6 +10,8 @@ export default function(state=initialState, action) {
             return Object.assign({}, state, {
                 savedInput: action.data
             })
+        case types.TAB_URL: 
+            return {...state, tabUrl: action.url}
         default: 
             return state;    
     }

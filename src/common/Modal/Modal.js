@@ -5,9 +5,8 @@ class Modal extends Component {
     constructor(props){
         super(props)
     }
+    
     closeModal = (event) => {
-        console.log("event here ==========>", event)
-        debugger;
         event.stopPropagation();
         document.getElementsByTagName('body')[0].style.overflow="auto";
         this.props.onClose();
@@ -34,7 +33,7 @@ class Modal extends Component {
         }
         else{
             return (  
-                <div className="modalbody" onClick={this.close_back_drop(this)}>
+                <div className="modalbody" >
                     <div className="modal" style={style} onClick={(e)=>{e.stopPropagation()}}>
                         <h2>{this.props.header}</h2>
                         <div>{this.props.children}</div>

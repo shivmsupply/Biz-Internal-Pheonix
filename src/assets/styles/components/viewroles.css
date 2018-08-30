@@ -110,7 +110,9 @@ width: 42%;
 }
 
 .modulesTable {
+
   width:25%;
+
   float:left;
  
 }
@@ -127,8 +129,10 @@ width: 42%;
     
 }
 .modulesTable tbody tr td {
+
 	width:200px;
 	
+
 	border:1px solid #ccc;
 }
 .privilegesTable tbody tr td {
@@ -153,9 +157,17 @@ width: 42%;
 }
 .custom-roles-header{
 	margin-left:8%;
+
 	font-weight:bold;
+
 }
 .edit-role-img{
 	float:right;
 	cursor:pointer;
+
 }
+
+.projectdiv .dropdownWrapper .flex{
+    margin: 0px 20px;
+} 
+

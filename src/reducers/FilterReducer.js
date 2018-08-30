@@ -8,11 +8,10 @@ const initialState = {
     selectedEnterprise:"",
     selectedCompany:"",
     selectedProject:"",
-    fetching: false,
+    fetching: false,    
     fetched: false,
     failed: false
 };
-
 
 // REDUCER
 const FilterReducer = (state = initialState, action) => {
@@ -62,7 +61,6 @@ const FilterReducer = (state = initialState, action) => {
         break
         
         case types.GET_COMPANY_LIST+'_FULFILLED':
-        console.log("action for company==========>", action)
             return {
                 ...state,
                 companyOptions: action.payload,
@@ -96,7 +94,6 @@ const FilterReducer = (state = initialState, action) => {
         break
         
         case types.GET_PROJECT_LIST+'_FULFILLED':
-        console.log("action for company==========>", action)
             return {
                 ...state,
                 
@@ -118,9 +115,7 @@ const FilterReducer = (state = initialState, action) => {
                 failed: true
             }
         break
-
-
-
+        
         // UPDATE ENTERPRISE-ID
         case types.SELECTED_ENTERPRISE :
             return {

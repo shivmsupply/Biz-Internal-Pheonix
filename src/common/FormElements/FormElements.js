@@ -38,7 +38,7 @@ export class Text extends React.Component{
 			wrapperWid = Number(this.props.width) - 10;
 			wrapperWid = wrapperWid + 'px'; 
 		}
-		console.log("disabled value ------------->", this.props)
+		// console.log("disabled value ------------->", this.props)
 		return (
 			<div 
 				style={this.props.style} 
