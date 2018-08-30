@@ -58,7 +58,7 @@
     flex-flow: row-reverse;
     width: 90%;
 
-    margin: 10px auto;
+    /* margin: 10px auto; */
    
 }
 .addUsers button{

@@ -10,6 +10,7 @@ import DatePicker from "a-react-datepicker";
 // import '../assets/styles/components/enquiries.css';
 import "../assets/styles/components/viewComparatives.css";
 // import '../assets/styles/components/viewEnquiry.css';
+import * as commonActions from "../actions/LoginActions";
 
 import { connect } from 'react-redux';
 
@@ -49,24 +50,36 @@ class ListEnquiry extends Component {
         let _breadCrumb=[{displayName:'PR2Pay',navigation:''},
         {displayName:'View-Enquiries',navigation:''}]
         const { dispatch } = this.props;
-        // dispatch(commonActions.setBreadCrumb(_breadCrumb,true));  
+        dispatch(commonActions.setBreadCrumb(_breadCrumb,true));  
         this.handlePageNumber = this.handlePageNumber.bind(this); 
          this.incre = this.incre.bind(this);
         this.decre = this.decre.bind(this);
+        this.select_E_id=this.props.filetrDetail.selectedEnterprise;
+        this.select_C_id=this.props.filetrDetail.selectedCompany;
+        this.select_P_id=this.props.filetrDetail.selectedProject;
     }
 
-    // componentWillReceiveProps(nextProps){
-    //     debugger
-    //     let stateTemp = this.state.urlState
-    //     if(stateTemp.enterpriseId!=nextProps.filetrDetail.selectedEnterprise||stateTemp.companyId!=nextProps.filetrDetail.selectedCompany||stateTemp.projectId!=nextProps.filetrDetail.selectedProject){
-    //         this.apiCallFunc("open",this.state.inquiryCurrentStatus);
-    //     }
-    //     // debugger
-    // }
+    componentWillReceiveProps(nextProps,prevProps){
+        console.log(nextProps,prevProps)
+        if(nextProps.filetrDetail.selectedEnterprise != this.select_E_id||nextProps.filetrDetail.selectedCompany != this.select_P_id||nextProps.filetrDetail.selectedProject != this.select_P_id){
+            this.select_E_id=nextProps.filetrDetail.selectedEnterprise;
+            this.select_C_id=nextProps.filetrDetail.selectedCompany;
+            this.select_P_id=nextProps.filetrDetail.selectedProject; 
+            // this.apiCallFunc("open",this.state.inquiryCurrentStatus);  
+            this.filtersApi();
+            this.apiCallFunc(this.state.tabActiveName,this.state.inquiryCurrentStatus);
+        }
+        
+        // let stateTemp = this.state.urlState
+        // if(stateTemp.enterpriseId!=nextProps.filetrDetail.selectedEnterprise||stateTemp.companyId!=nextProps.filetrDetail.selectedCompany||stateTemp.projectId!=nextProps.filetrDetail.selectedProject){
+        //     this.apiCallFunc("open",this.state.inquiryCurrentStatus);
+        // }
+        
+    }
 
 
     apiCallFunc(val,value) {
-        // debugger
+        
         this.setState({isLoading:true})
         let inquiryS ;
         let firstHalfUrl;
@@ -74,7 +87,7 @@ class ListEnquiry extends Component {
         // let currentStatus = this.state.currentStatus
         // let applyFilterData = this.state.appliedFilter;
         let apiUrl ="";
-        // //debugger;
+        
         let applyFilterData1 = this.state.appliedFilter;
         if(this.state.tabActiveName != val) {
             this.state.pageNumber = 0;
@@ -93,12 +106,11 @@ class ListEnquiry extends Component {
             firstHalfUrl = "rfq/phoenix/enterprise/"+this.props.match.params.enterpriseId +'/company/'+ this.props.match.params.companyId+'/inquiries?itemsPerPage='+this.state.itemsPerPage+"&pageNumber="+this.state.pageNumber
         }
         else{
-            let companyID = this.props.match.params.companyId
-            let enterpriseId = this.props.match.params.enterpriseId;
-            let projectId = this.props.match.params.projectId; 
-            debugger
+            let companyID = this.select_C_id
+            let enterpriseId = this.select_E_id;
+            let projectId = this.select_P_id; 
             firstHalfUrl = "rfq/phoenix/enterprise"+(enterpriseId ?'/'+enterpriseId:"") +'/company'+ (companyID ? '/'+companyID:"") +'/project'+(projectId ? '/'+projectId:"")+'/inquiries/?itemsPerPage='+this.state.itemsPerPage+"&pageNumber="+this.state.pageNumber
-            debugger
+            
         }
         
         // var filterUrl = new URLSearchParams(this.props.location.search);
@@ -110,7 +122,7 @@ class ListEnquiry extends Component {
             {filterObj[idx]=filterUrl[idx]}
             
         }
-        // //debugger
+        
         if(typeof(filterUrl.fromDate)== "string"&&new Date(filterUrl.fromDate) != 'Invalid Date'){
             filterUrl.fromDate=new Date(filterUrl.fromDate)
         }
@@ -123,7 +135,7 @@ class ListEnquiry extends Component {
         if(Object.keys(filterUrl).length === 0) {
             
             $http.getWithUrl(ENV_VARIABLE.HOST_NAME+ firstHalfUrl + "&inquiryStatus=" + value ,(res)=>{
-            //    debugger
+            
                 this.setState({listData:res.message.inquiryList,
                 inquiryCount : res.message.totalInquiriesCount,isLoading:false});
             })
@@ -166,14 +178,18 @@ class ListEnquiry extends Component {
         let statusArr =[];
         let projectArray = [];
         let companyId='';
-        let companyID = this.props.match.params.companyId
-        let enterpriseId = this.props.match.params.enterpriseId;
-        let projectId = this.props.match.params.projectId; 
+        // let companyID = this.props.match.params.companyId
+        // let enterpriseId = this.props.match.params.enterpriseId;
+        // let projectId = this.props.match.params.projectId; 
+        let enterpriseId=this.select_E_id
+        let companyID=this.select_C_id
+        let projectId=this.select_P_id
         if(this.props.match.params.companyId==='ero'){
              companyId = "";
         }
         else{
-             companyId = this.props.match.params.companyId;}
+             companyId = this.props.match.params.companyId;
+            }
         this.setState({isLoading:true})
         // api.stg.msupply.biz/rfq/phoenix/enterprise/:enterpriseId/company/:companyId/filters
         $http.getWithUrl(ENV_VARIABLE.HOST_NAME+'rfq/phoenix/enterprise'+(enterpriseId ?'/'+enterpriseId:"") +'/company'+ (companyID ? '/'+companyID:"") +'/project'+(projectId ? '/'+projectId:"")+'/filters', (res)=>{
@@ -208,7 +224,7 @@ class ListEnquiry extends Component {
     }
 
     handleChangeDate(item,name) {
-        debugger
+        
         CommonApi.convertFromDate(item);
         var subData = this.state.appliedFilter;
         if(name =="fromDate"){
@@ -293,7 +309,7 @@ class ListEnquiry extends Component {
             
             this.state.dateError ="";
             this.props.location.search=queryUrl
-            // //debugger
+            
             if(this.state.appliedFilter.inquiryStatus!=''){
             this.state.tabActiveName = 'open'}
             // this.setState({pageNumber:page})
@@ -368,7 +384,7 @@ class ListEnquiry extends Component {
         if(this.state.appliedFilter.inquiryStatus) {
         this.state.currentStatus = this.state.appliedFilter.inquiryStatus;}
         this.setState(subData);
-        // //debugger
+       
         this.apiCallFunc(this.state.tabActiveName, this.state.currentStatus);
       }
       eroSaved(status,key) {

@@ -3,9 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import * as LoginActions from "../actions/LoginActions";
 import  "../assets/styles/components/userlist.css";
-
-import  "../assets/styles/components/main.css";
-//import UnassignedUserList from "../components/UserList/UnassignedUserList";
+import  "../assets/styles/components/table-list.css";
 import AssignedUserList from "../components/UserList/AssignedUserList";
 import combineClass from "classnames";
 
@@ -66,9 +64,12 @@ class UserList extends Component {
   }
 
   addNewUser(userType) {
-    debugger
+
+    // var filterUrl = this.props.match.params.enterpriseID?this.props.match.params.enterpriseID+"/":"" + this.props.match.params.companyId?this.props.match.params.companyId+"/":""+this.props.match.params.projectId?this.props.match.params.projectId+"/":"";
+    
+    // console.log("url ====>", filterUrl)
     this.props.history.push(
-      "/create-users/" +  this.props.match.params.enterpriseID + "/"+  this.props.match.params.companyId +"/"+  this.props.match.params.projectId +"/" + userType + "/add-users"+ "/"+ this.props.loginDetail.id
+      "/users/" + (this.props.filterReducer.selectedEnterprise!=undefined&&this.props.filterReducer.selectedEnterprise!=''?this.props.filterReducer.selectedEnterprise+"/" : "")+(this.props.filterReducer.selectedEnterprise!=undefined&&this.props.filterReducer.selectedCompany!=''?this.props.filterReducer.selectedCompany+"/" : "")+(this.props.filterReducer.selectedEnterprise!=undefined&&this.props.filterReducer.selectedProject!=''?this.props.filterReducer.selectedProject+"/" : "") + userType + "/add-users"+ "/"
     );
   }
 
@@ -77,12 +78,13 @@ class UserList extends Component {
      'backTAB': this.state.flagList == "assignedList"
     });
     var unassigned = combineClass({
-      'backTAB': this.state.flagList == "unassignedList"
+      'backTAB': this.state.flagList  == "unassignedList"
     });
+
     return (
       <div className="user-list-page">
-       {/* <div>
-           <div className={styles.pullSearch}>
+       {/* <div>enterpriseId
+           <div enterpriseIdlSearch}>
               <input type="search" className={styles.inputSearch} placeholder="Search user by Name, email ID,Phone Number" />
               <img src={ENV_VARIABLE.IMAGE_URL + "if_icon-111-search_314478.svg"} />
             </div> 
@@ -101,18 +103,18 @@ class UserList extends Component {
             Unassigned Users
           </li>
         </ul> */}
-        {/* {this.props.userRole==='Admin' ||(this.props.accessRole!==''&&this.props.accessRole['user-create']===true)? */}
+        {(this.props.match.params.enterpriseId !== undefined && this.props.match.params.companyId !== undefined) ?
         <ul className="adduser">
           <li>
-            <button
+            <button 
               className="addbtn"
               onClick={() => this.addNewUser("create-users")}
             >
               Add New User
             </button>
           </li>
-        </ul>
-        {/* :null} */}
+        </ul>:null}
+       
         <AssignedUserList /> 
       </div>
     );
@@ -124,6 +126,7 @@ const mapStateToProps = state => {
   return {
     loginDetail: state.storeSession.loginDetail,
     companyInfo: state.companyDetailReducer,
+    filterReducer:state.FilterReducer,
     companyID: state.companyDetailReducer.companyId,
     accessRole:state.companyDetailReducer.currentCompanyDetail,
     userRole:state.companyDetailReducer.currentCompanyDetail.displayName,

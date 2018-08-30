@@ -27,7 +27,7 @@ class ViewShipmentDetail extends Component{
         {displayName:'Shipment & GRN',navigation:'/pr2pay/'+this.routeParam.ShipmentCompanyId+'/shipment'},
         {displayName:this.routeParam.shipmentId,navigation:''}]
         const { dispatch } = this.props;
-        dispatch(commonActions.setBreadCrumb("_breadCrumb",true));
+        dispatch(commonActions.setBreadCrumb("_breadCrumb",false));
     }
     invoiceDoc;totalLineItem;
     getShipmentDetail(){
@@ -177,7 +177,7 @@ class ViewShipmentDetail extends Component{
             <div  className="width10">&nbsp;</div>
             </div>:null}
             </div>
-           <div className="tableDiv topMargin">
+           <div className="tableDiv topMargin" style={{width:'100%',margin:'0px'}}>
            <table className="compTable">
             <thead>
               <tr>
@@ -231,7 +231,7 @@ class ViewShipmentDetail extends Component{
              <img className={AdiAccordionImg} src={require('../../assets/images/dropdown_icon.png')} onClick={()=>{this.setState({additionalChargeShow:!this.state.additionalChargeShow})}}/>
         </div>
        {/* {this.state.additionalChargeShow? */}
-         <div className="tableDiv chargesInfo">
+         <div className="tableDiv chargesInfo" style={{width:'70%',margin:'0px'}}>
           <table className="compTable">
               {this.state.additionalChargeShow?
             <thead>
@@ -340,13 +340,21 @@ class ViewShipmentDetail extends Component{
            <div className="grnButton">
                 <button onClick={()=>window.history.back()}>Back</button>
                {this.props.loginDetail != ''&&this.state.shipmentDoc.GRNReceived&&this.props.loginDetail.privilege["shipment-read"]?<button onClick={()=>{
-                    this.props.history.push('/pr2pay/'+this.routeParam.companyId+'/view-grn/'+this.routeParam.ShipmentCompanyId+'/'+this.routeParam.projectId+'/'+this.routeParam.shipmentId);
+                   let _url=this.props;
+                   _url=_url.location.pathname.split('/');
+                   _url[1]="view-grn";
+                   _url=_url.join('/');
+                   this.props.history.push(_url);
                 }}>View GRN</button>:null} 
 
 
                 {!this.state.shipmentDoc.GRNReceived&&this.props.loginDetail.privilege['shipment-create']?<button onClick={()=>{
-                  this.props.history.push('/pr2pay/'+this.routeParam.companyId+'/create-grn/'+this.routeParam.ShipmentCompanyId+'/'+this.routeParam.projectId+'/'+this.routeParam.shipmentId);
-                  
+                 // this.props.history.push('/pr2pay/'+this.routeParam.companyId+'/create-grn/'+this.routeParam.ShipmentCompanyId+'/'+this.routeParam.projectId+'/'+this.routeParam.shipmentId);
+                 let _url=this.props;
+                   _url=_url.location.pathname.split('/');
+                   _url[1]="create-grn";
+                   _url=_url.join('/');
+                   this.props.history.push(_url); 
                 }}>Create GRN</button>:null}
 
 
@@ -363,7 +371,7 @@ class ViewShipmentDetail extends Component{
 }
 
 const mapStateToProps = state => {
-    
+    debugger
 	return {
 		selectedCompany:state.companyDetailReducer.currentCompanyDetail,
 		loginDetail:state.storeSession.loginDetail

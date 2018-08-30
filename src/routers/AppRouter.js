@@ -12,6 +12,7 @@ import Header  from '../components/Header/Header';
 import Footer  from '../components/Footer/Footer.js';
 import FilterList  from '../components/FilterList/FilterList.js';
 import LeftPanel  from '../components/LeftPanel/Left-Panel';
+import ViewRoles  from '../components/ViewRoles/ViewRoles';
 import HomePage  from '../containers/HomePage';
 import LoginPage2  from '../containers/LoginPage2';
 import CreateNewPassword from '../containers/CreateNewPassword';
@@ -94,6 +95,7 @@ import MyAction from '../containers/MyActions'
                         <Route exact path='/' component={LoginPage2} />
                         <Route path="/scanQr" component={ScanQr}/> 
                         <Route path="/view-enquiries/:enterpriseId?/:companyId?/:projectId?" component={ViewEnquiry}/> 
+						<Route path="/view-roles/:enterpriseId?/:companyId?/:projectId?" component={ViewRoles}/> 
                         <Route path="/detail-enquiries/:enterpriseId/:companyId/:projectId/:enquiryId" component={EnquiryDetails} />
                         <Route path = '/select-supplier/:enterpriseID?/:companyId?/:projectId?/:enquiryId?/' component={SelectSupplier} />
                         <Route path="/createNewPassword" component={CreateNewPassword}/>
@@ -106,8 +108,9 @@ import MyAction from '../containers/MyActions'
                         <Route path = '/view-grn/:enterpriseId?/:companyId?/:projectId?/:ShipmentCompanyId?/:shipmentId?' component={Grn} />
                         <Route path = '/create-grn/:enterpriseId?/:companyId?/:projectId?/:ShipmentCompanyId?/:shipmentId?' component={Grn} />
 
-                        <Route path = '/create-users/:enterpriseID?/:companyId?/:projectId?/:userType?/:userAdditionStep?/:userID?' component={CreateUsers} />
-                        <Route path = '/view-users/:enterpriseID?/:companyId?/:projectId?/:type?/:eroCid?/' component={UserList} />
+                        <Route path = '/create-users/:enterpriseId?/:companyId?/:projectId?/:userType?/:userAdditionStep?/:userID?/:roleType?' component={CreateUsers} />
+                        <Route path = '/users/:enterpriseId?/:companyId?/:projectId?/:userType?/:userAdditionStep?/:userID?/:roleType?' component={CreateUsers} />
+                        <Route path = '/view-users/:enterpriseId?/:companyId?/:projectId?/:type?/:eroCid?/' component={UserList} />
 
                         <Route path="/myaction/:enterpriseId?/:companyId?/:projectId?" component={MyAction}/>
 

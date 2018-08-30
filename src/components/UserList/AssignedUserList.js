@@ -3,6 +3,11 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import ENV_VARIABLE from "../../utils/Environment";
 import $http from "../../utils/Http";
+import  "../../assets/styles/components/userlist.css";
+
+import  "./pagination.css";
+import  "../../assets/styles/components/main.css";
+
 import { Dropdown } from "../../common/FormElements/FormElements";
 import Pagination from "./Pagination.js";
 import Loading from "../../common/Loading/Loading";
@@ -24,20 +29,24 @@ class AssignedUserList extends Component {
       roles: [],
       isLoading: false
     };
-    this.getassignedUserList();
+   
     this.clickOnPage = this.clickOnPage.bind(this);
     this.viewPageChange = this.viewPageChange.bind(this);
   }
-
+  componentDidMount(){
+    this.getassignedUserList();
+  }
   editRoles(edituser, userID,roleType) {
+
+    console.log("data hree============>", edituser, userID,roleType )
+    debugger
     this.props.history.push(
-      "/pr2pay/" +
-        this.props.companyID +
-        "/" +
+      "/users/" + this.props.match.params.enterpriseId + "/" + this.props.match.params.companyId + "/" + this.props.match.params.projectId + "/" 
+        +
         edituser +
         "/" +
         "add-users/" +
-        userID+'/'+roleType
+        userID
     );
   }
 
@@ -62,11 +71,21 @@ class AssignedUserList extends Component {
       this.props.match.params.projectID = "";
     }
     this.setState({ isLoading: true });
+    
+    var enterprise = this.props.match.params.enterpriseId?("&enterpriseId="+this.props.match.params.enterpriseId) : "";
 
+    var companyid =  this.props.match.params.companyId?("&companyId="+this.props.match.params.companyId ): "";
+   
+    var projectid = this.props.match.params.projectId? ("&projectId="+this.props.match.params.projectId):'';
+    
+
+    // var enterprise=this.props.filterReducer.selectedEnterprise?"&enterpriseId="+this.props.filterReducer.selectedEnterprise+'/':'';
+    debugger
+    var filterdata = enterprise+companyid+projectid
+    console.log("filter data ========>", filterdata)
     $http.getWithUrl(
       ENV_VARIABLE.HOST_NAME +
-        "census/phoenix/user/?enterpriseID="+this.props.match.params.enterpriseID +"&companyId="+ this.props.match.params.companyId +"&projectId="+ 
-        this.props.match.params.projectId  + "&itemsPerPage=" + this.state.itemsPerPage +"&pageNumber=" + this.state.pageNumber,
+        "census/phoenix/user/?itemsPerPage=" + this.state.itemsPerPage +"&pageNumber=" + this.state.pageNumber+filterdata,
       res => {
         if (res.http_code == 200) {
           this.setState({
@@ -87,11 +106,10 @@ class AssignedUserList extends Component {
     );
   }
   userActivity(event,data){
-    console.log(event.target.checked);
-    debugger;
+    
     if(event.target.checked===true){
       $http.putWithUrl(
-        ENV_VARIABLE.HOST_NAME + "census/phoenix/enterprise/"+this.props.match.params.enterpriseID+"/user/"
+        ENV_VARIABLE.HOST_NAME + "census/phoenix/enterprise/"+data.enterpriseId+"/user/"
         +data.id +'/deactivate',JSON.stringify({}),
         res => {
 			 var stateData = this.state;
@@ -106,7 +124,7 @@ class AssignedUserList extends Component {
     }
     if(event.target.checked===false){
       $http.putWithUrl(
-        ENV_VARIABLE.HOST_NAME + "census/phoenix/enterprise/"+this.props.match.params.enterpriseID+"/user/"
+        ENV_VARIABLE.HOST_NAME + "census/phoenix/enterprise/"+data.enterpriseId+"/user/"
           +data.id +"/activate",JSON.stringify({}),
         res => {
           var stateData = this.state;
@@ -124,7 +142,8 @@ class AssignedUserList extends Component {
   }
   printUserList(assigneUserDetails) {
     debugger;
-    return Object.keys(assigneUserDetails.data).map(list => {
+    
+    return Object.keys(assigneUserDetails.data).map(list => { console.log("list of uuser ========>",list)
       return (
         <tr key={list}>
           <td className="text-left">
@@ -268,7 +287,9 @@ class AssignedUserList extends Component {
 }
 
 const mapStateToProps = state => {
+  debugger
   return {
+    filterReducer:state.FilterReducer,
     companyID: state.companyDetailReducer.companyId,
     accessRole:state.companyDetailReducer.currentCompanyDetail,
   };

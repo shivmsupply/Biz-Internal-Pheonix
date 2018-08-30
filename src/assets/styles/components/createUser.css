@@ -138,3 +138,12 @@
 .create-user-page ul.usertab, ul.crtbtn {
     list-style-type: none !important;
 }
+
+.rolesdata div, .rolesdata p {
+    display: -webkit-inline-box !important;
+    padding: 0px 10px;
+}
+
+.rolesdata {
+    margin: 10px 0px;
+}

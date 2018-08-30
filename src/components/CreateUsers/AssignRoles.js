@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import ENV_VARIABLE from "../../utils/Environment";
 import $http from "../../utils/Http";
 import { Dropdown, Checkbox } from "../../common/FormElements/FormElements";
-
+import Modal from '../../common/Modal/Modal'
 
 class AssignRoles extends Component {
 
@@ -15,6 +15,7 @@ class AssignRoles extends Component {
       projectInfo : "",
       projectArray: [],
       roles:[],
+      rolesPopUp:false,
       viewRoles:"",
       selectedRoles:'',
       countProject:0,
@@ -26,14 +27,14 @@ class AssignRoles extends Component {
   }
 
   gotoUserList(gotoList) {
-    this.props.history.push("/pr2pay/" + this.props.companyID + "/" + gotoList);
+    this.props.history.push("/users/" + this.props.match.params.enterpriseId +"/"+this.props.match.params.companyID +"/"+ this.props.match.params.projectId+ "/" + gotoList);
   }
   
   gotoCreateUser() {
    
     this.props.history.push(
-      "/pr2pay/" +
-        this.props.companyID +
+      "/users/" +
+       this.props.match.params.enterpriseId +"/"+this.props.match.params.companyID +"/"+ this.props.match.params.projectId+ 
         "/" +
         this.props.match.params.userType +
         "/" +
@@ -46,10 +47,11 @@ class AssignRoles extends Component {
 
   componentDidMount() {
     this.setState({ isLoading: true });
+    debugger
     $http.getWithUrl(
       ENV_VARIABLE.HOST_NAME +
-        "census/company/" +
-        this.props.companyID +
+        "census/phoenix/enterprise/"+this.props.match.params.enterpriseId+"/company/" +
+        this.props.match.params.companyId +
         "/project",
       res => {
         if (res.http_code == 200) {
@@ -57,15 +59,15 @@ class AssignRoles extends Component {
             projectInfo: res.message,
             isLoading: false
           });
-        } else {
-        }
+        } 
        
       }
     );
+    debugger
     if (this.props.match.params.userID !== "") {
       $http.getWithUrl(
         ENV_VARIABLE.HOST_NAME +
-          "census/user/" +
+          "census/phoenix/user/" +
           this.props.match.params.userID,
         res => {
           this.setState({ isLoading: false });
@@ -75,7 +77,7 @@ class AssignRoles extends Component {
             return;
           }
           if (res.http_code == 200) {
-            console.log(res.message.authorizations);
+            //console.log(res.message.authorizations);
             this.isFirst=Object.keys(res.message.authorizations).length;
             if(this.isFirst>0){
             this.setState({selectedRoles:res.message.authorizations[this.props.match.params.companyId]?res.message.authorizations[this.props.match.params.companyId].role:[]})
@@ -88,10 +90,11 @@ class AssignRoles extends Component {
         }
       );
     }
+    debugger
     $http.getWithUrl(
       ENV_VARIABLE.HOST_NAME +
-        "census/company/" +
-        this.props.companyID +
+        "census/phoenix/enterprise/"+this.props.match.params.enterpriseId+"/company/" +
+        this.props.match.params.companyId +
         "/role",
       res => {
         this.setState({ isLoading: false });
@@ -112,6 +115,7 @@ class AssignRoles extends Component {
         }
       }
     );
+
   }
 
 
@@ -136,9 +140,12 @@ class AssignRoles extends Component {
      this.setState(_temp);
   }
 
-  selectId(event, projectId) {
+  selectId=(event, projectId)=> {
     debugger
+
     let _temp=this.state;
+    
+    console.log("temorary data",_temp)
     if(!_temp.selectedAllInfo.authorizations[this.props.match.params.companyId])
     _temp.selectedAllInfo.authorizations[this.props.match.params.companyId]={
       projects:[]
@@ -173,7 +180,55 @@ class AssignRoles extends Component {
   }
 
   assignRole=()=>{
-    console.log(this.state);
+    console.log(this.props);
+    debugger;
+    let _temp=this.state;
+    if(!_temp.selectedAllInfo.authorizations[this.props.match.params.companyId])
+    _temp.selectedAllInfo.authorizations[this.props.match.params.companyId]={
+      projects:[]
+    };
+   
+    if(_temp.selectedAllInfo.authorizations[this.props.match.params.companyId].projects.length<1&&this.state.selectedRoles.length<1){
+      this.setState({
+        selecteData:true
+      })
+      return 
+
+    }
+    // if(this.props.match.params.roleType==='unassigned-user'){
+    $http.putWithUrl(
+      ENV_VARIABLE.HOST_NAME + "census/phoenix/enterprise/"+this.props.match.params.enterpriseId+"/company/"+ this.props.match.params.companyId+'/user/'+this.props.match.params.userID,
+      JSON.stringify({
+        projectIds:this.state.selectedAllInfo.authorizations[this.props.match.params.companyId].projects,
+        roleId:this.state.selectedRoles
+      }),
+      res => {
+        this.setState({ isLoading: false });
+        if (res.http_code == 400) {
+          this.setState({
+            userExixt: true
+          });
+        }
+        if (res.http_code == 403) {
+        }
+        if (res.http_code == 401) {
+          return;
+        }
+        if (res.http_code == 200) {
+          this.setState({
+            rolesPopUp:true
+          })
+         console.log("assign role successfully");
+        }
+      }
+    );
+  }
+
+  closerolesPopUp(){
+    this.setState({
+      rolesPopUp:false
+    })
+    this.props.history.push("/view-users/" +this.props.match.params.enterpriseId + "/" +this.props.match.params.companyId+"/"+this.props.match.params.projectId+'/');
   }
 
   render() {
@@ -247,6 +302,26 @@ class AssignRoles extends Component {
             Assign Role
           </button>
         </div>
+        <Modal
+          height="150px"
+          header="Success"
+          isOpen={this.state.rolesPopUp}
+          onClose={() => {
+            this.setState({ rolesPopUp: false });
+            this.props.closeModal();
+          }}
+          backDropClose={false}
+          crossBtn={false}
+        >
+          {this.props.match.params.roleType==='assigend-users'?
+          <p>Role updated successfully</p>:<p>Role assigned successfully</p>}
+          <button
+            className="okbtn"
+            onClick={() => this.closerolesPopUp()}
+          >
+            OK
+          </button>
+        </Modal> 
       </div>
     );
   }
