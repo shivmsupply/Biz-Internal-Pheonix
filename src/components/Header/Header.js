@@ -90,7 +90,7 @@ class Header extends Component{
                     </li>
                    <li >
                    {/* <div style={{width:'60%',background:'#f3f3f3',textAlign:'right',float:'right'}} >gggg</div> */}
-                  {this.props.isLogin&&this.props.loginDetail != ''? <div className="dropdown" style={{float:'right'}}>
+                  {this.props.isLogin&&this.props.loginDetail != ''? <div className="dropdown" style={{float:'right', position:'relative'}}>
              <div className="dropbtn" >
               
               

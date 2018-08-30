@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { App } from './App';
+// import './assets/styles/PoDetail.css';
 import './assets/styles/common.css';
 import './assets/styles/style.css';
 

@@ -70,9 +70,9 @@ table tbody th{
     margin: 15px 0px;
     justify-content: flex-start;
 }
-.flexOne li{
+/* .flexOne li{
     flex: 1;
-}
+} */
 .flex li{
     margin: 10px;
 }
@@ -294,9 +294,85 @@ button{
     width:100px;
 }
 
-.poDetails-page .main-div>ul.flex{
+.width20.card {
+    display: block !important;
+}
+
+.width20.card .flex-container.wid100 {
+    display: table;
+    margin-top: 0px;
+}   
+
+.width20.card .card-details.mar-top-30 {
+    margin-top: 12px;
+}
+/* .poDetails-page .main-div>ul.flex{
     display: inline-flex;
 }
 .poDetails-page .main-div>ul.flex li{
     display: inline-block;
-}
+} */
+
+/* .flex{
+        display: flex;
+        align-items: center;
+        margin: 15px 0px;
+
+    } */
+
+    ul.width60.customFields {
+        width: 100%;
+    }
+
+    ul.width100.flex.flexWrap li.width30.flexWrap{
+        width: 40%;
+        flex-wrap: wrap;
+        padding: 5px;
+    }
+    ul.width100.flex.flexWrap li.width30.flexWrap span{
+    width: 55%;
+    float: left;
+    color: #363c48;
+    font-size: 14px;
+    }
+
+    ul.width100.flex.flexWrap li.width30.flexWrap label{
+        text-align: left;
+    }
+    .header>li>.dropdown {
+        position: relative !important;
+    }
+
+
+
+
+    .poDetails-page  table thead {
+        background-color: #f7f7f7;
+        font-size: 14px;
+    }   
+
+    .poDetails-page table{
+        width: 100%;
+        border-spacing: 0px;
+        table-layout: fixed;
+        border:1px solid #b5b5b5;
+    }
+    .poDetails-page table thead{
+        background-color:#f7f7f7;
+        font-size:14px;
+    }
+    .poDetails-page table tbody{
+        border: 1px solid #b5b5b5;
+    }
+
+    .poDetails-page table thead th{
+        font-size: 14px;
+        font-weight: 100;
+        padding: 7px 10px;
+        position: relative;
+    }
+   .poDetails-page table tbody td{
+        font-weight: 100;
+        text-align: center;
+        padding: 8px 10px;
+    }
