@@ -320,7 +320,7 @@ export class Checkbox extends React.Component{
 				   name="vehicle" 
 				   value={this.props.value} 
 				   onChange={this.props.onChange} 
-				   checked={this.props.checked} 
+				   checked={this.props.checked} disabled={this.props.disabled}
 				/> 
 				<label 
 				   	htmlFor={this.props.id}

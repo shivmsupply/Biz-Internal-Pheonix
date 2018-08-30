@@ -13,6 +13,7 @@ import Header  from '../components/Header/Header';
 import Footer  from '../components/Footer/Footer.js';
 import FilterList  from '../components/FilterList/FilterList.js';
 import LeftPanel  from '../components/LeftPanel/Left-Panel';
+import ViewRoles  from '../components/ViewRoles/ViewRoles';
 import HomePage  from '../containers/HomePage';
 import LoginPage2  from '../containers/LoginPage2';
 import CreateNewPassword from '../containers/CreateNewPassword';
@@ -93,6 +94,7 @@ import MyAction from '../containers/MyActions'
                         <Route exact path='/' component={LoginPage2} />
                         <Route path="/scanQr" component={ScanQr}/> 
                         <Route path="/view-enquiries/:enterpriseId?/:companyId?/:projectId?" component={ViewEnquiry}/> 
+						<Route path="/view-roles/:enterpriseId?/:companyId?/:projectId?" component={ViewRoles}/> 
                         <Route path="/detail-enquiries/:enterpriseId/:companyId/:projectId/:enquiryId" component={EnquiryDetails} />
                         <Route path = '/select-supplier/:enterpriseID?/:companyId?/:projectId?/:enquiryId?/' component={SelectSupplier} />
                         <Route path="/createNewPassword" component={CreateNewPassword}/>

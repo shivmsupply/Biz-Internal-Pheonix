@@ -132,6 +132,7 @@ class Header extends Component{
               <li><a onClick={() => this.userProfileNavigation("company-detail")}>
                 Company
               </a></li>
+			  
               <li><a onClick={this.logOut}>Logout</a></li>
               </ul>
               {/* <ul>
