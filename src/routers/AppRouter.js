@@ -106,8 +106,9 @@ import MyAction from '../containers/MyActions'
                         <Route path = '/view-grn/:enterpriseId?/:companyId?/:projectId?/:ShipmentCompanyId?/:shipmentId?' component={Grn} />
                         <Route path = '/create-grn/:enterpriseId?/:companyId?/:projectId?/:ShipmentCompanyId?/:shipmentId?' component={Grn} />
 
-                        <Route path = '/create-users/:enterpriseID?/:companyId?/:projectId?/:userType?/:userAdditionStep?/:userID?' component={CreateUsers} />
-                        <Route path = '/view-users/:enterpriseID?/:companyId?/:projectId?/:type?/:eroCid?/' component={UserList} />
+                        <Route path = '/create-users/:enterpriseId?/:companyId?/:projectId?/:userType?/:userAdditionStep?/:userID?/:roleType?' component={CreateUsers} />
+                        <Route path = '/users/:enterpriseId?/:companyId?/:projectId?/:userType?/:userAdditionStep?/:userID?/:roleType?' component={CreateUsers} />
+                        <Route path = '/view-users/:enterpriseId?/:companyId?/:projectId?/:type?/:eroCid?/' component={UserList} />
 
                         <Route path="/myaction/:enterpriseId?/:companyId?/:projectId?" component={MyAction}/>
 

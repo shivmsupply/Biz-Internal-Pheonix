@@ -33,7 +33,9 @@ class AddUsers extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   gotoUserList(gotoList) {
-    this.props.history.push("/pr2pay/" + this.props.companyID + "/" + gotoList);
+    let filterUrl = ((this.props.match.params.enterpriseID)?this.props.match.params.enterpriseID+"/":"")+((this.props.match.params.companyID)?this.props.match.params.companyID+"/":"")+((this.props.match.params.projectId)?this.props.match.params.projectId+"/":"")
+
+    this.props.history.push("/view-users/" + filterUrl);
   }
   handleChange(e, data) {
     this.userExixt = false;
@@ -44,15 +46,17 @@ class AddUsers extends Component {
     submitErrors[e.target.name] = data.error;
     this.setState({ errors: submitErrors });
   }
-  
+
   componentDidMount() {
+    ///console.log("params:        ============",this.props.match.params)
     if (this.props.match.params.userID !== "") {
       $http.getWithUrl(
         ENV_VARIABLE.HOST_NAME +
-          "census/user/" +
+          "census/phoenix/user/" +
           this.props.match.params.userID,
         res => {
           this.setState({ isLoading: false });
+          debugger
           if (res.http_code == 403) {
           }
           if (res.http_code == 401) {
@@ -65,10 +69,11 @@ class AddUsers extends Component {
                 ...prevState.data,
                 data: {
                   firstName: res.message.firstName,
-                  lastName: res.message.lastName,
-                  email: res.message.email,
+                  lastName:  res.message.lastName,
+                  email: res.message.email, 
                   mobile: res.message.mobile,
-                  designation: res.message.designation
+                  designation: res.message.designation,
+                  enterpriseId: res.message.enterpriseId
                 }
               };
             });
@@ -90,6 +95,8 @@ class AddUsers extends Component {
   }
 
   handleSubmit(e) {
+
+    debugger
     if (e !== undefined) e.preventDefault();
     this.setState({ formSubmitted: true });
 
@@ -103,7 +110,7 @@ class AddUsers extends Component {
       )
         return;
       $http.postWithUrl(
-        ENV_VARIABLE.HOST_NAME + "census/user",
+        ENV_VARIABLE.HOST_NAME + "census/phoenix/enterprise/"+this.props.match.params.enterpriseId+"/user",
         JSON.stringify({
           firstName: this.state.data.firstName,
           middleName: "",
@@ -111,7 +118,8 @@ class AddUsers extends Component {
           email: this.state.data.email,
           mobile: this.state.data.mobile,
           designation: this.state.data.designation,
-          logo: ""
+          logo: "",
+
         }),
         res => {
           this.setState({ isLoading: false });
@@ -128,14 +136,14 @@ class AddUsers extends Component {
           if (res.http_code == 200) {
             debugger;
             this.props.history.push(
-              "/pr2pay/" +
-                this.props.companyID +
-                "/" +
-                "create-users/" +
+              "/users/" +this.props.filterReducer.selectedCompany?
+                this.props.filterReducer.selectedCompany +
+                "/":'' +
+                "add-users/" +
                 "assign-roles/" +
                 res.message.id
             );
-            console.log(this.props.match.params.userAdditionStep);
+            //console.log(this.props.match.params.userAdditionStep);
             this.props.tabUpdate("assign-roles");
           }
         }
@@ -150,10 +158,10 @@ class AddUsers extends Component {
       ) {
         this.state.data.designation = "";
       }
-
+      //console.log()
       $http.putWithUrl(
         ENV_VARIABLE.HOST_NAME +
-          "census/user/" +
+          "census/phoenix/enterprise/"+this.state.data.enterpriseId+"/user/" +
           this.props.match.params.userID,
         JSON.stringify({
           firstName: this.state.data.firstName,
@@ -175,12 +183,11 @@ class AddUsers extends Component {
           if (res.http_code == 200) {
             console.log("update Successfully");
             this.props.history.push(
-              "/pr2pay/" +
-                this.props.companyID +
-                "/" +
+              "/users/" + this.props.match.params.enterpriseID + "/" + this.props.match.params.companyId + "/" + this.props.match.params.projectId + "/" 
+                +
                 "edit-users/" +
                 "assign-roles/" +
-                res.message.id
+                res.message.id/+'/assigned-users'
             );
           }
           console.log(this.props.match.params.userAdditionStep);
@@ -190,6 +197,7 @@ class AddUsers extends Component {
     }
   }
   render() {
+    console.log("state heww============>", this.props.match.params)
     return (
       <div>
         <form onSubmit={this.handleSubmit} noValidate>
@@ -303,6 +311,7 @@ class AddUsers extends Component {
 }
 const mapStateToProps = state => {
   return {
+    filterReducer:state.FilterReducer,
     loginDetail: state.storeSession.loginDetail,
     companyInfo: state.companyDetailReducer,
     companyID: state.companyDetailReducer.companyId

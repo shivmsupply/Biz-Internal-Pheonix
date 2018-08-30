@@ -28,7 +28,8 @@ class LeftNavigation extends Component {
     }
 
     click(value){
-       debugger;
+       // console.log("filter Reducer ===========>", this.props.filterReducer)
+
        this.props.history.push("/"+value+"/"+(this.props.filterReducer.selectedEnterprise!=undefined&&this.props.filterReducer.selectedEnterprise!=''?this.props.filterReducer.selectedEnterprise+"/" : "")+(this.props.filterReducer.selectedEnterprise!=undefined&&this.props.filterReducer.selectedCompany!=''?this.props.filterReducer.selectedCompany+"/" : "")+(this.props.filterReducer.selectedEnterprise!=undefined&&this.props.filterReducer.selectedProject!=''?this.props.filterReducer.selectedProject+"/" : ""))
     }
     render(){let tabs;

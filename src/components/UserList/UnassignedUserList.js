@@ -4,7 +4,9 @@ import { Link, withRouter } from "react-router-dom";
 import ENV_VARIABLE from "../../utils/Environment";
 import $http from "../../utils/Http";
 import { Dropdown } from "../../common/FormElements/FormElements";
-
+import  "../../assets/styles/components/userlist.css";
+import  "../pagination.css";
+import  "../../assets/styles/components/main.css";
 import mainStyle from "../../assets/styles/components/main.css";
 import Pagination from "./Pagination.js";
 import Loading from "../../common/Loading/Loading";
