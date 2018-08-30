@@ -11,6 +11,8 @@ import '../assets/styles/PoDetail.css';
 import {Button, Text,  Radio} from "../common/FormElements/FormElements";
 import ENV_VARIABLE from "../utils/Environment";
 import Modal from '../common/Modal/Modal';
+import * as commonActions from "../actions/LoginActions";
+
 
 
 
@@ -127,7 +129,7 @@ class PODetail extends Component{
         {displayName:'View Purchase Orders',navigation:'/pr2pay/'+this.routeParam.CompanyId+'/view-po'},
         {displayName:this.routeParam.poId,navigation:''}]
         const { dispatch } = this.props;
-        // dispatch(commonActions.setBreadCrumb(_breadCrumb,false));  
+        dispatch(commonActions.setBreadCrumb(_breadCrumb,false));  
     }   
 
     componentDidMount(){

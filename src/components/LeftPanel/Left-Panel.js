@@ -36,10 +36,10 @@ class LeftNavigation extends Component {
               
          var slideClass=cls("left-panel-div",{'transitionstyle':this.state.dockIn},{'transitionstyl':!this.state.dockIn})
            tabs = <ul className="font-16 Nav-ul">    
-            {this.props.getAccessControl&&this.props.getAccessControl['user-create']===true?<li key={1} className="leftPanelLi" title={this.state.dockIn ? "My Actions": ""}>                
+            {/* {this.props.getAccessControl&&this.props.getAccessControl['user-create']===true?<li key={1} className="leftPanelLi" title={this.state.dockIn ? "My Actions": ""}>                
                  <a onClick={()=>this.click("my-actions")}>
                     <img src={require('../../assets/images/Dashboard.svg')} width="24px" height="24px"/>{!this.state.dockIn?<span>Registration</span> :null}</a>
-             </li>:null}                
+             </li>:null}                 */}
          
              <li key={2} className="leftPanelLi" title={this.state.dockIn ? "View Enquiries": ""}>                
                  <a onClick={()=>this.click("view-enquiries")}>
